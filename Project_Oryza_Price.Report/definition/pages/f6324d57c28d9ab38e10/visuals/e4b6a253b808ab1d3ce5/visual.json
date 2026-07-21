@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e4b6a253b808ab1d3ce5",
+  "position": {
+    "x": 332,
+    "y": 144,
+    "z": 5000,
+    "height": 96,
+    "width": 292,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Thai vs Viet Price Spread"
+                }
+              },
+              "queryRef": "DAX.Thai vs Viet Price Spread",
+              "nativeQueryRef": "Thai vs Viet Price Spread"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

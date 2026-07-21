@@ -24,7 +24,7 @@ table 'Dm_Product Name'
 		mode: import
 		source =
 				let
-				    Source = Table.Combine({#"2021", #"2022", #"2023", #"2024"}),
+				    Source = Table.Combine({#"2020", #"2021", #"2022", #"2023", #"2024", #"2025", #"2026"}),
 				    #"Filtered Rows" = Table.SelectRows(Source, each ([Category Name] <> null)),
 				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"Country Name", Text.Proper, type text}}),
 				    #"Grouped Rows" = Table.Group(#"Capitalized Each Word", {"Product Code", "Product Name"}, {{"ss", each _, type table [HeaderDate=nullable date, SourceCode=nullable text, SourceName=nullable text, Currency Code=nullable text, Weight=nullable number, Unit Code=nullable text, Courntry Code=any, Country Name=text, Province Code=any, Province Name=any, Category Code=nullable text, Category Name=nullable text, Sub Category Code=nullable text, Sub Category Name=nullable text, Product Code=nullable text, Product Name=nullable text, Min Price=nullable number, Max Price=nullable number, Diff Price=nullable number]}}),

@@ -29,7 +29,7 @@ table Dm_Category
 		mode: import
 		source =
 				let
-				    Source = Table.Combine({#"2021", #"2022", #"2023", #"2024"}),
+				    Source = Table.Combine({#"2020", #"2021", #"2022", #"2023", #"2024", #"2025", #"2026"}),
 				    #"Filtered Rows" = Table.SelectRows(Source, each ([Category Name] <> null)),
 				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"Country Name", Text.Proper, type text}}),
 				    #"Added Custom" = Table.AddColumn(#"Capitalized Each Word", "Avg_Price", each ([Max Price]+[Min Price]) / 2),

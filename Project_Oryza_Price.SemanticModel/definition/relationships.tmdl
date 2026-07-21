@@ -1,5 +1,5 @@
 relationship AutoDetected_aab17b93-6d78-4969-82c6-8b4b810c8018
-	crossFilteringBehavior: bothDirections
+	crossFilteringBehavior: oneDirection
 	fromColumn: 'Fct_Oryza Price'.'Product Code'
 	toColumn: 'Dm_Product Name'.'Product Code'
 

@@ -1881,7 +1881,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "13-Sep-24": {
+			          "22-May-26": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1892,6 +1892,16 @@ cultureInfo en-US
 			        },
 			        {
 			          "This Day": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "12-May-26": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1924,16 +1934,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "11-Sep-24": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        },
 			        {
@@ -2063,16 +2063,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Sep-24": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "This Month": {
 			            "State": "Suggested",
 			            "Source": {
@@ -2196,16 +2186,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.605
-			          }
-			        },
-			        {
-			          "Sep-23": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        },
 			        {
@@ -2712,16 +2692,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "2024": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "This Year": {
 			            "State": "Suggested",
 			            "Source": {
@@ -2848,16 +2818,6 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "2023": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
 			          "Last Year": {
 			            "State": "Suggested",
 			            "Source": {
@@ -2881,6 +2841,16 @@ cultureInfo en-US
 			        {
 			          "△day": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Daily $ Change": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -3955,6 +3925,90 @@ cultureInfo en-US
 			        }
 			      ],
 			      "SemanticType": "Time"
+			    },
+			    "dax.annual_change": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Annual Change"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Annual Change": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dax.column52_week_l": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "52 Week L"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "52 Week Low": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dax.column52_week_h": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "52 Week H"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "52 Week High": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dm_category.category_eng": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dm_Category",
+			          "ConceptualProperty": "Category Eng"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Rice Category": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {

@@ -1,0 +1,57 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e5b6a253b808ab1d3ce9",
+  "position": {
+    "x": 752,
+    "y": 256,
+    "z": 9000,
+    "height": 208,
+    "width": 504,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Date"
+                    }
+                  },
+                  "Property": "MonthYear"
+                }
+              },
+              "queryRef": "Dm_Date.MonthYear",
+              "nativeQueryRef": "MonthYear",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Thai vs Viet Price Spread"
+                }
+              },
+              "queryRef": "DAX.Thai vs Viet Price Spread",
+              "nativeQueryRef": "Thai vs Viet Price Spread"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

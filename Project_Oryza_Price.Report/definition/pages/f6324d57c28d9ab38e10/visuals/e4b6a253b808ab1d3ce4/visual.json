@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e4b6a253b808ab1d3ce4",
+  "position": {
+    "x": 24,
+    "y": 144,
+    "z": 4000,
+    "height": 96,
+    "width": 292,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Average Price"
+                }
+              },
+              "queryRef": "DAX.Average Price",
+              "nativeQueryRef": "Average Price"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e5b6a253b808ab1d3cea",
+  "position": {
+    "x": 24,
+    "y": 480,
+    "z": 10000,
+    "height": 208,
+    "width": 1216,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Product Name"
+                    }
+                  },
+                  "Property": "Product Name"
+                }
+              },
+              "queryRef": "Dm_Product Name.Product Name",
+              "nativeQueryRef": "Product Name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Fct_Oryza Price"
+                    }
+                  },
+                  "Property": "Country Name"
+                }
+              },
+              "queryRef": "Fct_Oryza Price.Country Name",
+              "nativeQueryRef": "Country Name"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Average Price"
+                }
+              },
+              "queryRef": "DAX.Average Price",
+              "nativeQueryRef": "Average Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Price Volatility (SD)"
+                }
+              },
+              "queryRef": "DAX.Price Volatility (SD)",
+              "nativeQueryRef": "Price Volatility (SD)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Price Volatility% (CV)"
+                }
+              },
+              "queryRef": "DAX.Price Volatility% (CV)",
+              "nativeQueryRef": "Price Volatility% (CV)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Country Price Rank"
+                }
+              },
+              "queryRef": "DAX.Country Price Rank",
+              "nativeQueryRef": "Country Price Rank"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -97,8 +97,10 @@ table Dm_Date
 		mode: import
 		source =
 				
-				VAR startYear = YEAR  ( MIN('Fct_Oryza Price'[HeaderDate]) ) //ระบุคอลัมน์ของวันที่ขาย
-				VAR endYear =   LASTDATE( 'Fct_Oryza Price'[HeaderDate] )
+				VAR _MinDate = MIN('Fct_Oryza Price'[HeaderDate])
+				VAR _MaxDate = MAX('Fct_Oryza Price'[HeaderDate])
+				VAR startYear = IF( ISBLANK(_MinDate), 2020, YEAR(_MinDate) )
+				VAR endYear =   IF( ISBLANK(_MaxDate), DATE(2026, 12, 31), _MaxDate )
 				RETURN
 				ADDCOLUMNS (
 				    CALENDAR(
