@@ -1,0 +1,48 @@
+table Dm_Category
+	lineageTag: b917b19e-3670-4352-adf6-50fae6d0b2c6
+
+	column 'Category Th'
+		dataType: string
+		lineageTag: da5a764e-2915-45e5-9806-4fc24e5540f1
+		summarizeBy: none
+		sourceColumn: Category Th
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Code'
+		dataType: string
+		lineageTag: d05dd556-8b11-42ae-8c13-23585aa13eb2
+		summarizeBy: none
+		sourceColumn: Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Eng'
+		dataType: string
+		lineageTag: d8af7930-c6cc-4394-9006-a436c072c893
+		summarizeBy: none
+		sourceColumn: Category Eng
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dm_Category = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"2021", #"2022", #"2023", #"2024"}),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Category Name] <> null)),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"Country Name", Text.Proper, type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Capitalized Each Word", "Avg_Price", each ([Max Price]+[Min Price]) / 2),
+				    #"Added Conditional Column" = Table.AddColumn(#"Added Custom", "New_Category Name", each if [Product Name] = "Thailand 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "Vietnam 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "Pakistan 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "India 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "U.S. 15% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Category Name] = "ข้าวขาว" then "ข้าวขาว คุณภาพสูง" else [Category Name]),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Added Conditional Column", "New_Category Code", each if [New_Category Name] = "ข้าวขาว คุณภาพต่ำ" then "C000005" else [Category Code]),
+				    #"Grouped Rows" = Table.Group(#"Added Conditional Column1", {"New_Category Name", "New_Category Code"}, {{"Count", each _, type table [HeaderDate=nullable date, SourceCode=nullable text, SourceName=nullable text, Currency Code=nullable text, Weight=nullable number, Unit Code=nullable text, Courntry Code=any, Country Name=text, Province Code=any, Province Name=any, Category Code=nullable text, Category Name=nullable text, Sub Category Code=nullable text, Sub Category Name=nullable text, Product Code=nullable text, Product Name=nullable text, Min Price=nullable number, Max Price=nullable number, Diff Price=nullable number, Avg_Price=number, New_Category Name=text, New_Category Code=text]}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Grouped Rows",{"Count"}),
+				    #"Added Conditional Column2" = Table.AddColumn(#"Removed Columns", "Custom", each if [New_Category Code] = "C000004" then "White Rice High" else if [New_Category Code] = "C000005" then "White Rice Low" else if [New_Category Code] = "C000010" then "Parboiled Rice" else if [New_Category Code] = "C000001" then "Hom Mali Rice / Fragrant Rice" else if [New_Category Code] = "C000007" then "Broken White Rice" else if [New_Category Code] = "C000014" then "Medium Grain Rice" else [New_Category Name]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Conditional Column2",{{"New_Category Code", "Category Code"}, {"Custom", "Category Eng"}, {"New_Category Name", "Category Th"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

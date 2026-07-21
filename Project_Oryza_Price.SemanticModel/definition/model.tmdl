@@ -1,0 +1,30 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: th-TH
+	dataAccessOptions
+		fastCombine
+		legacyRedirects
+		returnErrorValuesAsNull
+
+/// ข้อมูลราคารายปีใน Data Base
+queryGroup 'Raw Data'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["2020","2021","2022","2023","2024","Fct_Oryza Price","Dm_Category","Dm_Sub Category","Dm_Product Name","DAX","2025","2026","Dim_all","ggs_oryza_price_update","ExportData"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table 'Fct_Oryza Price'
+ref table Dm_Category
+ref table 'Dm_Product Name'
+ref table Dm_Date
+ref table DAX
+ref table 'Z_Header Fields'
+ref table Z_date
+
+ref cultureInfo en-US
+

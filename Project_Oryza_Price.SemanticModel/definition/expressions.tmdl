@@ -1,0 +1,195 @@
+expression 2021 =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://cptradingcoth-my.sharepoint.com/personal/kitisak_jun_cpintertrade_com/Documents/Job/Power%20BI%20Project/Oryza%20Global%20Rice%20Price/Oryza_GlobalRice%20Price_2020-2026/Stat_Oryza_2021.xlsx"), null, true),
+		    #"Expanded Data" = Table.ExpandTableColumn(Source, "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}),
+		    #"Removed Top Rows" = Table.Skip(#"Expanded Data",3),
+		    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Promoted Headers1", {{"HeaderDate", type date}}, "th-TH"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"Weight", type number}, {"Min Price", type number}, {"Max Price", type number}, {"Diff Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 1a19e778-6a77-4833-b6d4-2ec7eea27bf6
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 2022 =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://cptradingcoth-my.sharepoint.com/personal/kitisak_jun_cpintertrade_com/Documents/Job/Power%20BI%20Project/Oryza%20Global%20Rice%20Price/Oryza_GlobalRice%20Price_2020-2026/Stat_Oryza_2022.xlsx"), null, true),
+		    #"Expanded Data" = Table.ExpandTableColumn(Source, "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}),
+		    #"Removed Top Rows" = Table.Skip(#"Expanded Data",3),
+		    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Promoted Headers1", {{"HeaderDate", type date}}, "th-TH"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"Weight", type number}, {"Min Price", type number}, {"Max Price", type number}, {"Diff Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 4b841eac-c1dc-4961-9afa-e147bc01aa05
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 2023 =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://cptradingcoth-my.sharepoint.com/personal/kitisak_jun_cpintertrade_com/Documents/Job/Power%20BI%20Project/Oryza%20Global%20Rice%20Price/Oryza_GlobalRice%20Price_2020-2026/Stat_Oryza_2023.xlsx"), null, true),
+		    #"Expanded Data" = Table.ExpandTableColumn(Source, "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}),
+		    #"Removed Top Rows" = Table.Skip(#"Expanded Data",3),
+		    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Promoted Headers1", {{"HeaderDate", type date}}, "th-TH"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"Weight", type number}, {"Min Price", type number}, {"Max Price", type number}, {"Diff Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 11b4f96b-6019-4f3a-8838-62dd23c73c89
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 2024 =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://cptradingcoth-my.sharepoint.com/personal/kitisak_jun_cpintertrade_com/Documents/Job/Power%20BI%20Project/Oryza%20Global%20Rice%20Price/Oryza_GlobalRice%20Price_2020-2026/Stat_Oryza_2024.xlsx"), null, true),
+		    #"Expanded Data" = Table.ExpandTableColumn(Source, "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}),
+		    #"Removed Top Rows" = Table.Skip(#"Expanded Data",3),
+		    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Promoted Headers1", {{"HeaderDate", type date}}, "th-TH"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"Weight", type number}, {"Min Price", type number}, {"Max Price", type number}, {"Diff Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: cac18e40-87d5-4dae-8eff-80111a3b6a9d
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 'Dm_Sub Category' =
+		let
+		    Source = Table.Combine({#"2021", #"2022", #"2023", #"2024"}),
+		    #"Filtered Rows" = Table.SelectRows(Source, each ([Category Name] <> null)),
+		    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"Country Name", Text.Proper, type text}}),
+		    #"Grouped Rows" = Table.Group(#"Capitalized Each Word", {"Sub Category Code", "Sub Category Name"}, {{"Dm_Sup", each _, type table [HeaderDate=nullable date, SourceCode=nullable text, SourceName=nullable text, Currency Code=nullable text, Weight=nullable number, Unit Code=nullable text, Courntry Code=any, Country Name=text, Province Code=any, Province Name=any, Category Code=nullable text, Category Name=nullable text, Sub Category Code=nullable text, Sub Category Name=nullable text, Product Code=nullable text, Product Name=nullable text, Min Price=nullable number, Max Price=nullable number, Diff Price=nullable number]}}),
+		    #"Removed Columns" = Table.RemoveColumns(#"Grouped Rows",{"Dm_Sup"})
+		in
+		    #"Removed Columns"
+	lineageTag: 11e5469b-8dcd-4b9a-93c2-70db2836df8b
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 2020 =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://cptradingcoth-my.sharepoint.com/personal/kitisak_jun_cpintertrade_com/Documents/Job/Power%20BI%20Project/Oryza%20Global%20Rice%20Price/Oryza_GlobalRice%20Price_2020-2026/Stat_Oryza_2020.xlsx"), null, true),
+		    #"Expanded Data" = Table.ExpandTableColumn(Source, "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}),
+		    #"Removed Top Rows" = Table.Skip(#"Expanded Data",3),
+		    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Promoted Headers1", {{"HeaderDate", type date}}, "th-TH"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"Weight", type number}, {"Min Price", type number}, {"Max Price", type number}, {"Diff Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: d938d8cd-ef53-4a6d-aabe-815f8ad1e252
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 2025 =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://cptradingcoth-my.sharepoint.com/personal/kitisak_jun_cpintertrade_com/Documents/Job/Power%20BI%20Project/Oryza%20Global%20Rice%20Price/Oryza_GlobalRice%20Price_2020-2026/Stat_Oryza_2025.xlsx"), null, true),
+		    #"Expanded Data" = Table.ExpandTableColumn(Source, "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}),
+		    #"Removed Top Rows" = Table.Skip(#"Expanded Data",3),
+		    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Promoted Headers1", {{"HeaderDate", type date}}, "th-TH"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"Weight", type number}, {"Min Price", type number}, {"Max Price", type number}, {"Diff Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 31357878-1b37-4ca7-a29e-b3e4568ed227
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression 2026 =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://cptradingcoth-my.sharepoint.com/personal/kitisak_jun_cpintertrade_com/Documents/Job/Power%20BI%20Project/Oryza%20Global%20Rice%20Price/Oryza_GlobalRice%20Price_2020-2026/Stat_Oryza_2026.xlsx"), null, true),
+		    #"Expanded Data" = Table.ExpandTableColumn(Source, "Data", {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}, {"Column1", "Column2", "Column3", "Column4", "Column5", "Column6", "Column7", "Column8", "Column9", "Column10", "Column11", "Column12", "Column13", "Column14", "Column15", "Column16", "Column17", "Column18", "Column19"}),
+		    #"Removed Top Rows" = Table.Skip(#"Expanded Data",3),
+		    #"Promoted Headers1" = Table.PromoteHeaders(#"Removed Top Rows", [PromoteAllScalars=true]),
+		    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Promoted Headers1", {{"HeaderDate", type date}}, "th-TH"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type with Locale",{{"Weight", type number}, {"Min Price", type number}, {"Max Price", type number}, {"Diff Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: d2b6951f-80c4-471c-8577-55b34a233383
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression ggs_oryza_price_update =
+		let
+		    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1oJleHbhygd6b7u1Bs09dtozE_wemcPJI_bdzw_8MYTQ"),
+		    price_Table = Source{[name="price",ItemKind="Table"]}[Data],
+		    #"Promoted Headers" = Table.PromoteHeaders(price_Table, [PromoteAllScalars=true]),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Promoted Headers",{"Date", "Category", "Product", "Price", "Average"}),
+		    #"Filtered Rows NA" = Table.SelectRows(#"Removed Other Columns", each ([Price] <> "NA")),
+		    #"Added Conditional Column" = Table.AddColumn(#"Filtered Rows NA", "Product_prep", each if [Product] = "Thai Parboiled 100% stxd" then "Thailand parboiled 100% stxd" else if [Product] = "Indian 100% broken stxd" then "India 100% Broken stxd" else if [Product] = "U.S. 15% broken (sacked)" then "U.S. 15% broken" else [Product]),
+		    #"Merged with Dim_Product Name" = Table.NestedJoin(#"Added Conditional Column", {"Product_prep"}, #"Dm_Product Name", {"Product Name"}, "Dm_Product Name", JoinKind.LeftOuter),
+		    #"Expanded Dm_Product Name" = Table.ExpandTableColumn(#"Merged with Dim_Product Name", "Dm_Product Name", {"Product Code"}, {"Product Code"}),
+		    #"Merged with Dim_all" = Table.NestedJoin(#"Expanded Dm_Product Name", {"Product Code"}, Dim_all, {"Product Code"}, "Fct_Oryza Price", JoinKind.LeftOuter),
+		    #"Expanded Dim_all" = Table.ExpandTableColumn(#"Merged with Dim_all", "Fct_Oryza Price", {"SourceName", "Country Name", "Category Code", "Sub Category Code"}, {"SourceName", "Country Name", "Category Code", "Sub Category Code"}),
+		    #"Changed Type with Locale" = Table.TransformColumnTypes(#"Expanded Dim_all", {{"Date", type date}}, "en-US"),
+		    #"Removed Other Columns1" = Table.SelectColumns(#"Changed Type with Locale",{"Date", "Average", "Product Code", "SourceName", "Country Name", "Category Code", "Sub Category Code"}),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns1",{"Date", "SourceName", "Country Name", "Category Code", "Sub Category Code", "Product Code", "Average"}),
+		    #"Renamed Columns" = Table.RenameColumns(#"Reordered Columns",{{"Date", "HeaderDate"}, {"Average", "Avg_Price"}}),
+		    #"Removed Duplicates" = Table.Distinct(#"Renamed Columns"),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Removed Duplicates",{{"Avg_Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 2973a1fb-0b99-4377-ad50-dbf075f61cc8
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression Dim_all =
+		let
+		    Source = Table.Combine({#"2020", #"2021", #"2022", #"2023", #"2024", #"2025", #"2026"}),
+		    #"Filtered Rows" = Table.SelectRows(Source, each [Category Name] <> null),
+		    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"Country Name", Text.Proper, type text}}),
+		    #"Added Custom" = Table.AddColumn(#"Capitalized Each Word", "Avg_Price", each ([Max Price]+[Min Price]) / 2),
+		    #"Added Conditional Column" = Table.AddColumn(#"Added Custom", "New_Category Name", each if [Product Name] = "Thailand 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "Vietnam 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "Pakistan 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "India 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "U.S. 15% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Category Name] = "ข้าวขาว" then "ข้าวขาว คุณภาพสูง" else [Category Name]),
+		    #"Added Conditional Column1" = Table.AddColumn(#"Added Conditional Column", "New_Category Code", each if [New_Category Name] = "ข้าวขาว คุณภาพต่ำ" then "C000005" else [Category Code]),
+		    #"Renamed Columns" = Table.RenameColumns(#"Added Conditional Column1",{{"Category Code", "Category Code Old"}, {"Category Name", "Category Name Old"}, {"New_Category Code", "Category Code"}, {"New_Category Name", "Category Name"}}),
+		    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"HeaderDate", "SourceName", "Country Name", "Sub Category Code", "Product Code", "Avg_Price", "Category Code"}),
+		    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"HeaderDate", "Country Name", "Category Code", "Sub Category Code", "Product Code", "Avg_Price"}),
+		    #"Changed Type" = Table.TransformColumnTypes(#"Reordered Columns",{{"Avg_Price", type number}})
+		in
+		    #"Changed Type"
+	lineageTag: 56de9e46-c5f1-4fff-9a89-963dfbddf9a6
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
+expression ExportData =
+		let
+		    Source = Excel.Workbook(Web.Contents("https://cptradingcoth-my.sharepoint.com/personal/kitisak_jun_cpintertrade_com/Documents/Job/Power%20BI%20Project/Oryza%20Global%20Rice%20Price/Oryza_GlobalRice%20Price_2020-2026/Stat_Oryza_2026.xlsx"), null, true),
+		    ExportData1 = Source{[Name="ExportData"]}[Data]
+		in
+		    ExportData1
+	lineageTag: eea61788-d021-4669-a275-57b6420ed384
+	queryGroup: 'Raw Data'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

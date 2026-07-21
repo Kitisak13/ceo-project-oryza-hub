@@ -1,0 +1,67 @@
+table 'Z_Header Fields'
+	lineageTag: 361a9612-1683-4e57-bd5c-a8dd419dcdaf
+
+	column 'Header Fields'
+		lineageTag: be448357-4b48-4b84-9a13-1dc66f41c1ed
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Header Fields Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Header Fields Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Header Fields Fields'
+		isHidden
+		lineageTag: cb2ae43a-e7c7-45e9-acee-0a50e2830719
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Header Fields Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Header Fields Order'
+		isHidden
+		formatString: 0
+		lineageTag: 00539e72-8313-44f7-8895-5f6e953cfc18
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Z_Header Fields' = calculated
+		mode: import
+		source = ```
+				{
+				    (FORMAT(LASTDATE(Dm_Date[Date]),"d-mmm-yy"), NAMEOF('DAX'[Avg Price Last Day]), 0),   
+				    ("Daily $ Change", NAMEOF('DAX'[△Day]), 1),
+				    ("Annual Change", NAMEOF('DAX'[Annual Change]),2),
+				    ("52 Week Low", NAMEOF('DAX'[52 Week L]), 3),
+				    ("52 Week High", NAMEOF('DAX'[52 Week H]), 4)
+				}
+				
+				
+				/*
+				{
+				    (FORMAT(LASTDATE(Dm_Date[Date]),"d-mmm-yy"), NAMEOF('DAX'[Avg Price Last Day]), 0),
+				    (FORMAT([text_Previous date],"d-mmm-yy"), NAMEOF('DAX'[Avg Price Previous Day]), 1),
+				    ("Diff", NAMEOF('DAX'[△Day]), 2),
+				    (FORMAT(LASTDATE(Dm_Date[Date]),"mmm-yy"), NAMEOF('DAX'[Avg Price Last Month]), 3),
+				    ((FORMAT(DATE(YEAR(LASTDATE(Dm_Date[Date]))-1,MONTH(LASTDATE(Dm_Date[Date])),1),"mmm-yy")), NAMEOF('DAX'[Avg Price Last Month LY]), 4),
+				    ("%△Month", NAMEOF('DAX'[%△Month]), 5),
+				    (YEAR(LASTDATE(Dm_Date[Date])), NAMEOF('DAX'[Avg Price This Year]), 6),
+				    (YEAR(LASTDATE(Dm_Date[Date]))-1, NAMEOF('DAX'[Avg Price Last Year]), 7),
+				    ("%△Year", NAMEOF('DAX'[%△Year]), 8)
+				}
+				*/
+				```
+
+	annotation PBI_Id = af98d73a422242e89e3a2c77e620895f
+

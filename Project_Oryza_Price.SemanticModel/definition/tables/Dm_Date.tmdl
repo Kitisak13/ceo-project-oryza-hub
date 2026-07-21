@@ -1,0 +1,120 @@
+table Dm_Date
+	lineageTag: f0bcf7c1-4c01-43dc-9b98-3b19ae85283f
+	dataCategory: Time
+
+	column Date
+		isKey
+		formatString: Long Date
+		lineageTag: 642ee036-8bab-492c-9a0b-697dfb878f76
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		formatString: 0
+		lineageTag: 6a8c862c-1142-48c4-b287-29e578f03810
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Year]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month
+		lineageTag: 0918fc08-63db-44cb-b920-32a6227116c5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Month]
+		sortByColumn: MonthID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthID
+		formatString: 0
+		lineageTag: 4feedc5d-8a50-4eb1-98a6-f4e28ce6e0d2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthYear
+		lineageTag: e4226ff1-ae61-4cd0-8cbe-a3426de5dc0c
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthYear]
+		sortByColumn: MonthYearID
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthYearID
+		formatString: 0
+		lineageTag: 90b2d453-5481-4830-9acd-d8b4182709a5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [MonthYearID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterYear
+		lineageTag: f0ee4057-1252-41ff-bfc9-5a4f0fd8990e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [QuarterYear]
+
+		annotation SummarizationSetBy = Automatic
+
+	column QuarterYearID
+		formatString: 0
+		lineageTag: 1c7a892c-7fc4-489e-bc30-dccb49cec7bc
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [QuarterYearID]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayName
+		lineageTag: 0207d1a6-cdaf-4c86-897e-4adb315800f2
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DayName]
+
+		annotation SummarizationSetBy = Automatic
+
+	column DayID
+		formatString: 0
+		lineageTag: 08a7666e-9ad5-4474-8016-8ab6773f930e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [DayID]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dm_Date = calculated
+		mode: import
+		source =
+				
+				VAR startYear = YEAR  ( MIN('Fct_Oryza Price'[HeaderDate]) ) //ระบุคอลัมน์ของวันที่ขาย
+				VAR endYear =   LASTDATE( 'Fct_Oryza Price'[HeaderDate] )
+				RETURN
+				ADDCOLUMNS (
+				    CALENDAR(
+				                DATE(startYear,1,1),
+				                endYear
+				            ),
+				    "Year", YEAR ( [Date] ),
+				    "Month", FORMAT ( [Date], "mmm" ),
+				    "MonthID", MONTH ( [Date] ),
+				    "MonthYear", FORMAT ( [Date], "mmm-yy" ),
+				    "MonthYearID", INT(FORMAT ( [Date], "yyyymm" )),
+				    "QuarterYear", "Q" & FORMAT ( [Date], "q yyyy" ),
+				    "QuarterYearID", INT(FORMAT ( [Date], "yyyyq" )),
+				    "DayName", FORMAT( [DATE], "ddd"),
+				    "DayID", WEEKDAY([Date],2)
+				)
+
+	annotation PBI_Id = e921826c472a4d25a07fc6ad5eeea315
+

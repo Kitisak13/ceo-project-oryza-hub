@@ -1,0 +1,91 @@
+table 'Fct_Oryza Price'
+	lineageTag: 3d9b8db4-bd06-464c-9fe0-3d2e78c9afb9
+
+	column HeaderDate
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 3ed663df-d11a-4e68-a236-2ff65028ea53
+		summarizeBy: none
+		sourceColumn: HeaderDate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Country Name'
+		dataType: string
+		isHidden
+		lineageTag: 70606d36-e00d-424b-a1a2-f115b3419188
+		summarizeBy: none
+		sourceColumn: Country Name
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category Code'
+		dataType: string
+		lineageTag: da36259c-1b91-479a-861b-4e14b3684879
+		summarizeBy: none
+		sourceColumn: Sub Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Code'
+		dataType: string
+		lineageTag: c1c8c9d3-94e6-4962-9576-5cc11fdea375
+		summarizeBy: none
+		sourceColumn: Product Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Avg_Price
+		dataType: double
+		lineageTag: b34da0f1-b531-43bd-85ac-a4cea9b6f36d
+		summarizeBy: sum
+		sourceColumn: Avg_Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Category Code'
+		dataType: string
+		lineageTag: f479ef1f-ce15-4419-ac65-c28d3a7055a9
+		summarizeBy: none
+		sourceColumn: Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceName
+		dataType: string
+		lineageTag: 26d4deca-29c2-4ef8-a3fc-8f8d72583ee4
+		summarizeBy: none
+		sourceColumn: SourceName
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Fct_Oryza Price' = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"2020", #"2021", #"2022", #"2023", #"2024", #"2025", #"2026"}),
+				    #"Filtered Rows" = Table.SelectRows(Source, each [Category Name] <> null),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"Country Name", Text.Proper, type text}}),
+				    #"Added Custom" = Table.AddColumn(#"Capitalized Each Word", "Avg_Price", each ([Max Price]+[Min Price]) / 2),
+				    #"Added Conditional Column" = Table.AddColumn(#"Added Custom", "New_Category Name", each if [Product Name] = "Thailand 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "Vietnam 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "Pakistan 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "India 25% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Product Name] = "U.S. 15% broken" then "ข้าวขาว คุณภาพต่ำ" else if [Category Name] = "ข้าวขาว" then "ข้าวขาว คุณภาพสูง" else [Category Name]),
+				    #"Added Conditional Column1" = Table.AddColumn(#"Added Conditional Column", "New_Category Code", each if [New_Category Name] = "ข้าวขาว คุณภาพต่ำ" then "C000005" else [Category Code]),
+				    #"Renamed Columns" = Table.RenameColumns(#"Added Conditional Column1",{{"Category Code", "Category Code Old"}, {"Category Name", "Category Name Old"}, {"New_Category Code", "Category Code"}, {"New_Category Name", "Category Name"}}),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Renamed Columns",{"HeaderDate", "SourceName", "Country Name", "Sub Category Code", "Product Code", "Avg_Price", "Category Code"}),
+				    #"Reordered Columns" = Table.ReorderColumns(#"Removed Other Columns",{"HeaderDate", "Country Name", "Category Code", "Sub Category Code", "Product Code", "Avg_Price"}),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Reordered Columns",{{"Avg_Price", type number}}),
+				    #"Appended ggs_oryza_price_update" = Table.Combine({#"Changed Type", ggs_oryza_price_update})
+				in
+				    #"Appended ggs_oryza_price_update"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

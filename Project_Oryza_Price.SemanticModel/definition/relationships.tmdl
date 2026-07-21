@@ -1,0 +1,13 @@
+relationship AutoDetected_aab17b93-6d78-4969-82c6-8b4b810c8018
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Fct_Oryza Price'.'Product Code'
+	toColumn: 'Dm_Product Name'.'Product Code'
+
+relationship 79c1b17c-53c7-55fd-3963-af884705c3b3
+	fromColumn: 'Fct_Oryza Price'.HeaderDate
+	toColumn: Dm_Date.Date
+
+relationship AutoDetected_00aff85c-4214-42b4-a0df-61abde4eb610
+	fromColumn: 'Fct_Oryza Price'.'Category Code'
+	toColumn: Dm_Category.'Category Code'
+

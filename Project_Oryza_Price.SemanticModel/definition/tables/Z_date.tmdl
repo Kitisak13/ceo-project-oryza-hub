@@ -1,0 +1,49 @@
+table Z_date
+	lineageTag: 89b6e303-ac94-40c6-8138-2553c6a89252
+
+	column Z_date
+		lineageTag: 7e30945b-e886-4abb-9c60-e15094b477bd
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Z_date Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Z_date Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Z_date Fields'
+		isHidden
+		lineageTag: 3de086fd-b2e2-4c0a-aa0f-92f8795e8abf
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Z_date Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Z_date Order'
+		isHidden
+		formatString: 0
+		lineageTag: 9f576dec-41d0-43d8-861c-f6f161193534
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Z_date = calculated
+		mode: import
+		source =
+				{
+				    ("Day", NAMEOF('Dm_Date'[Date]), 0),
+				    ("Month", NAMEOF('Dm_Date'[MonthYear]), 1),
+				    ("Year", NAMEOF('Dm_Date'[Year]), 2)
+				}
+
+	annotation PBI_Id = 89a6cdcc7641490cb135eb2651c3127e
+

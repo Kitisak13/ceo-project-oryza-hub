@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Project_Oryza_Price"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "6cea6bcb-6a41-4d78-a57b-5ffd7e397e1c"
+  }
+}

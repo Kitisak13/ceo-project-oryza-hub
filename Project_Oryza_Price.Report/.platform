@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Project_Oryza_Price"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "d2d0a0e6-4d45-4df3-9793-46f631f5f5c6"
+  }
+}

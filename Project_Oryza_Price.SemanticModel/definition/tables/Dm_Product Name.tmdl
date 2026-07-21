@@ -1,0 +1,38 @@
+table 'Dm_Product Name'
+	lineageTag: a5aa3b40-b29a-4c33-8267-2f45090f2b64
+
+	column 'Product Code'
+		dataType: string
+		lineageTag: 4e1d3e67-275e-4002-9bb2-82954dc829b1
+		summarizeBy: none
+		sourceColumn: Product Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Name'
+		dataType: string
+		lineageTag: b4582d7f-e0aa-48c0-ac71-ad2ae6bbad02
+		summarizeBy: none
+		sourceColumn: Product Name
+		sortByColumn: 'Product Code'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dm_Product Name' = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"2021", #"2022", #"2023", #"2024"}),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Category Name] <> null)),
+				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"Country Name", Text.Proper, type text}}),
+				    #"Grouped Rows" = Table.Group(#"Capitalized Each Word", {"Product Code", "Product Name"}, {{"ss", each _, type table [HeaderDate=nullable date, SourceCode=nullable text, SourceName=nullable text, Currency Code=nullable text, Weight=nullable number, Unit Code=nullable text, Courntry Code=any, Country Name=text, Province Code=any, Province Name=any, Category Code=nullable text, Category Name=nullable text, Sub Category Code=nullable text, Sub Category Name=nullable text, Product Code=nullable text, Product Name=nullable text, Min Price=nullable number, Max Price=nullable number, Diff Price=nullable number]}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Grouped Rows",{"ss"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
