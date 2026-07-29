@@ -41,8 +41,8 @@
                 }
               },
               "queryRef": "DAX.Avg Price Last Day",
-              "nativeQueryRef": "12-May-26",
-              "displayName": "12-May-26"
+              "nativeQueryRef": "20-Jul-26",
+              "displayName": "20-Jul-26"
             },
             {
               "field": {
@@ -469,7 +469,7 @@
             "autoSizeColumnWidth": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },

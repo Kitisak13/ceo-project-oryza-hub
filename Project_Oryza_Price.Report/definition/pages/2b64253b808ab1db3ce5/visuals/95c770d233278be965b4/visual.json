@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "95c770d233278be965b4",
   "position": {
-    "x": 142.17177131499912,
-    "y": 137.33172402655362,
+    "x": 166.2610736286301,
+    "y": 106.33498184951597,
     "z": 10000,
-    "height": 36.25,
-    "width": 432.25183107331384,
-    "tabOrder": 11000
+    "height": 35.144617189791731,
+    "width": 432.54913464359049,
+    "tabOrder": 2000
   },
   "visualGroup": {
     "displayName": "Slicer Between",

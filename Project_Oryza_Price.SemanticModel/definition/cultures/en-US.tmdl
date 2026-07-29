@@ -2,7 +2,7 @@ cultureInfo en-US
 
 	linguisticMetadata =
 			{
-			  "Version": "3.5.0",
+			  "Version": "4.1.0",
 			  "Language": "en-US",
 			  "Entities": {
 			    "Fct_Oryza_price": {
@@ -1755,6 +1755,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Avg.Price": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Avg Price": {
 			            "State": "Suggested",
 			            "Source": {
@@ -1881,7 +1891,17 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "22-May-26": {
+			          "Last Day": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "20-Jul-26": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1892,16 +1912,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "This Day": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "12-May-26": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2692,6 +2702,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Avg.This Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "This Year": {
 			            "State": "Suggested",
 			            "Source": {
@@ -2818,6 +2838,16 @@ cultureInfo en-US
 			          }
 			        },
 			        {
+			          "Avg.Last Year": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
 			          "Last Year": {
 			            "State": "Suggested",
 			            "Source": {
@@ -2865,18 +2895,38 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "△month": {
+			          "%△month": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "△ mth": {
+			          "%△ mth": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.75
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "percentage △month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct △month": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
 			          }
 			        }
 			      ]
@@ -2891,18 +2941,38 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "△year": {
+			          "%△year": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "△ yr": {
+			          "%△ yr": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.75
+			            "Weight": 0.762
+			          }
+			        },
+			        {
+			          "percentage △year": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "pct △year": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
 			          }
 			        }
 			      ]
@@ -3936,18 +4006,119 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Annual Change": {
+			          "annual change": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "change": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "annual alteration": {
+			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
+			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.9
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "annual modification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "annual variation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "annual transformation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "annual revolution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "annual conversion": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "annual adjustment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "annual amendment": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "alteration": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "modification": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
 			          }
 			        }
 			      ]
 			    },
-			    "dax.column52_week_l": {
+			    "dax.entity_52_week_l": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "DAX",
@@ -3956,6 +4127,23 @@ cultureInfo en-US
 			      },
 			      "State": "Generated",
 			      "Terms": [
+			        {
+			          "52 week l": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "l": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "week l": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
 			        {
 			          "52 Week Low": {
 			            "State": "Suggested",
@@ -3968,7 +4156,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dax.column52_week_h": {
+			    "dax.entity_52_week_h": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "DAX",
@@ -3977,6 +4165,23 @@ cultureInfo en-US
 			      },
 			      "State": "Generated",
 			      "Terms": [
+			        {
+			          "52 week h": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "h": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "week h": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
 			        {
 			          "52 Week High": {
 			            "State": "Suggested",
@@ -3999,6 +4204,71 @@ cultureInfo en-US
 			      "State": "Generated",
 			      "Terms": [
 			        {
+			          "category eng": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "classification eng": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "class eng": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "group eng": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "type eng": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "grouping eng": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "kind eng": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
 			          "Rice Category": {
 			            "State": "Suggested",
 			            "Source": {
@@ -4009,9 +4279,2419 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "Fct_Oryza_price.category_code": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fct_Oryza Price",
+			          "ConceptualProperty": "Category Code"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "category code": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "category id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "category key": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "classification code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "class code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "group code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "type code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "grouping code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "kind code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price.source_name": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fct_Oryza Price",
+			          "ConceptualProperty": "SourceName"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "source name": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SourceName": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "source": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "source nickname": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "source title": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "source label": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "source tag": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "basis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "font": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "birthplace": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.491
+			          }
+			        },
+			        {
+			          "foundation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "cause": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "spring": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        }
+			      ]
+			    },
+			    "dm_category.category_th": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dm_Category",
+			          "ConceptualProperty": "Category Th"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "category th": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "th": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "classification th": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "class th": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "group th": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "type th": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "grouping th": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "kind th": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dm_category.category_code": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dm_Category",
+			          "ConceptualProperty": "Category Code"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "category code": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "category id": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.75
+			          }
+			        },
+			        {
+			          "category key": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "classification code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.6
+			          }
+			        },
+			        {
+			          "class code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "group code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "type code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "grouping code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "kind code": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.582
+			          }
+			        }
+			      ]
+			    },
+			    "dax.anual_365_CY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Anual 365 CY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "anual 365 CY": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dax.anual_365_LY": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Anual 365 LY"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "anual 365 LY": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dax.dummy": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Dummy"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "dummy": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "imitation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "fake": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "mock": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "replica": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.476
+			          }
+			        },
+			        {
+			          "mannequin": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.466
+			          }
+			        },
+			        {
+			          "model": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "figure": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        },
+			        {
+			          "form": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.452
+			          }
+			        }
+			      ]
+			    },
+			    "dax.ATH__alltime_high": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "ATH - All-Time High"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ATH - all-time high": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ATH all time high": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "ath all duration high": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "ath all interval high": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "ath all moment high": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "ath all period high": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "ath all timetable high": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "dax.ATL__alltime_low": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "ATL - All-Time Low"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ATL - all-time low": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ATL all time low": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "atl all duration low": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "atl all interval low": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "atl all moment low": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.617
+			          }
+			        },
+			        {
+			          "atl all period low": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "atl all timetable low": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        }
+			      ]
+			    },
+			    "dax.avg_price_YTD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Avg Price YTD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg price YTD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "avg price year to date": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.623
+			          }
+			        },
+			        {
+			          "average price ytd": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "dax.avg_price_QTD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Avg Price QTD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg price QTD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "average price qtd": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "dax.avg_price_MTD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Avg Price MTD"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg price MTD": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "average price mtd": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.591
+			          }
+			        }
+			      ]
+			    },
+			    "dax.avg_price_30D_MA": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Avg Price 30D MA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg price 30D MA": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "average price 30d ma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "avg price 30d mom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 30d mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 30d mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 30d mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 30d mammy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 30d momma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 30d mam": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 30d mater": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 30d mother": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "30D MA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dax.avg_price_90D_MA": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Avg Price 90D MA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg price 90D MA": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "average price 90d ma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "avg price 90d mom": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 90d mommy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 90d mamma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 90d mama": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 90d mammy": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 90d momma": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 90d mam": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 90d mater": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "avg price 90d mother": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "90D MA": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dax.price_volatility_SD": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Price Volatility (SD)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "price volatility (SD)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "price volatility": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "dax.price_volatility_CV": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Price Volatility% (CV)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "price volatility% (CV)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "price volatility%": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "dax.benchmark_price_india": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Benchmark Price (India)"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "benchmark price (india)": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "benchmark price": {
+			            "State": "Generated",
+			            "Weight": 0.75
+			          }
+			        }
+			      ]
+			    },
+			    "dax.spread_vs_india_benchmark": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Spread vs India Benchmark"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "spread vs india benchmark": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "spread vs india yardstick": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.514
+			          }
+			        },
+			        {
+			          "spread vs india standard": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "spread vs india level": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "spread vs india target": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        },
+			        {
+			          "spread vs india scale": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.499
+			          }
+			        }
+			      ]
+			    },
+			    "dax.thai_vs_viet_price_spread": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Thai vs Viet Price Spread"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "thai vs viet price spread": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "thai vs viet price blowout": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "thai vs viet price meal": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "thai vs viet price supper": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.52
+			          }
+			        },
+			        {
+			          "thai vs viet price feast": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "thai vs viet price banquet": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "thai vs viet price binge": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.504
+			          }
+			        },
+			        {
+			          "thai vs viet price extent": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.494
+			          }
+			        },
+			        {
+			          "thai vs viet price coverage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.494
+			          }
+			        },
+			        {
+			          "thai vs viet price expanse": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.494
+			          }
+			        },
+			        {
+			          "thai vs viet price distribution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.494
+			          }
+			        }
+			      ]
+			    },
+			    "dax.country_price_rank": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Country Price Rank"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "country price rank": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "price rank": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "nation price rank": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        },
+			        {
+			          "location price rank": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.609
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
+			    "Fct_Oryza_price_has_Dm_Product_name": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "Dm_Product_name": {
+			          "Target": {
+			            "Entity": "Dm_Product_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "Dm_Product_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_Dm_Product_names"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Dm_Product_name"
+			            },
+			            "Object": {
+			              "Role": "Fct_Oryza_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Dm_Product_names_have_Fct_Oryza_prices"
+			        }
+			      ]
+			    },
+			    "dax_has_country_price_rank": {
+			      "Binding": {
+			        "ConceptualEntity": "DAX"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dax": {
+			          "Target": {
+			            "Entity": "dax"
+			          }
+			        },
+			        "dax.country_price_rank": {
+			          "Target": {
+			            "Entity": "dax.country_price_rank"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dax"
+			            },
+			            "Object": {
+			              "Role": "dax.country_price_rank"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dax_have_country_price_rank"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_thai_vs_viet_price_spread": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.thai_vs_viet_price_spread": {
+			          "Target": {
+			            "Entity": "dax.thai_vs_viet_price_spread"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.thai_vs_viet_price_spread"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_thai_vs_viet_price_spread"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_spread_vs_india_benchmark": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.spread_vs_india_benchmark": {
+			          "Target": {
+			            "Entity": "dax.spread_vs_india_benchmark"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.spread_vs_india_benchmark"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_spread_vs_india_benchmark"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_benchmark_price_india": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.benchmark_price_india": {
+			          "Target": {
+			            "Entity": "dax.benchmark_price_india"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.benchmark_price_india"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_benchmark_price_india"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_price_volatility_CV": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.price_volatility_CV": {
+			          "Target": {
+			            "Entity": "dax.price_volatility_CV"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.price_volatility_CV"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_price_volatility_CV"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_price_volatility_SD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.price_volatility_SD": {
+			          "Target": {
+			            "Entity": "dax.price_volatility_SD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.price_volatility_SD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_price_volatility_SD"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_avg_price_90D_MA": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.avg_price_90D_MA": {
+			          "Target": {
+			            "Entity": "dax.avg_price_90D_MA"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.avg_price_90D_MA"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_avg_price_90D_MA"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_avg_price_30D_MA": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.avg_price_30D_MA": {
+			          "Target": {
+			            "Entity": "dax.avg_price_30D_MA"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.avg_price_30D_MA"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_avg_price_30D_MA"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_avg_price_MTD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.avg_price_MTD": {
+			          "Target": {
+			            "Entity": "dax.avg_price_MTD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.avg_price_MTD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_avg_price_MTD"
+			        }
+			      ]
+			    },
+			    "dm_date_has_dax_avg_price_MTD": {
+			      "Binding": {
+			        "ConceptualEntity": "Dm_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dm_date": {
+			          "Target": {
+			            "Entity": "dm_date"
+			          }
+			        },
+			        "dax.avg_price_MTD": {
+			          "Target": {
+			            "Entity": "dax.avg_price_MTD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dm_date"
+			            },
+			            "Object": {
+			              "Role": "dax.avg_price_MTD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dm_dates_have_avg_price_MTD"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_avg_price_QTD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.avg_price_QTD": {
+			          "Target": {
+			            "Entity": "dax.avg_price_QTD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.avg_price_QTD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_avg_price_QTD"
+			        }
+			      ]
+			    },
+			    "dm_date_has_dax_avg_price_QTD": {
+			      "Binding": {
+			        "ConceptualEntity": "Dm_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dm_date": {
+			          "Target": {
+			            "Entity": "dm_date"
+			          }
+			        },
+			        "dax.avg_price_QTD": {
+			          "Target": {
+			            "Entity": "dax.avg_price_QTD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dm_date"
+			            },
+			            "Object": {
+			              "Role": "dax.avg_price_QTD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dm_dates_have_avg_price_QTD"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_avg_price_YTD": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.avg_price_YTD": {
+			          "Target": {
+			            "Entity": "dax.avg_price_YTD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.avg_price_YTD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_avg_price_YTD"
+			        }
+			      ]
+			    },
+			    "dm_date_has_dax_avg_price_YTD": {
+			      "Binding": {
+			        "ConceptualEntity": "Dm_Date"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dm_date": {
+			          "Target": {
+			            "Entity": "dm_date"
+			          }
+			        },
+			        "dax.avg_price_YTD": {
+			          "Target": {
+			            "Entity": "dax.avg_price_YTD"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dm_date"
+			            },
+			            "Object": {
+			              "Role": "dax.avg_price_YTD"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dm_dates_have_avg_price_YTD"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_ATL__alltime_low": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.ATL__alltime_low": {
+			          "Target": {
+			            "Entity": "dax.ATL__alltime_low"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.ATL__alltime_low"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_ATL__alltime_low"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_ATH__alltime_high": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.ATH__alltime_high": {
+			          "Target": {
+			            "Entity": "dax.ATH__alltime_high"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.ATH__alltime_high"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_ATH__alltime_high"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_dummy": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.dummy": {
+			          "Target": {
+			            "Entity": "dax.dummy"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.dummy"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_dummy"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_anual_365_LY": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.anual_365_LY": {
+			          "Target": {
+			            "Entity": "dax.anual_365_LY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.anual_365_LY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_anual_365_LY"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_anual_365_CY": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.anual_365_CY": {
+			          "Target": {
+			            "Entity": "dax.anual_365_CY"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.anual_365_CY"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_anual_365_CY"
+			        }
+			      ]
+			    },
+			    "dm_category_has_category_code": {
+			      "Binding": {
+			        "ConceptualEntity": "Dm_Category"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dm_category": {
+			          "Target": {
+			            "Entity": "dm_category"
+			          }
+			        },
+			        "dm_category.category_code": {
+			          "Target": {
+			            "Entity": "dm_category.category_code"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dm_category"
+			            },
+			            "Object": {
+			              "Role": "dm_category.category_code"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dm_categories_have_category_codes"
+			        }
+			      ]
+			    },
+			    "dm_category_has_category_th": {
+			      "Binding": {
+			        "ConceptualEntity": "Dm_Category"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dm_category": {
+			          "Target": {
+			            "Entity": "dm_category"
+			          }
+			        },
+			        "dm_category.category_th": {
+			          "Target": {
+			            "Entity": "dm_category.category_th"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dm_category"
+			            },
+			            "Object": {
+			              "Role": "dm_category.category_th"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dm_categories_have_category_th"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_source_name": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "Fct_Oryza_price.source_name": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price.source_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "Fct_Oryza_price.source_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_source_names"
+			        }
+			      ]
+			    },
+			    "dm_category_has_category_eng": {
+			      "Binding": {
+			        "ConceptualEntity": "Dm_Category"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dm_category": {
+			          "Target": {
+			            "Entity": "dm_category"
+			          }
+			        },
+			        "dm_category.category_eng": {
+			          "Target": {
+			            "Entity": "dm_category.category_eng"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dm_category"
+			            },
+			            "Object": {
+			              "Role": "dm_category.category_eng"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dm_categories_have_category_engs"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_entity_52_week_h": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.entity_52_week_h": {
+			          "Target": {
+			            "Entity": "dax.entity_52_week_h"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.entity_52_week_h"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_52_week_h"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_entity_52_week_l": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.entity_52_week_l": {
+			          "Target": {
+			            "Entity": "dax.entity_52_week_l"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.entity_52_week_l"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_52_week_l"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_annual_change": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.annual_change": {
+			          "Target": {
+			            "Entity": "dax.annual_change"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.annual_change"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_annual_change"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_text_Previous_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.text_Previous_date": {
+			          "Target": {
+			            "Entity": "dax.text_Previous_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.text_Previous_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_text_Previous_date"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_test_previous_date": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.test_previous_date": {
+			          "Target": {
+			            "Entity": "dax.test_previous_date"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.test_previous_date"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_test_previous_date"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_test_day": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.test_day": {
+			          "Target": {
+			            "Entity": "dax.test_day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.test_day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_test_day"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_Text_color_year": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.Text_color_year": {
+			          "Target": {
+			            "Entity": "dax.Text_color_year"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.Text_color_year"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_Text_color_year"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_Text_color_month": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.Text_color_month": {
+			          "Target": {
+			            "Entity": "dax.Text_color_month"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.Text_color_month"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_Text_color_month"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_Text_color_day": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "dax.Text_color_day": {
+			          "Target": {
+			            "Entity": "dax.Text_color_day"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "dax.Text_color_day"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_Text_color_day"
+			        }
+			      ]
+			    },
 			    "Z_date_has_Z_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Z_date"
@@ -4091,15 +6771,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dax_has_year": {
+			    "Fct_Oryza_price_has_dax_year": {
 			      "Binding": {
-			        "ConceptualEntity": "DAX"
+			        "ConceptualEntity": "Fct_Oryza Price"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dax": {
+			        "Fct_Oryza_price": {
 			          "Target": {
-			            "Entity": "dax"
+			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
 			        "dax.year": {
@@ -4112,7 +6792,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dax"
+			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
 			              "Role": "dax.year"
@@ -4120,19 +6800,19 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dax_have_year"
+			          "ID": "Fct_Oryza_prices_have_year"
 			        }
 			      ]
 			    },
-			    "dax_has_month": {
+			    "Fct_Oryza_price_has_dax_month": {
 			      "Binding": {
-			        "ConceptualEntity": "DAX"
+			        "ConceptualEntity": "Fct_Oryza Price"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dax": {
+			        "Fct_Oryza_price": {
 			          "Target": {
-			            "Entity": "dax"
+			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
 			        "dax.month": {
@@ -4145,7 +6825,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dax"
+			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
 			              "Role": "dax.month"
@@ -4153,19 +6833,19 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dax_have_month"
+			          "ID": "Fct_Oryza_prices_have_month"
 			        }
 			      ]
 			    },
-			    "dax_has_day": {
+			    "Fct_Oryza_price_has_dax_day": {
 			      "Binding": {
-			        "ConceptualEntity": "DAX"
+			        "ConceptualEntity": "Fct_Oryza Price"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dax": {
+			        "Fct_Oryza_price": {
 			          "Target": {
-			            "Entity": "dax"
+			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
 			        "dax.day": {
@@ -4178,7 +6858,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dax"
+			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
 			              "Role": "dax.day"
@@ -4186,7 +6866,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dax_have_day"
+			          "ID": "Fct_Oryza_prices_have_day"
 			        }
 			      ]
 			    },
@@ -4256,15 +6936,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dax_has_text_table": {
+			    "dm_date_has_dax_text_table": {
 			      "Binding": {
-			        "ConceptualEntity": "DAX"
+			        "ConceptualEntity": "Dm_Date"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dax": {
+			        "dm_date": {
 			          "Target": {
-			            "Entity": "dax"
+			            "Entity": "dm_date"
 			          }
 			        },
 			        "dax.text_table": {
@@ -4277,7 +6957,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dax"
+			              "Role": "dm_date"
 			            },
 			            "Object": {
 			              "Role": "dax.text_table"
@@ -4285,19 +6965,52 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dax_have_text_table"
+			          "ID": "dm_dates_have_text_table"
 			        }
 			      ]
 			    },
-			    "dax_has_avg_price_MoM1": {
+			    "dm_category_has_dax_text_table": {
 			      "Binding": {
-			        "ConceptualEntity": "DAX"
+			        "ConceptualEntity": "Dm_Category"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dax": {
+			        "dm_category": {
 			          "Target": {
-			            "Entity": "dax"
+			            "Entity": "dm_category"
+			          }
+			        },
+			        "dax.text_table": {
+			          "Target": {
+			            "Entity": "dax.text_table"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dm_category"
+			            },
+			            "Object": {
+			              "Role": "dax.text_table"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dm_categories_have_text_table"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_dax_avg_price_MoM1": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
 			        "dax.avg_price_MoM1": {
@@ -4310,7 +7023,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dax"
+			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
 			              "Role": "dax.avg_price_MoM1"
@@ -4318,7 +7031,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dax_have_avg_price_MoM"
+			          "ID": "Fct_Oryza_prices_have_avg_price_MoM"
 			        }
 			      ]
 			    },
@@ -4351,19 +7064,19 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Fct_Oryza_prices_have_avg_price_MoM"
+			          "ID": "Fct_Oryza_prices_have_avg_price_MoM1"
 			        }
 			      ]
 			    },
-			    "dax_has_avg_price_YoY1": {
+			    "Fct_Oryza_price_has_dax_avg_price_YoY1": {
 			      "Binding": {
-			        "ConceptualEntity": "DAX"
+			        "ConceptualEntity": "Fct_Oryza Price"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dax": {
+			        "Fct_Oryza_price": {
 			          "Target": {
-			            "Entity": "dax"
+			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
 			        "dax.avg_price_YoY1": {
@@ -4376,7 +7089,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dax"
+			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
 			              "Role": "dax.avg_price_YoY1"
@@ -4384,7 +7097,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dax_have_avg_price_YoY"
+			          "ID": "Fct_Oryza_prices_have_avg_price_YoY"
 			        }
 			      ]
 			    },
@@ -4417,7 +7130,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Fct_Oryza_prices_have_avg_price_YoY"
+			          "ID": "Fct_Oryza_prices_have_avg_price_YoY1"
 			        }
 			      ]
 			    },
@@ -4487,15 +7200,15 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dax_has_avg_price_previous_day": {
+			    "Fct_Oryza_price_has_dax_avg_price_previous_day": {
 			      "Binding": {
-			        "ConceptualEntity": "DAX"
+			        "ConceptualEntity": "Fct_Oryza Price"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "dax": {
+			        "Fct_Oryza_price": {
 			          "Target": {
-			            "Entity": "dax"
+			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
 			        "dax.avg_price_previous_day": {
@@ -4508,7 +7221,7 @@ cultureInfo en-US
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dax"
+			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
 			              "Role": "dax.avg_price_previous_day"
@@ -4516,7 +7229,7 @@ cultureInfo en-US
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dax_have_avg_price_previous_day"
+			          "ID": "Fct_Oryza_prices_have_avg_price_previous_day"
 			        }
 			      ]
 			    },
@@ -5009,72 +7722,6 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dm_category_has_category_eng": {
-			      "Binding": {
-			        "ConceptualEntity": "Dm_Category"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dm_category": {
-			          "Target": {
-			            "Entity": "dm_category"
-			          }
-			        },
-			        "dm_category.category_eng": {
-			          "Target": {
-			            "Entity": "dm_category.category_eng"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dm_category"
-			            },
-			            "Object": {
-			              "Role": "dm_category.category_eng"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dm_categories_have_category_engs"
-			        }
-			      ]
-			    },
-			    "dm_category_has_category_code": {
-			      "Binding": {
-			        "ConceptualEntity": "Dm_Category"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dm_category": {
-			          "Target": {
-			            "Entity": "dm_category"
-			          }
-			        },
-			        "dm_category.category_code": {
-			          "Target": {
-			            "Entity": "dm_category.category_code"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dm_category"
-			            },
-			            "Object": {
-			              "Role": "dm_category.category_code"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dm_categories_have_category_codes"
-			        }
-			      ]
-			    },
 			    "Fct_Oryza_price_has_avg_price": {
 			      "Binding": {
 			        "ConceptualEntity": "Fct_Oryza Price"
@@ -5216,106 +7863,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dax_has_Text_color_day": {
-			      "Binding": {
-			        "ConceptualEntity": "DAX"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dax": {
-			          "Target": {
-			            "Entity": "dax"
-			          }
-			        },
-			        "dax.Text_color_day": {
-			          "Target": {
-			            "Entity": "dax.Text_color_day"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dax"
-			            },
-			            "Object": {
-			              "Role": "dax.Text_color_day"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dax_have_Text_color_day"
-			        }
-			      ]
-			    },
-			    "dax_has_Text_color_month": {
-			      "Binding": {
-			        "ConceptualEntity": "DAX"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dax": {
-			          "Target": {
-			            "Entity": "dax"
-			          }
-			        },
-			        "dax.Text_color_month": {
-			          "Target": {
-			            "Entity": "dax.Text_color_month"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dax"
-			            },
-			            "Object": {
-			              "Role": "dax.Text_color_month"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dax_have_Text_color_month"
-			        }
-			      ]
-			    },
-			    "dax_has_Text_color_year": {
-			      "Binding": {
-			        "ConceptualEntity": "DAX"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dax": {
-			          "Target": {
-			            "Entity": "dax"
-			          }
-			        },
-			        "dax.Text_color_year": {
-			          "Target": {
-			            "Entity": "dax.Text_color_year"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dax"
-			            },
-			            "Object": {
-			              "Role": "dax.Text_color_year"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dax_have_Text_color_year"
-			        }
-			      ]
-			    },
-			    "Fct_Oryza_price_has_dax_test_day": {
+			    "Fct_Oryza_price_has_dm_date": {
 			      "Binding": {
 			        "ConceptualEntity": "Fct_Oryza Price"
 			      },
@@ -5326,9 +7874,9 @@ cultureInfo en-US
 			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
-			        "dax.test_day": {
+			        "dm_date": {
 			          "Target": {
-			            "Entity": "dax.test_day"
+			            "Entity": "dm_date"
 			          }
 			        }
 			      },
@@ -5339,78 +7887,25 @@ cultureInfo en-US
 			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
-			              "Role": "dax.test_day"
+			              "Role": "dm_date"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Fct_Oryza_prices_have_test_day"
-			        }
-			      ]
-			    },
-			    "dax_has_test_previous_date": {
-			      "Binding": {
-			        "ConceptualEntity": "DAX"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dax": {
-			          "Target": {
-			            "Entity": "dax"
-			          }
+			          "ID": "Fct_Oryza_prices_have_dm_dates"
 			        },
-			        "dax.test_previous_date": {
-			          "Target": {
-			            "Entity": "dax.test_previous_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "dax"
+			              "Role": "dm_date"
 			            },
 			            "Object": {
-			              "Role": "dax.test_previous_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dax_have_test_previous_date"
-			        }
-			      ]
-			    },
-			    "Fct_Oryza_price_has_dax_text_Previous_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Fct_Oryza Price"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "Fct_Oryza_price": {
-			          "Target": {
-			            "Entity": "Fct_Oryza_price"
-			          }
-			        },
-			        "dax.text_Previous_date": {
-			          "Target": {
-			            "Entity": "dax.text_Previous_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
 			              "Role": "Fct_Oryza_price"
-			            },
-			            "Object": {
-			              "Role": "dax.text_Previous_date"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Fct_Oryza_prices_have_text_Previous_date"
+			          "ID": "dm_dates_have_Fct_Oryza_prices"
 			        }
 			      ]
 			    },
@@ -5459,98 +7954,11 @@ cultureInfo en-US
 			          "ID": "dm_categories_have_Fct_Oryza_prices"
 			        }
 			      ]
-			    },
-			    "Fct_Oryza_price_has_Dm_Product_name": {
-			      "Binding": {
-			        "ConceptualEntity": "Fct_Oryza Price"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "Fct_Oryza_price": {
-			          "Target": {
-			            "Entity": "Fct_Oryza_price"
-			          }
-			        },
-			        "Dm_Product_name": {
-			          "Target": {
-			            "Entity": "Dm_Product_name"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "Fct_Oryza_price"
-			            },
-			            "Object": {
-			              "Role": "Dm_Product_name"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "Fct_Oryza_prices_have_Dm_Product_names"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "Dm_Product_name"
-			            },
-			            "Object": {
-			              "Role": "Fct_Oryza_price"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "Dm_Product_names_have_Fct_Oryza_prices"
-			        }
-			      ]
-			    },
-			    "Fct_Oryza_price_has_dm_date": {
-			      "Binding": {
-			        "ConceptualEntity": "Fct_Oryza Price"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "Fct_Oryza_price": {
-			          "Target": {
-			            "Entity": "Fct_Oryza_price"
-			          }
-			        },
-			        "dm_date": {
-			          "Target": {
-			            "Entity": "dm_date"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "Fct_Oryza_price"
-			            },
-			            "Object": {
-			              "Role": "dm_date"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "Fct_Oryza_prices_have_dm_dates"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dm_date"
-			            },
-			            "Object": {
-			              "Role": "Fct_Oryza_price"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dm_dates_have_Fct_Oryza_prices"
-			        }
-			      ]
+			    }
+			  },
+			  "Agents": {
+			    "Internal": {
+			      "Version": "1.1.0"
 			    }
 			  }
 			}

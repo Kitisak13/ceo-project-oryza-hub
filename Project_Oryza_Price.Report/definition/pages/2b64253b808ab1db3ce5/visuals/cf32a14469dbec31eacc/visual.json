@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "cf32a14469dbec31eacc",
   "position": {
-    "x": 59.996714031491216,
-    "y": 96.812243507073049,
+    "x": 240.75858117225189,
+    "y": 690.477440343062,
     "z": 2000,
     "height": 28.40909090909091,
     "width": 1039,
@@ -73,7 +73,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Parboiled Rice'"
+                                "Value": "'White Rice High'"
                               }
                             }
                           ]

@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "a596a85e01c2d1dcac52",
   "position": {
     "x": 834.47931147581414,
@@ -7,7 +7,7 @@
     "z": 7000,
     "height": 238.57142857142858,
     "width": 392.85714285714289,
-    "tabOrder": 7000
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "shape",
@@ -25,7 +25,7 @@
             "rectangleRoundedCurve": {
               "expr": {
                 "Literal": {
-                  "Value": "5L"
+                  "Value": "8L"
                 }
               }
             }
@@ -57,6 +57,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "5D"
                 }
               }
             }

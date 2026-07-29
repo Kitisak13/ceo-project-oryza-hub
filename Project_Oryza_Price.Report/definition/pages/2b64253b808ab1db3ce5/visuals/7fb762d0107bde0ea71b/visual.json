@@ -1,18 +1,41 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "7fb762d0107bde0ea71b",
   "position": {
-    "x": 1070.9034619227748,
-    "y": 139.95469898973474,
+    "x": 1084.0762687004988,
+    "y": 87.86154297447932,
     "z": 5000,
-    "height": 239,
-    "width": 128.88888888888889,
+    "height": 307.38359734570525,
+    "width": 142.33526182510488,
     "tabOrder": 4000
   },
   "visual": {
     "visualType": "advancedSlicerVisual",
     "query": {
       "queryState": {
+        "Label": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Fct_Oryza Price"
+                        }
+                      },
+                      "Property": "Avg_Price"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Fct_Oryza Price.Avg_Price)",
+              "nativeQueryRef": "Sum of Avg_Price"
+            }
+          ]
+        },
         "Values": {
           "projections": [
             {
@@ -67,34 +90,6 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Thailand parboiled 100% stxd'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'India parboiled 5% broken stxd'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Italy risotto'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Thailand Hommali 92%'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
                                 "Value": "'Vietnam 100% broken'"
                               }
                             }
@@ -109,14 +104,14 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Thailand 100% B grade'"
+                                "Value": "'U.S. pet food'"
                               }
                             }
                           ],
                           [
                             {
                               "Literal": {
-                                "Value": "'Thailand 5% broken'"
+                                "Value": "'Vietnam Jasmine'"
                               }
                             }
                           ],
@@ -137,31 +132,254 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Argentina 5% broken'"
+                                "Value": "'U.S. 4% broken'"
                               }
                             }
                           ],
                           [
                             {
                               "Literal": {
-                                "Value": "'Vietnam Jasmine'"
+                                "Value": "'Uruguay 5% broken'"
                               }
                             }
                           ],
                           [
                             {
                               "Literal": {
-                                "Value": "'U.S. Calrose 4% broken'"
+                                "Value": "'Vietnam 25% broken'"
                               }
                             }
                           ],
                           [
                             {
                               "Literal": {
-                                "Value": "'Brazil parboiled 5% broken'"
+                                "Value": "'Thailand 100% B grade'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Thailand Hommali 92%'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'India 100% Broken stxd'"
                               }
                             }
                           ]
+                        ]
+                      }
+                    },
+                    "Annotations": {
+                      "filterExpressionMetadata": {
+                        "expressions": [
+                          {
+                            "Aggregation": {
+                              "Expression": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Fct_Oryza Price"
+                                    }
+                                  },
+                                  "Property": "Avg_Price"
+                                }
+                              },
+                              "Function": 0
+                            }
+                          }
+                        ],
+                        "decomposedIdentities": {
+                          "values": [
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Thailand 100% B grade'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Vietnam 5% broken'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'India 5% broken'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'U.S. 4% broken'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Uruguay 5% broken'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Vietnam 100% broken'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Pakistan 100% broken stxd'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'U.S. pet food'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Vietnam Jasmine'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Vietnam 25% broken'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'Thailand Hommali 92%'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            [
+                              {
+                                "0": [
+                                  {
+                                    "Literal": {
+                                      "Value": "'India 100% Broken stxd'"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          ],
+                          "columns": [
+                            {
+                              "value": {
+                                "Column": {
+                                  "Expression": {
+                                    "SourceRef": {
+                                      "Entity": "Dm_Product Name"
+                                    }
+                                  },
+                                  "Property": "Product Name"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        "valueMap": [
+                          {
+                            "0": "Thailand 100% B grade"
+                          },
+                          {
+                            "0": "Vietnam 5% broken"
+                          },
+                          {
+                            "0": "India 5% broken"
+                          },
+                          {
+                            "0": "U.S. 4% broken"
+                          },
+                          {
+                            "0": "Uruguay 5% broken"
+                          },
+                          {
+                            "0": "Vietnam 100% broken"
+                          },
+                          {
+                            "0": "Pakistan 100% broken stxd"
+                          },
+                          {
+                            "0": "U.S. pet food"
+                          },
+                          {
+                            "0": "Vietnam Jasmine"
+                          },
+                          {
+                            "0": "Vietnam 25% broken"
+                          },
+                          {
+                            "0": "Thailand Hommali 92%"
+                          },
+                          {
+                            "0": "India 100% Broken stxd"
+                          }
                         ]
                       }
                     }

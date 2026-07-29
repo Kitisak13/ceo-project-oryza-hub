@@ -135,6 +135,11 @@
             "metadata": "Dm_Date.Date"
           }
         }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {}
+        }
       ]
     },
     "drillFilterOtherVisuals": true

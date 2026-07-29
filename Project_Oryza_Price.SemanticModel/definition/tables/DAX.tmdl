@@ -2,16 +2,18 @@ table DAX
 	lineageTag: c692f9b5-cef0-4342-a934-eed1640c344d
 
 	measure 'Average Price' = AVERAGE('Fct_Oryza Price'[Avg_Price])
-		displayFolder: "01. Core Price Metrics"
+		displayFolder: 01. Core Price Metrics
 		lineageTag: 2a807a33-1446-4f68-9e3f-f9449d060b5f
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Price Last Day' = ```
 			CALCULATE( [Average Price] ,
 			                                LASTDATE( 'Fct_Oryza Price'[HeaderDate] ) ) 
 			```
-		displayFolder: "01. Core Price Metrics"
+		displayFolder: 01. Core Price Metrics
 		lineageTag: 83517bca-04ea-470d-b1cf-cbde38fb8f99
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Price Previous Day' =
@@ -23,43 +25,10 @@ table DAX
 			                             Dm_Date[Date] = _PreviousdatePrice )
 			
 			    RETURN _Result )
-		displayFolder: "01. Core Price Metrics"
+		displayFolder: 01. Core Price Metrics
 		lineageTag: 68108a1e-0f9f-4df8-af22-34c3a1de2287
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'ATH - All-Time High' = CALCULATE( MAX( 'Fct_Oryza Price'[Avg_Price] ), ALL( 'Dm_Date' ) )
-		displayFolder: "01. Core Price Metrics"
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'ATL - All-Time Low' = CALCULATE( MIN( 'Fct_Oryza Price'[Avg_Price] ), ALL( 'Dm_Date' ) )
-		displayFolder: "01. Core Price Metrics"
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Price YoY' = CALCULATE( [Average Price] , SAMEPERIODLASTYEAR(Dm_Date[Date] ) )
-		displayFolder: "02. Time Intelligence"
-		lineageTag: 97ca54ce-ac42-49b1-9785-65b8ff3d4cd1
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Price YoY%' =
-			VAR _YOY = DIVIDE( [Average Price] - [Avg Price YoY] , [Avg Price YoY] , 0 )
-			RETURN _YOY
-		displayFolder: "02. Time Intelligence"
-		formatString: +0.0% ; - 0.0%
-		lineageTag: f8c31ad4-55f7-412e-8071-3c42be4fc671
-		annotation PBI_FormatHint = {"isCustom":true}
-
-	measure 'Avg Price MoM' = CALCULATE( [Average Price] , DATEADD(Dm_Date[Date], -1 , MONTH ) )
-		displayFolder: "02. Time Intelligence"
-		lineageTag: 186507dc-017b-43f0-8754-274e5f297ad1
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Avg Price MoM%' =
-			VAR _MoM = DIVIDE( [Average Price] - [Avg Price MoM] , [Avg Price MoM] , 0 )
-			RETURN _MoM
-		displayFolder: "02. Time Intelligence"
-		formatString: +0.0% ; - 0.0%
-		lineageTag: dba9d584-0c67-44f6-9524-6b560a4a4b40
-		annotation PBI_FormatHint = {"isCustom":true}
 
 	measure 'Avg Price Last Month' = ```
 			VAR _startyear = YEAR( LASTDATE( Dm_Date[Date] ) ) 
@@ -73,8 +42,9 @@ table DAX
 			                                        _lastdate ) )
 			RETURN _result
 			```
-		displayFolder: "02. Time Intelligence"
+		displayFolder: 02. Time Intelligence
 		lineageTag: 08b106b3-b1e8-41ff-a71e-99a907940288
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Price Last Month LY' = ```
@@ -89,9 +59,48 @@ table DAX
 			                                        _lastdate ) ) 
 			RETURN _result
 			```
-		displayFolder: "02. Time Intelligence"
+		displayFolder: 02. Time Intelligence
 		lineageTag: 9d665eb9-17f1-441f-a4ce-c0fd48f4ae11
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Price YoY' = CALCULATE( [Average Price] , SAMEPERIODLASTYEAR(Dm_Date[Date] ) )
+		displayFolder: 02. Time Intelligence
+		lineageTag: 97ca54ce-ac42-49b1-9785-65b8ff3d4cd1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Price YoY%' =
+			VAR _YOY = DIVIDE( [Average Price] - [Avg Price YoY] , [Avg Price YoY] , 0 )
+			RETURN _YOY
+		formatString: +0.0% ; - 0.0%
+		displayFolder: 02. Time Intelligence
+		lineageTag: f8c31ad4-55f7-412e-8071-3c42be4fc671
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Avg Price MoM' = CALCULATE( [Average Price] , DATEADD(Dm_Date[Date], -1 , MONTH ) )
+		displayFolder: 02. Time Intelligence
+		lineageTag: 186507dc-017b-43f0-8754-274e5f297ad1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Price MoM%' =
+			VAR _MoM = DIVIDE( [Average Price] - [Avg Price MoM] , [Avg Price MoM] , 0 )
+			RETURN _MoM
+		formatString: +0.0% ; - 0.0%
+		displayFolder: 02. Time Intelligence
+		lineageTag: dba9d584-0c67-44f6-9524-6b560a4a4b40
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure Text_table = ```
+			SELECTEDVALUE( Dm_Category[Category Eng] ) & 
+			            " Average Price : " &
+			            FORMAT( LASTDATE(Dm_Date[Date]), "d-mmm-yyyy")
+			```
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 3fb81a0f-b201-471b-a1ca-0fd2d2e28ba2
 
 	measure 'Avg Price This Year' = ```
 			VAR _ThisYear = DATESBETWEEN( Dm_Date[Date] , 
@@ -100,8 +109,9 @@ table DAX
 			VAR Result = CALCULATE( [Average Price], _ThisYear )
 			RETURN Result 
 			```
-		displayFolder: "02. Time Intelligence"
+		displayFolder: 02. Time Intelligence
 		lineageTag: a581e59b-8466-4019-bc6f-88312b111dc2
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Price Last Year' = ```
@@ -111,21 +121,122 @@ table DAX
 			VAR Result = CALCULATE( [Average Price], _LastYear )
 			RETURN Result 
 			```
-		displayFolder: "02. Time Intelligence"
+		displayFolder: 02. Time Intelligence
 		lineageTag: cee274c2-2b4e-45eb-af26-556dc9fb09e3
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Price YTD' = TOTALYTD( [Average Price], 'Dm_Date'[Date] )
-		displayFolder: "02. Time Intelligence"
+	measure △Day =
+			VAR _Daychange = [Avg Price Last Day]- [Avg Price Previous Day]
+			VAR _result = IF([Avg Price Last Day] <> 0 && [Avg Price Previous Day] <> 0 , _Daychange)
+			RETURN _result
+		formatString: +0.00 ; -0.00
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 43c6d110-d441-4733-8b2b-af7a73882643
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure %△Month = ```
+			VAR _Monthchange = DIVIDE([Avg Price Last Month],[Avg Price Last Month LY],0) - 1 
+			VAR _result = IF([Avg Price Last Month] <> 0 && [Avg Price Last Month LY] <> 0 , _Monthchange)
+			RETURN _result
+			```
+		formatString: +0.00% ; -0.00%
+		displayFolder: 07. UI & System Helpers
+		lineageTag: bfed130e-864b-4af2-ba42-0385d663953d
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure %△Year = ```
+			VAR _Yearchange = DIVIDE([Avg Price This Year] , [Avg Price Last Year] , 0 ) -1 
+			VAR _result = IF([Avg Price This Year] <> 0 && [Avg Price Last Year] <> 0 , _Yearchange)
+			RETURN _result
+			```
+		formatString: +0.00% ; -0.00%
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 02da03a2-23ae-4223-baac-620ee2a4da27
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Text_color Day' = IF([△Day] > 0 , "Blue", IF( [△Day] < 0 , "Red" , "Black"))
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 412af95c-a797-40e1-ad5b-f13bdd317fc2
+
+	measure 'Text_color Month' = IF([%△Month] > 0 , "Blue", IF( [%△Month] < 0 , "Red" , "Black"))
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 87843d14-c555-470d-b116-d4fa361bd27b
+
+	measure 'Text_color Year' = IF([Annual Change] > 0 , "Blue", IF( [Annual Change] < 0 , "Red" , "Black"))
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 926c197a-7a14-4d27-b08a-348fa19b7b20
+
+	measure 'Test day' = ```
+			VAR _lastdate = LASTDATE(Dm_Date[Date])
+			VAR Result = CALCULATE( [Average Price] ,                      
+			                      all(Dm_Date[Date]),
+			                      Dm_Date[Date] = _lastdate )
+			RETURN Result
+			```
+		displayFolder: 07. UI & System Helpers
+		lineageTag: a95aa434-9ccb-4ea1-9d40-c3153982a27e
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Price QTD' = TOTALQTD( [Average Price], 'Dm_Date'[Date] )
-		displayFolder: "02. Time Intelligence"
+	measure 'Test Previous Date' =
+			IF( NOT ISEMPTY('Fct_Oryza Price'),
+			    VAR _Maxdate = MAX(Dm_Date[Date])
+			    VAR _PreviousdatePrice = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ),
+			                                        Dm_Date[Date] < _Maxdate )
+			    VAR _Result = CALCULATE( [Average Price] ,
+			                             Dm_Date[Date] = _PreviousdatePrice )
+			
+			    RETURN _Result )
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 12e85fe4-a7ef-4be4-9fdb-b2b864bed51b
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Price MTD' = TOTALMTD( [Average Price], 'Dm_Date'[Date] )
-		displayFolder: "02. Time Intelligence"
+	measure 'text_Previous date' =
+			VAR _maxdate = MAX(Dm_Date[Date])
+			VAR _PreviousdatePrice = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ),
+			                                        Dm_Date[Date] < _maxdate )
+			RETURN _PreviousdatePrice
+		formatString: General Date
+		displayFolder: 07. UI & System Helpers
+		lineageTag: ca963b3e-422d-48d0-b2f2-ba3f87b1a50a
+
+	measure 'Anual 365 CY' = ```
+			VAR _CY = CALCULATE( [Average Price] ,                          
+			                          DATESINPERIOD( Dm_Date[Date] , LASTDATE(Dm_Date[Date]), -365 , DAY ) )
+			RETURN _CY
+			```
+		displayFolder: 07. UI & System Helpers
+		lineageTag: a78d780a-0c9c-472a-b1f8-46615057293a
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Anual 365 LY' = ```
+			VAR _MaxDate =  LASTDATE( Dm_Date[Date] ) - 365
+			VAR _LY365Day = DATESINPERIOD( Dm_Date[Date], _MaxDate, -365, DAY )
+			VAR _Result =   CALCULATE( [Average Price] ,                          
+			                          _LY365Day )
+			RETURN _Result
+			```
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 50965014-9f9a-4e70-877b-e675ad28c244
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Annual Change' = ```
+			VAR _AnualChange = DIVIDE( [Anual 365 CY] , [Anual 365 LY] , 0 ) - 1 
+			VAR _result = IF([Anual 365 CY] <> 0 && [Anual 365 LY] <> 0 , _AnualChange)
+			RETURN _result
+			```
+		formatString: +0.00% ; -0.00%
+		displayFolder: 07. UI & System Helpers
+		lineageTag: e582ed9c-69cc-427d-9d93-c565026cdcdd
+
+		annotation PBI_FormatHint = {"isCustom":true}
 
 	measure '52 Week L' = ```
 			VAR _LastDate = MAX( 'Dm_Date'[Date] )
@@ -138,8 +249,9 @@ table DAX
 			    )
 			RETURN _Result
 			```
-		displayFolder: "03. Trend & Moving Averages"
+		displayFolder: 03. Trend & Moving Averages
 		lineageTag: 3073ba91-b667-4818-8404-f5cbf285aec8
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '52 Week H' = ```
@@ -153,8 +265,44 @@ table DAX
 			    )
 			RETURN _Result
 			```
-		displayFolder: "03. Trend & Moving Averages"
+		displayFolder: 03. Trend & Moving Averages
 		lineageTag: 5656c864-6e07-4d99-aa17-8b63c63ac270
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure Dummy = [Average Price] / [Average Price]
+		formatString: 0
+		displayFolder: 07. UI & System Helpers
+		lineageTag: 61121dfa-c909-4e78-a639-81e851f3a5bd
+
+	measure 'ATH - All-Time High' = CALCULATE( MAX( 'Fct_Oryza Price'[Avg_Price] ), ALL( 'Dm_Date' ) )
+		displayFolder: 01. Core Price Metrics
+		lineageTag: b5bf22a8-146c-428e-874d-7f49d1288807
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'ATL - All-Time Low' = CALCULATE( MIN( 'Fct_Oryza Price'[Avg_Price] ), ALL( 'Dm_Date' ) )
+		displayFolder: 01. Core Price Metrics
+		lineageTag: 3123d460-4e30-463b-a8c5-230ae2c752cc
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Price YTD' = TOTALYTD( [Average Price], 'Dm_Date'[Date] )
+		displayFolder: 02. Time Intelligence
+		lineageTag: 0cd0669c-125b-4936-a0fe-c2a93df21a6a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Price QTD' = TOTALQTD( [Average Price], 'Dm_Date'[Date] )
+		displayFolder: 02. Time Intelligence
+		lineageTag: b1fb5983-ccaf-47f2-9cfa-f2d57b95402a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Price MTD' = TOTALMTD( [Average Price], 'Dm_Date'[Date] )
+		displayFolder: 02. Time Intelligence
+		lineageTag: 4a88f484-a967-49ce-a7ed-29d3c9d2afd3
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Price 30D MA' = ```
@@ -168,7 +316,9 @@ table DAX
 			    )
 			RETURN _Result
 			```
-		displayFolder: "03. Trend & Moving Averages"
+		displayFolder: 03. Trend & Moving Averages
+		lineageTag: dd7bc43f-3e71-4dbf-8525-0d3cdbaedb66
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Price 90D MA' = ```
@@ -182,41 +332,51 @@ table DAX
 			    )
 			RETURN _Result
 			```
-		displayFolder: "03. Trend & Moving Averages"
+		displayFolder: 03. Trend & Moving Averages
+		lineageTag: 94d2e5b3-d656-4999-877a-b977a219e112
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Price Volatility (SD)' = STDEV.S( 'Fct_Oryza Price'[Avg_Price] )
-		displayFolder: "04. Market Volatility"
+		displayFolder: 04. Market Volatility
+		lineageTag: d5d5d67c-b86e-4f0a-8521-4ebfbaa7caf9
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Price Volatility% (CV)' = DIVIDE( [Price Volatility (SD)], [Average Price], 0 )
-		displayFolder: "04. Market Volatility"
 		formatString: 0.0%
+		displayFolder: 04. Market Volatility
+		lineageTag: 0c3023d5-0736-467e-8fc9-a746464065e0
+
 		annotation PBI_FormatHint = {"isCustom":true}
 
 	measure 'Benchmark Price (India)' = CALCULATE( [Average Price], 'Fct_Oryza Price'[Country Name] = "India" )
-		displayFolder: "05. Benchmarks & Price Spreads"
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: a426bab4-eece-4d2e-a823-bd9fca52f433
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Spread vs India Benchmark' = ```
+	measure 'Spread vs India Benchmark' =
 			VAR _CurrentPrice = [Average Price]
 			VAR _IndiaPrice = [Benchmark Price (India)]
 			VAR _Result = IF( NOT( ISBLANK(_CurrentPrice) || ISBLANK(_IndiaPrice) ), _CurrentPrice - _IndiaPrice )
 			RETURN _Result
-			```
-		displayFolder: "05. Benchmarks & Price Spreads"
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: a8a4365a-5dfc-470f-97ec-46da8deb1b77
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Thai vs Viet Price Spread' = ```
+	measure 'Thai vs Viet Price Spread' =
 			VAR _ThaiPrice = CALCULATE( [Average Price], 'Fct_Oryza Price'[Country Name] = "Thailand" )
 			VAR _VietPrice = CALCULATE( [Average Price], 'Fct_Oryza Price'[Country Name] = "Vietnam" )
 			VAR _Result = IF( NOT( ISBLANK(_ThaiPrice) || ISBLANK(_VietPrice) ), _ThaiPrice - _VietPrice )
 			RETURN _Result
-			```
-		displayFolder: "05. Benchmarks & Price Spreads"
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: 409dd912-a332-4ea5-81f0-1ea187ab0223
+
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Country Price Rank' = ```
+	measure 'Country Price Rank' =
 			IF(
 			    HASONEVALUE( 'Fct_Oryza Price'[Country Name] ),
 			    RANKX(
@@ -227,126 +387,25 @@ table DAX
 			        Dense
 			    )
 			)
-			```
-		displayFolder: "06. Rankings"
+		displayFolder: 06. Rankings
+		lineageTag: 7bc9783a-089b-4fc4-99b6-0b36dcd1b6b5
 
-	measure △Day =
-			VAR _Daychange = [Avg Price Last Day]- [Avg Price Previous Day]
-			VAR _result = IF([Avg Price Last Day] <> 0 && [Avg Price Previous Day] <> 0 , _Daychange)
-			RETURN _result
-		displayFolder: "07. UI & System Helpers"
-		formatString: +0.00 ; -0.00
-		lineageTag: 43c6d110-d441-4733-8b2b-af7a73882643
-		annotation PBI_FormatHint = {"isCustom":true}
-
-	measure %△Month = ```
-			VAR _Monthchange = DIVIDE([Avg Price Last Month],[Avg Price Last Month LY],0) - 1 
-			VAR _result = IF([Avg Price Last Month] <> 0 && [Avg Price Last Month LY] <> 0 , _Monthchange)
-			RETURN _result
-			```
-		displayFolder: "07. UI & System Helpers"
-		formatString: +0.00% ; -0.00%
-		lineageTag: bfed130e-864b-4af2-ba42-0385d663953d
-		annotation PBI_FormatHint = {"isCustom":true}
-
-	measure %△Year = ```
-			VAR _Yearchange = DIVIDE([Avg Price This Year] , [Avg Price Last Year] , 0 ) -1 
-			VAR _result = IF([Avg Price This Year] <> 0 && [Avg Price Last Year] <> 0 , _Yearchange)
-			RETURN _result
-			```
-		displayFolder: "07. UI & System Helpers"
-		formatString: +0.00% ; -0.00%
-		lineageTag: 02da03a2-23ae-4223-baac-620ee2a4da27
-		annotation PBI_FormatHint = {"isCustom":true}
-
-	measure 'Text_color Day' = IF([△Day] > 0 , "Blue", IF( [△Day] < 0 , "Red" , "Black"))
-		displayFolder: "07. UI & System Helpers"
-		lineageTag: 412af95c-a797-40e1-ad5b-f13bdd317fc2
-
-	measure 'Text_color Month' = IF([%△Month] > 0 , "Blue", IF( [%△Month] < 0 , "Red" , "Black"))
-		displayFolder: "07. UI & System Helpers"
-		lineageTag: 87843d14-c555-470d-b116-d4fa361bd27b
-
-	measure 'Text_color Year' = IF([Annual Change] > 0 , "Blue", IF( [Annual Change] < 0 , "Red" , "Black"))
-		displayFolder: "07. UI & System Helpers"
-		lineageTag: 926c197a-7a14-4d27-b08a-348fa19b7b20
-
-	measure 'Test day' = ```
-			VAR _lastdate = LASTDATE(Dm_Date[Date])
-			VAR Result = CALCULATE( [Average Price] ,                      
-			                      all(Dm_Date[Date]),
-			                      Dm_Date[Date] = _lastdate )
-			RETURN Result
-			```
-		displayFolder: "07. UI & System Helpers"
-		lineageTag: a95aa434-9ccb-4ea1-9d40-c3153982a27e
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Test Previous Date' = ```
-			IF( NOT ISEMPTY('Fct_Oryza Price'),
-			    VAR _Maxdate = MAX(Dm_Date[Date])
-			    VAR _PreviousdatePrice = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ),
-			                                        Dm_Date[Date] < _Maxdate )
-			    VAR _Result = CALCULATE( [Average Price] ,
-			                             Dm_Date[Date] = _PreviousdatePrice )
-			
-			    RETURN _Result )
-			```
-		displayFolder: "07. UI & System Helpers"
-		lineageTag: 12e85fe4-a7ef-4be4-9fdb-b2b864bed51b
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'text_Previous date' =
-			VAR _maxdate = MAX(Dm_Date[Date])
-			VAR _PreviousdatePrice = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ),
-			                                        Dm_Date[Date] < _maxdate )
-			RETURN _PreviousdatePrice
-		displayFolder: "07. UI & System Helpers"
-		formatString: General Date
-		lineageTag: ca963b3e-422d-48d0-b2f2-ba3f87b1a50a
-
-	measure 'Anual 365 CY' = ```
-			VAR _CY = CALCULATE( [Average Price] ,                          
-			                          DATESINPERIOD( Dm_Date[Date] , LASTDATE(Dm_Date[Date]), -365 , DAY ) )
-			RETURN _CY
-			```
-		displayFolder: "07. UI & System Helpers"
-		lineageTag: a78d780a-0c9c-472a-b1f8-46615057293a
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Anual 365 LY' = ```
-			VAR _MaxDate =  LASTDATE( Dm_Date[Date] ) - 365
-			VAR _LY365Day = DATESINPERIOD( Dm_Date[Date], _MaxDate, -365, DAY )
-			VAR _Result =   CALCULATE( [Average Price] ,                          
-			                          _LY365Day )
+	measure 'Avg Price WoW%' = 
+			VAR _LastDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ), ALL( Dm_Date ) )
+			VAR _CurrentPrice = [Avg Price Last Day]
+			VAR _TargetDate = _LastDate - 7
+			VAR _PreviousWeekPrice = 
+				CALCULATE(
+					[Average Price],
+					ALL( Dm_Date ),
+					DATESBETWEEN( Dm_Date[Date], _TargetDate - 3, _TargetDate )
+				)
+			VAR _Result = IF( NOT ISBLANK(_CurrentPrice) && NOT ISBLANK(_PreviousWeekPrice) && _PreviousWeekPrice <> 0, DIVIDE(_CurrentPrice - _PreviousWeekPrice, _PreviousWeekPrice, 0) )
 			RETURN _Result
-			```
-		displayFolder: "07. UI & System Helpers"
-		lineageTag: 50965014-9f9a-4e70-877b-e675ad28c244
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Annual Change' = ```
-			VAR _AnualChange = DIVIDE( [Anual 365 CY] , [Anual 365 LY] , 0 ) - 1 
-			VAR _result = IF([Anual 365 CY] <> 0 && [Anual 365 LY] <> 0 , _AnualChange)
-			RETURN _result
-			```
-		displayFolder: "07. UI & System Helpers"
 		formatString: +0.00% ; -0.00%
-		lineageTag: e582ed9c-69cc-427d-9d93-c565026cdcdd
-		annotation PBI_FormatHint = {"isCustom":true}
+		displayFolder: 02. Time Intelligence
+		lineageTag: e48bdfba-791b-4fc6-bc21-789a34bcda0a
 
-	measure Dummy = [Average Price] / [Average Price]
-		displayFolder: "07. UI & System Helpers"
-		formatString: 0
-		lineageTag: 61121dfa-c909-4e78-a639-81e851f3a5bd
-
-	measure Text_table = ```
-			SELECTEDVALUE( Dm_Category[Category Eng] ) & 
-			            " Average Price : " &
-			            FORMAT( LASTDATE(Dm_Date[Date]), "d-mmm-yyyy")
-			```
-		displayFolder: "07. UI & System Helpers"
-		lineageTag: 3fb81a0f-b201-471b-a1ca-0fd2d2e28ba2
 
 	column Column1
 		dataType: string
@@ -371,3 +430,4 @@ table DAX
 	annotation PBI_ResultType = Table
 
 	annotation PBI_NavigationStepName = Navigation
+

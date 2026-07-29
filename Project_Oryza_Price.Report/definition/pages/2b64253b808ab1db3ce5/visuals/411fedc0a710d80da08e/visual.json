@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "411fedc0a710d80da08e",
   "position": {
     "x": 50,
@@ -7,7 +7,7 @@
     "z": 11000,
     "height": 45.714285714285715,
     "width": 400,
-    "tabOrder": 10000
+    "tabOrder": 9000
   },
   "visual": {
     "visualType": "textbox",
@@ -19,11 +19,12 @@
               {
                 "textRuns": [
                   {
-                    "value": "TEST : ORYZA PRICE REPORT",
+                    "value": "ORYZA GLOBAL RICE PRICE REPORT",
                     "textStyle": {
                       "fontWeight": "bold",
-                      "fontSize": "18pt",
-                      "color": "#12239e"
+                      "fontFamily": "Inter",
+                      "fontSize": "20pt",
+                      "color": "#dde3ec"
                     }
                   }
                 ]

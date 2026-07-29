@@ -14,23 +14,14 @@
               "name": {
                 "expr": {
                   "Literal": {
-                    "Value": "'Theme_SkyBlue.png'"
+                    "Value": "''"
                   }
                 }
               },
               "url": {
                 "expr": {
-                  "ResourcePackageItem": {
-                    "PackageName": "RegisteredResources",
-                    "PackageType": 1,
-                    "ItemName": "Theme_SkyBlue06992033963425937.png"
-                  }
-                }
-              },
-              "scaling": {
-                "expr": {
                   "Literal": {
-                    "Value": "'Fit'"
+                    "Value": "''"
                   }
                 }
               }

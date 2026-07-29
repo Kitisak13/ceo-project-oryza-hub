@@ -1,9 +1,9 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "148904c0e73eb07d90a6",
   "position": {
-    "x": 49.968762130090013,
-    "y": 433.06260512744677,
+    "x": 47.310061601642708,
+    "y": 427.1422704605456,
     "z": 3000,
     "height": 233.18755660708672,
     "width": 772.24450564684571,
@@ -43,6 +43,21 @@
               "queryRef": "DAX.Avg Price Last Day",
               "nativeQueryRef": "20-Jul-26",
               "displayName": "20-Jul-26"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Avg Price Previous Day"
+                }
+              },
+              "queryRef": "DAX.Avg Price Previous Day",
+              "nativeQueryRef": "17-Jul-26",
+              "displayName": "17-Jul-26"
             },
             {
               "field": {
@@ -103,6 +118,36 @@
               "queryRef": "DAX.52 Week H",
               "nativeQueryRef": "52 Week High",
               "displayName": "52 Week High"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Avg Price This Year"
+                }
+              },
+              "queryRef": "DAX.Avg Price This Year",
+              "nativeQueryRef": "Avg. 2026",
+              "displayName": "Avg. 2026"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Avg Price Last Year"
+                }
+              },
+              "queryRef": "DAX.Avg Price Last Year",
+              "nativeQueryRef": "Avg. 2025",
+              "displayName": "Avg. 2025"
             }
           ],
           "showAll": true,
@@ -119,7 +164,8 @@
                 }
               },
               "index": 1,
-              "length": 5
+              "length": 8,
+              "sortDirection": "Ascending"
             }
           ]
         }
@@ -128,13 +174,13 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dm_Product Name"
+                    "Entity": "DAX"
                   }
                 },
-                "Property": "Product Name"
+                "Property": "△Day"
               }
             },
             "direction": "Ascending"
@@ -474,14 +520,39 @@
                 }
               }
             },
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            },
             "backColor": {
               "solid": {
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#4375B2'"
+                      "Value": "'#161c22'"
                     }
                   }
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#dde3ec'"
+                    }
+                  }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Inter'"
                 }
               }
             },
@@ -821,5 +892,61 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "b9b04e6c5e1bc6020b89",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DAX"
+              }
+            },
+            "Property": "Avg Price Last Day"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d1",
+              "Entity": "DAX",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "Comparison": {
+                      "ComparisonKind": 0,
+                      "Left": {
+                        "Measure": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d1"
+                            }
+                          },
+                          "Property": "Avg Price Last Day"
+                        }
+                      },
+                      "Right": {
+                        "Literal": {
+                          "Value": "null"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
   }
 }
