@@ -1,0 +1,75 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "d6bed202a84d5b20e8d6",
+  "position": {
+    "x": 30.284098260660613,
+    "y": 278.61370399807765,
+    "z": 1000,
+    "height": 357.35235947579525,
+    "width": 528.45751464852776,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Category"
+                    }
+                  },
+                  "Property": "Category Eng"
+                }
+              },
+              "queryRef": "Dm_Category.Category Eng",
+              "nativeQueryRef": "Category Eng",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Avg Price YTD"
+                }
+              },
+              "queryRef": "DAX.Avg Price YTD",
+              "nativeQueryRef": "Avg Price YTD"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Measure": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DAX"
+                  }
+                },
+                "Property": "Avg Price YTD"
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -305,9 +305,9 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Price 120D MA' = ```
+	measure 'Avg Price 30D MA' = ```
 			VAR _LastDate = MAX( 'Dm_Date'[Date] )
-			VAR _Period = DATESINPERIOD( 'Dm_Date'[Date], _LastDate, -120, DAY )
+			VAR _Period = DATESINPERIOD( 'Dm_Date'[Date], _LastDate, -30, DAY )
 			VAR _Result = 
 			    CALCULATE(
 			        [Average Price],
@@ -390,11 +390,11 @@ table DAX
 		displayFolder: 06. Rankings
 		lineageTag: 7bc9783a-089b-4fc4-99b6-0b36dcd1b6b5
 
-	measure 'Avg Price WoW%' =
+	measure 'Avg Price WoW%' = 
 			VAR _LastDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ), ALL( Dm_Date ) )
 			VAR _CurrentPrice = [Avg Price Last Day]
 			VAR _TargetDate = _LastDate - 7
-			VAR _PreviousWeekPrice =
+			VAR _PreviousWeekPrice = 
 				CALCULATE(
 					[Average Price],
 					ALL( Dm_Date ),
@@ -405,6 +405,7 @@ table DAX
 		formatString: +0.00% ; -0.00%
 		displayFolder: 02. Time Intelligence
 		lineageTag: e48bdfba-791b-4fc6-bc21-789a34bcda0a
+
 
 	column Column1
 		dataType: string

@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "AgroExecutive_Core_Theme34322955300775015.json",
+      "name": "AgroExecutive_Core_Theme07403561207954112.json",
       "reportVersionAtImport": {
         "visual": "2.11.0",
         "report": "3.4.0",
@@ -122,8 +122,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "AgroExecutive_Core_Theme34322955300775015.json",
-          "path": "AgroExecutive_Core_Theme34322955300775015.json",
+          "name": "AgroExecutive_Core_Theme07403561207954112.json",
+          "path": "AgroExecutive_Core_Theme07403561207954112.json",
           "type": "CustomTheme"
         },
         {

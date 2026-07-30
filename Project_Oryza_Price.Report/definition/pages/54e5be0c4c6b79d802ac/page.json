@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "54e5be0c4c6b79d802ac",
-  "displayName": "Backup BG",
+  "displayName": "Backup",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
@@ -72,5 +72,56 @@
     ]
   },
   "visibility": "HiddenInViewMode",
-  "visualInteractions": []
+  "visualInteractions": [
+    {
+      "source": "893a7c964d6c4576b5c5",
+      "target": "a23b6ab17529d810010e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "893a7c964d6c4576b5c5",
+      "target": "1f93a8be592bd23508c0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a23b6ab17529d810010e",
+      "target": "893a7c964d6c4576b5c5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "45331702b1aa200082c6",
+      "target": "893a7c964d6c4576b5c5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "45331702b1aa200082c6",
+      "target": "1f93a8be592bd23508c0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "89eab91dea48933640db",
+      "target": "1f93a8be592bd23508c0",
+      "type": "NoFilter"
+    },
+    {
+      "source": "89eab91dea48933640db",
+      "target": "893a7c964d6c4576b5c5",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1f93a8be592bd23508c0",
+      "target": "89eab91dea48933640db",
+      "type": "DataFilter"
+    },
+    {
+      "source": "893a7c964d6c4576b5c5",
+      "target": "89eab91dea48933640db",
+      "type": "NoFilter"
+    },
+    {
+      "source": "45331702b1aa200082c6",
+      "target": "89eab91dea48933640db",
+      "type": "NoFilter"
+    }
+  ]
 }

@@ -1,8 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "2d91d28805af45929887",
-  "displayName": "Sourcing Cost Optimizer",
-  "displayOption": "FitToPage",
-  "height": 720,
-  "width": 1280
-}

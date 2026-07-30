@@ -1,0 +1,108 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "87ac6bff22163e083c24",
+  "position": {
+    "x": 656.64,
+    "y": 0,
+    "z": 0,
+    "height": 600.48,
+    "width": 623.52,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Date"
+                    }
+                  },
+                  "Property": "MonthYear"
+                }
+              },
+              "queryRef": "Dm_Date.MonthYear",
+              "nativeQueryRef": "MonthYear"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Average Price"
+                }
+              },
+              "queryRef": "DAX.Average Price",
+              "nativeQueryRef": "Average Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Avg Price YoY"
+                }
+              },
+              "queryRef": "DAX.Avg Price LY",
+              "nativeQueryRef": "Avg Price YoY"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Avg Price YoY%"
+                }
+              },
+              "queryRef": "DAX.Avg Price YOY%",
+              "nativeQueryRef": "Avg Price YoY%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Avg Price MoM"
+                }
+              },
+              "queryRef": "DAX.Avg Price MoM",
+              "nativeQueryRef": "Avg Price MoM"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Avg Price MoM%"
+                }
+              },
+              "queryRef": "DAX.Avg Price MoM%",
+              "nativeQueryRef": "Avg Price MoM%"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
