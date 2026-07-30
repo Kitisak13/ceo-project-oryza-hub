@@ -52,12 +52,12 @@
                       "Entity": "DAX"
                     }
                   },
-                  "Property": "Avg Price Previous Day"
+                  "Property": "△Day"
                 }
               },
-              "queryRef": "DAX.Avg Price Previous Day",
-              "nativeQueryRef": "17-Jul-26",
-              "displayName": "17-Jul-26"
+              "queryRef": "DAX.△Day",
+              "nativeQueryRef": "Daily $ Change",
+              "displayName": "Daily $ Change"
             },
             {
               "field": {
@@ -67,12 +67,27 @@
                       "Entity": "DAX"
                     }
                   },
-                  "Property": "△Day"
+                  "Property": "Avg Price WoW%"
                 }
               },
-              "queryRef": "DAX.△Day",
-              "nativeQueryRef": "Daily $ Change",
-              "displayName": "Daily $ Change"
+              "queryRef": "DAX.Avg Price WoW%",
+              "nativeQueryRef": "Weekly % Change",
+              "displayName": "Weekly % Change"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "%△Month"
+                }
+              },
+              "queryRef": "DAX.%△Month",
+              "nativeQueryRef": "Monthly % Change",
+              "displayName": "Monthly % Change"
             },
             {
               "field": {
@@ -164,7 +179,7 @@
                 }
               },
               "index": 1,
-              "length": 8,
+              "length": 9,
               "sortDirection": "Ascending"
             }
           ]

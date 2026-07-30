@@ -1,6 +1,0 @@
-EVALUATE 
-VAR _Period = DATESINPERIOD( Dm_Date[Date] , LASTDATE(Dm_Date[Date]), -365 , DAY )
-VAR _AvgPrice = [Average Price]
-
-RETURN ADDCOLUMNS(_Period,
-				  "Avg.Price", _AvgPrice)

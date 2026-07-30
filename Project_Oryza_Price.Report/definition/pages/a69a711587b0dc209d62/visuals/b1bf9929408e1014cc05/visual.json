@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "b1bf9929408e1014cc05",
   "position": {
-    "x": 18.17045895639637,
-    "y": 0,
-    "z": 1,
-    "height": 307.38359734570525,
-    "width": 1244.6764385131512,
-    "tabOrder": 1
+    "x": 222.58812221585552,
+    "y": 25.741483521561523,
+    "z": 0,
+    "height": 349.78133491063011,
+    "width": 1038.744570340659,
+    "tabOrder": 0
   },
   "visual": {
     "visualType": "tableEx",
@@ -52,12 +52,12 @@
                       "Entity": "DAX"
                     }
                   },
-                  "Property": "Avg Price Previous Day"
+                  "Property": "△Day"
                 }
               },
-              "queryRef": "DAX.Avg Price Previous Day",
-              "nativeQueryRef": "17-Jul-26",
-              "displayName": "17-Jul-26"
+              "queryRef": "DAX.△Day",
+              "nativeQueryRef": "Daily $ Change",
+              "displayName": "Daily $ Change"
             },
             {
               "field": {
@@ -67,12 +67,27 @@
                       "Entity": "DAX"
                     }
                   },
-                  "Property": "△Day"
+                  "Property": "Avg Price WoW%"
                 }
               },
-              "queryRef": "DAX.△Day",
-              "nativeQueryRef": "∆ Daily",
-              "displayName": "∆ Daily"
+              "queryRef": "DAX.Avg Price WoW%",
+              "nativeQueryRef": "Weekly % Change",
+              "displayName": "Weekly % Change"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "%△Month"
+                }
+              },
+              "queryRef": "DAX.%△Month",
+              "nativeQueryRef": "Monthly % Change",
+              "displayName": "Monthly % Change"
             },
             {
               "field": {
@@ -86,8 +101,8 @@
                 }
               },
               "queryRef": "DAX.Annual Change",
-              "nativeQueryRef": "∆ Annual",
-              "displayName": "∆ Annual"
+              "nativeQueryRef": "Annual Change",
+              "displayName": "Annual Change"
             },
             {
               "field": {
@@ -101,8 +116,8 @@
                 }
               },
               "queryRef": "DAX.52 Week L",
-              "nativeQueryRef": "52 Week L",
-              "displayName": "52 Week L"
+              "nativeQueryRef": "52 Week Low",
+              "displayName": "52 Week Low"
             },
             {
               "field": {
@@ -116,8 +131,8 @@
                 }
               },
               "queryRef": "DAX.52 Week H",
-              "nativeQueryRef": "52 Week H",
-              "displayName": "52 Week H"
+              "nativeQueryRef": "52 Week High",
+              "displayName": "52 Week High"
             },
             {
               "field": {
@@ -163,7 +178,7 @@
                 }
               },
               "index": 1,
-              "length": 8
+              "length": 9
             }
           ]
         }
@@ -181,7 +196,7 @@
                 "Property": "Product Name"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -226,7 +241,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "75.1420491303303D"
+                  "Value": "87.23385950696934D"
                 }
               }
             }
@@ -282,7 +297,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "81.54261487540664D"
+                  "Value": "78.49717887660351D"
                 }
               }
             }
@@ -303,6 +318,47 @@
           },
           "selector": {
             "metadata": "DAX.Avg Price Last Year"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "93.60226747711741D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DAX.%△Month"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "89.11646734810817D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DAX.Avg Price WoW%"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
           }
         }
       ]

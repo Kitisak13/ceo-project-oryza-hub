@@ -1,0 +1,15 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "8fffa2d8c89243929c56",
+  "position": {
+    "x": 10,
+    "y": 120,
+    "z": 0,
+    "height": 590,
+    "width": 1260,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "waterfallChart"
+  }
+}

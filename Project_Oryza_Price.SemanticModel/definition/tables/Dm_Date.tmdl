@@ -4,7 +4,7 @@ table Dm_Date
 
 	column Date
 		isKey
-		formatString: Long Date
+		formatString: yyyy-mm-dd
 		lineageTag: 642ee036-8bab-492c-9a0b-697dfb878f76
 		summarizeBy: none
 		isNameInferred
@@ -13,6 +13,8 @@ table Dm_Date
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column Year
 		formatString: 0
