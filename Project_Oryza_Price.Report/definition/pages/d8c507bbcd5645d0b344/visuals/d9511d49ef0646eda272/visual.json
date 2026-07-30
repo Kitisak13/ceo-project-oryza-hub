@@ -10,42 +10,6 @@
     "tabOrder": 2
   },
   "visual": {
-    "visualType": "tableEx",
-    "query": {
-      "queryState": {
-        "Values": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dm_Product Name"
-                    }
-                  },
-                  "Property": "Product Name"
-                }
-              },
-              "queryRef": "Dm_Product Name.Product Name",
-              "nativeQueryRef": "Product Name"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DAX"
-                    }
-                  },
-                  "Property": "Average Price"
-                }
-              },
-              "queryRef": "DAX.Average Price",
-              "nativeQueryRef": "Average Price"
-            }
-          ]
-        }
-      }
-    }
+    "visualType": "tableEx"
   }
 }
