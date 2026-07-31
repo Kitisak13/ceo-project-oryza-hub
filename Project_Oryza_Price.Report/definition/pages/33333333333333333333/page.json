@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "33333333333333333333",
+  "displayName": "Seasonality Analysis",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "53bf8e8325c000220c0c",
+    "type": "Default",
+    "parameters": []
+  },
+  "visualInteractions": [
+    {
+      "source": "af434f16e00a865c6b21",
+      "target": "4b388480b0d00596b076",
+      "type": "NoFilter"
+    },
+    {
+      "source": "6981c8d2c460bad2cec0",
+      "target": "af434f16e00a865c6b21",
+      "type": "NoFilter"
+    },
+    {
+      "source": "6981c8d2c460bad2cec0",
+      "target": "4b388480b0d00596b076",
+      "type": "NoFilter"
+    }
+  ]
+}

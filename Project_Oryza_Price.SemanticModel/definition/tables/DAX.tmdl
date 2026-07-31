@@ -305,9 +305,9 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Price 30D MA' = ```
+	measure 'Avg Price 120D MA' = ```
 			VAR _LastDate = MAX( 'Dm_Date'[Date] )
-			VAR _Period = DATESINPERIOD( 'Dm_Date'[Date], _LastDate, -30, DAY )
+			VAR _Period = DATESINPERIOD( 'Dm_Date'[Date], _LastDate, -120, DAY )
 			VAR _Result = 
 			    CALCULATE(
 			        [Average Price],
@@ -390,11 +390,11 @@ table DAX
 		displayFolder: 06. Rankings
 		lineageTag: 7bc9783a-089b-4fc4-99b6-0b36dcd1b6b5
 
-	measure 'Avg Price WoW%' = 
+	measure 'Avg Price WoW%' =
 			VAR _LastDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ), ALL( Dm_Date ) )
 			VAR _CurrentPrice = [Avg Price Last Day]
 			VAR _TargetDate = _LastDate - 7
-			VAR _PreviousWeekPrice = 
+			VAR _PreviousWeekPrice =
 				CALCULATE(
 					[Average Price],
 					ALL( Dm_Date ),
@@ -406,6 +406,53 @@ table DAX
 		displayFolder: 02. Time Intelligence
 		lineageTag: e48bdfba-791b-4fc6-bc21-789a34bcda0a
 
+	measure Measure
+		displayFolder: 02. Time Intelligence
+		lineageTag: 74b05247-415f-493b-b1c5-42f9c2a8510a
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure 'All-Time Min Price' =
+			
+			CALCULATE(
+			    MIN('Fct_Oryza Price'[Avg_Price]),
+			    ALL('Dm_Date'[Year]),
+			    ALL('Dm_Date'[Date])
+			)
+		displayFolder: 01. Core Price Metrics
+		lineageTag: 47ad5a73-175e-45a0-a17c-a54cb9b66b65
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'All-Time Max Price' =
+			
+			CALCULATE(
+			    MAX('Fct_Oryza Price'[Avg_Price]),
+			    ALL('Dm_Date'[Year]),
+			    ALL('Dm_Date'[Date])
+			)
+		displayFolder: 01. Core Price Metrics
+		lineageTag: 177dbe6a-1edf-4084-b06f-1933e152f0df
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Thai vs Viet Spread' =
+			VAR _Thai = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
+			VAR _Viet = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Vietnam 5% broken")
+			RETURN IF(NOT ISBLANK(_Thai) && NOT ISBLANK(_Viet), _Thai - _Viet, BLANK())
+		displayFolder: 03. Variance Analysis
+		lineageTag: a3b92f71-1250-482a-89a1-778841029c01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Thai vs India Spread' =
+			VAR _Thai = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
+			VAR _India = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "India 5% broken")
+			RETURN IF(NOT ISBLANK(_Thai) && NOT ISBLANK(_India), _Thai - _India, BLANK())
+		displayFolder: 03. Variance Analysis
+		lineageTag: b4c83f82-2361-593b-9A12-889952130d02
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Column1
 		dataType: string
