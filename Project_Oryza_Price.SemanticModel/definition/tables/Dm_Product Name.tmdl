@@ -20,6 +20,30 @@ table 'Dm_Product Name'
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Category Code'
+		dataType: string
+		lineageTag: 6a71d7be-2a1f-4bdf-ae4a-4f5a1079c3ef
+		summarizeBy: none
+		sourceColumn: Category Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dm_Category.Category Th'
+		dataType: string
+		lineageTag: 04e1a926-4640-4c31-8bf4-e188e5577306
+		summarizeBy: none
+		sourceColumn: Dm_Category.Category Th
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dm_Category.Category Eng'
+		dataType: string
+		lineageTag: fb2f7cae-4591-4bd7-bf2f-91f36153f658
+		summarizeBy: none
+		sourceColumn: Dm_Category.Category Eng
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Dm_Product Name' = m
 		mode: import
 		source =
@@ -27,10 +51,12 @@ table 'Dm_Product Name'
 				    Source = Table.Combine({#"2020", #"2021", #"2022", #"2023", #"2024", #"2025", #"2026"}),
 				    #"Filtered Rows" = Table.SelectRows(Source, each ([Category Name] <> null)),
 				    #"Capitalized Each Word" = Table.TransformColumns(#"Filtered Rows",{{"Country Name", Text.Proper, type text}}),
-				    #"Grouped Rows" = Table.Group(#"Capitalized Each Word", {"Product Code", "Product Name"}, {{"ss", each _, type table [HeaderDate=nullable date, SourceCode=nullable text, SourceName=nullable text, Currency Code=nullable text, Weight=nullable number, Unit Code=nullable text, Courntry Code=any, Country Name=text, Province Code=any, Province Name=any, Category Code=nullable text, Category Name=nullable text, Sub Category Code=nullable text, Sub Category Name=nullable text, Product Code=nullable text, Product Name=nullable text, Min Price=nullable number, Max Price=nullable number, Diff Price=nullable number]}}),
-				    #"Removed Columns" = Table.RemoveColumns(#"Grouped Rows",{"ss"})
+				    #"Grouped Rows" = Table.Group(#"Capitalized Each Word", {"Product Code", "Product Name", "Category Code"}, {{"ss", each _, type table [ExportData=text, HeaderDate=nullable date, SourceCode=text, SourceName=text, Currency Code=text, Weight=nullable number, Unit Code=text, Courntry Code=any, Country Name=text, Province Code=any, Province Name=any, Category Code=text, Category Name=text, Sub Category Code=text, Sub Category Name=text, Product Code=text, Product Name=text, Min Price=nullable number, Max Price=nullable number, Diff Price=nullable number, ExportData_1=text, Sheet=text, false=logical]}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Grouped Rows",{"ss"}),
+				    #"Merged Queries" = Table.NestedJoin(#"Removed Columns", {"Category Code"}, Dm_Category, {"Category Code"}, "Dm_Category", JoinKind.LeftOuter),
+				    #"Expanded Dm_Category" = Table.ExpandTableColumn(#"Merged Queries", "Dm_Category", {"Category Th", "Category Eng"}, {"Dm_Category.Category Th", "Dm_Category.Category Eng"})
 				in
-				    #"Removed Columns"
+				    #"Expanded Dm_Category"
 
 	annotation PBI_NavigationStepName = Navigation
 

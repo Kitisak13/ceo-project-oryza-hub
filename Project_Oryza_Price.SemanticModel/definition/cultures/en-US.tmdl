@@ -983,16 +983,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.714
 			          }
-			        },
-			        {
-			          "Day": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ],
 			      "SemanticType": "Time"
@@ -1753,26 +1743,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.485
 			          }
-			        },
-			        {
-			          "Avg.Price": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Avg Price": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -1891,7 +1861,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Last Day": {
+			          "30-Jul-26": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1902,16 +1872,6 @@ cultureInfo en-US
 			        },
 			        {
 			          "20-Jul-26": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "This Day": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -1947,7 +1907,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Previous Day": {
+			          "17-Jul-26": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2071,16 +2031,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.599
 			          }
-			        },
-			        {
-			          "This Month": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -2197,16 +2147,6 @@ cultureInfo en-US
 			            },
 			            "Weight": 0.605
 			          }
-			        },
-			        {
-			          "LY Month": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
 			        }
 			      ]
 			    },
@@ -2278,16 +2218,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "YoY%": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -2450,16 +2380,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.599
-			          }
-			        },
-			        {
-			          "MoM%": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -2702,17 +2622,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Avg.This Year": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "This Year": {
+			          "Avg. 2026": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2838,17 +2748,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Avg.Last Year": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        },
-			        {
-			          "Last Year": {
+			          "Avg. 2025": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2927,6 +2827,16 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "Monthly % Change": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -5046,22 +4956,22 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "dax.avg_price_30D_MA": {
+			    "dax.avg_price_120D_MA": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "DAX",
-			          "ConceptualProperty": "Avg Price 30D MA"
+			          "ConceptualProperty": "Avg Price 120D MA"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "avg price 30D MA": {
+			          "avg price 120D MA": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "average price 30d ma": {
+			          "average price 120d ma": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5071,7 +4981,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d mom": {
+			          "avg price 120d mom": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5081,7 +4991,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d mommy": {
+			          "avg price 120d mommy": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5091,7 +5001,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d mamma": {
+			          "avg price 120d mamma": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5101,7 +5011,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d mama": {
+			          "avg price 120d mama": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5111,7 +5021,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d mammy": {
+			          "avg price 120d mammy": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5121,7 +5031,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d momma": {
+			          "avg price 120d momma": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5131,7 +5041,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d mam": {
+			          "avg price 120d mam": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5141,7 +5051,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d mater": {
+			          "avg price 120d mater": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
@@ -5151,23 +5061,13 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "avg price 30d mother": {
+			          "avg price 120d mother": {
 			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.499
-			          }
-			        },
-			        {
-			          "30D MA": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -5284,16 +5184,6 @@ cultureInfo en-US
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.499
-			          }
-			        },
-			        {
-			          "90D MA": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -5587,10 +5477,75 @@ cultureInfo en-US
 			          }
 			        }
 			      ]
+			    },
+			    "dax.avg_price_WoW": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Avg Price WoW%"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "avg price WoW%": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "avg price wow percentage": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.771
+			          }
+			        },
+			        {
+			          "avg price wow pct": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.748
+			          }
+			        },
+			        {
+			          "average price wow%": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.599
+			          }
+			        },
+			        {
+			          "Weekly % Change": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dax.avg_price_30d_ma": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "Avg Price 30D MA"
+			        }
+			      },
+			      "State": "Generated"
 			    }
 			  },
 			  "Relationships": {
-			    "Fct_Oryza_price_has_Dm_Product_name": {
+			    "Fct_Oryza_price_has_dax_avg_price_WoW": {
 			      "Binding": {
 			        "ConceptualEntity": "Fct_Oryza Price"
 			      },
@@ -5601,9 +5556,9 @@ cultureInfo en-US
 			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
-			        "Dm_Product_name": {
+			        "dax.avg_price_WoW": {
 			          "Target": {
-			            "Entity": "Dm_Product_name"
+			            "Entity": "dax.avg_price_WoW"
 			          }
 			        }
 			      },
@@ -5614,25 +5569,12 @@ cultureInfo en-US
 			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
-			              "Role": "Dm_Product_name"
+			              "Role": "dax.avg_price_WoW"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Fct_Oryza_prices_have_Dm_Product_names"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "Dm_Product_name"
-			            },
-			            "Object": {
-			              "Role": "Fct_Oryza_price"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "Dm_Product_names_have_Fct_Oryza_prices"
+			          "ID": "Fct_Oryza_prices_have_avg_price_WoW"
 			        }
 			      ]
 			    },
@@ -5867,7 +5809,7 @@ cultureInfo en-US
 			        }
 			      ]
 			    },
-			    "Fct_Oryza_price_has_dax_avg_price_30D_MA": {
+			    "Fct_Oryza_price_has_dax_avg_price_120D_MA": {
 			      "Binding": {
 			        "ConceptualEntity": "Fct_Oryza Price"
 			      },
@@ -5878,9 +5820,9 @@ cultureInfo en-US
 			            "Entity": "Fct_Oryza_price"
 			          }
 			        },
-			        "dax.avg_price_30D_MA": {
+			        "dax.avg_price_120D_MA": {
 			          "Target": {
-			            "Entity": "dax.avg_price_30D_MA"
+			            "Entity": "dax.avg_price_120D_MA"
 			          }
 			        }
 			      },
@@ -5891,12 +5833,12 @@ cultureInfo en-US
 			              "Role": "Fct_Oryza_price"
 			            },
 			            "Object": {
-			              "Role": "dax.avg_price_30D_MA"
+			              "Role": "dax.avg_price_120D_MA"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Fct_Oryza_prices_have_avg_price_30D_MA"
+			          "ID": "Fct_Oryza_prices_have_avg_price_120D_MA"
 			        }
 			      ]
 			    },
@@ -7860,6 +7802,52 @@ cultureInfo en-US
 			          "State": "Generated",
 			          "Weight": 0.9,
 			          "ID": "Fct_Oryza_prices_are_text_Previoued_on_text_Previous_date"
+			        }
+			      ]
+			    },
+			    "Fct_Oryza_price_has_Dm_Product_name": {
+			      "Binding": {
+			        "ConceptualEntity": "Fct_Oryza Price"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "Fct_Oryza_price": {
+			          "Target": {
+			            "Entity": "Fct_Oryza_price"
+			          }
+			        },
+			        "Dm_Product_name": {
+			          "Target": {
+			            "Entity": "Dm_Product_name"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Fct_Oryza_price"
+			            },
+			            "Object": {
+			              "Role": "Dm_Product_name"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Fct_Oryza_prices_have_Dm_Product_names"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "Dm_Product_name"
+			            },
+			            "Object": {
+			              "Role": "Fct_Oryza_price"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Dm_Product_names_have_Fct_Oryza_prices"
 			        }
 			      ]
 			    },

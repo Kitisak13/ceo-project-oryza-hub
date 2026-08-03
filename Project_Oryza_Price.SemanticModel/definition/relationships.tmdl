@@ -10,3 +10,8 @@ relationship AutoDetected_00aff85c-4214-42b4-a0df-61abde4eb610
 	fromColumn: 'Fct_Oryza Price'.'Category Code'
 	toColumn: Dm_Category.'Category Code'
 
+relationship AutoDetected_ab1c07d5-92ea-4924-b988-b6729d9a92ac
+	isActive: false
+	fromColumn: 'Dm_Product Name'.'Category Code'
+	toColumn: Dm_Category.'Category Code'
+

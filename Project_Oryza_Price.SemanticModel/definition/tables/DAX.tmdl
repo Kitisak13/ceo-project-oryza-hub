@@ -440,7 +440,7 @@ table DAX
 			VAR _Thai = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
 			VAR _Viet = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Vietnam 5% broken")
 			RETURN IF(NOT ISBLANK(_Thai) && NOT ISBLANK(_Viet), _Thai - _Viet, BLANK())
-		displayFolder: 03. Variance Analysis
+		displayFolder: 09. Variance Analysis
 		lineageTag: a3b92f71-1250-482a-89a1-778841029c01
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -449,10 +449,81 @@ table DAX
 			VAR _Thai = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
 			VAR _India = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "India 5% broken")
 			RETURN IF(NOT ISBLANK(_Thai) && NOT ISBLANK(_India), _Thai - _India, BLANK())
-		displayFolder: 03. Variance Analysis
+		displayFolder: 09. Variance Analysis
 		lineageTag: b4c83f82-2361-593b-9A12-889952130d02
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Price Range' =
+			VAR _Max = MAX('Fct_Oryza Price'[Avg_Price])
+			VAR _Min = MIN('Fct_Oryza Price'[Avg_Price])
+			RETURN IF(NOT ISBLANK(_Max) && NOT ISBLANK(_Min), _Max - _Min, BLANK())
+		displayFolder: 08. Volatility Metrics
+		lineageTag: 9f12d83e-4510-410a-b210-99e8a7182101
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Price Volatility %' =
+			VAR _Range = [Price Range]
+			VAR _Avg = [Average Price]
+			RETURN DIVIDE(_Range, _Avg, 0)
+		formatString: 0.00%
+		displayFolder: 08. Volatility Metrics
+		lineageTag: e821a37c-5120-421b-8910-189a74102102
+
+	measure 'Price StdDev' = STDEV.P('Fct_Oryza Price'[Avg_Price])
+		displayFolder: 08. Volatility Metrics
+		lineageTag: 7c12f45d-6120-4310-9110-27918a402103
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Rolling 30D Volatility %' =
+			VAR _StdDev = CALCULATE(STDEV.P('Fct_Oryza Price'[Avg_Price]), DATESINPERIOD('Dm_Date'[Date], MAX('Dm_Date'[Date]), -30, DAY))
+			VAR _Avg = CALCULATE([Average Price], DATESINPERIOD('Dm_Date'[Date], MAX('Dm_Date'[Date]), -30, DAY))
+			RETURN DIVIDE(_StdDev, _Avg, 0)
+		formatString: 0.00%
+		displayFolder: 08. Volatility Metrics
+		lineageTag: d921471b-7120-4410-b110-38917b502104
+
+	measure 'High vs Low Quality Spread' =
+			VAR _High = CALCULATE([Average Price], Dm_Category[Category Code] = "C000004")
+			VAR _Low = CALCULATE([Average Price], Dm_Category[Category Code] = "C000005")
+			RETURN IF(NOT ISBLANK(_High) && NOT ISBLANK(_Low), _High - _Low, BLANK())
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: f193a8be-592b-4235-082b-1f93a8be592b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Fragrant Rice Premium %' =
+			VAR _Fragrant = CALCULATE([Average Price], Dm_Category[Category Code] = "C000001")
+			VAR _WhiteHigh = CALCULATE([Average Price], Dm_Category[Category Code] = "C000004")
+			RETURN DIVIDE(_Fragrant - _WhiteHigh, _WhiteHigh, 0)
+		formatString: +0.00% ; -0.00%
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: f4533170-2b1a-4200-082c-45331702b1aa
+
+	measure 'MA 90D Signal Flag' =
+			VAR _Avg = [Average Price]
+			VAR _MA90 = [Avg Price 90D MA]
+			RETURN IF(ISBLANK(_Avg) || ISBLANK(_MA90), "No Data", IF(_Avg >= _MA90, "Bullish Trend (+)", "Bearish Trend (-)"))
+		displayFolder: 03. Trend & Moving Averages
+		lineageTag: f893a7c9-64d6-4576-b5c5-893a7c964d6c
+
+	measure 'Gap to 52W High %' =
+			VAR _Avg = [Average Price]
+			VAR _High = [52 Week H]
+			RETURN DIVIDE(_Avg - _High, _High, 0)
+		formatString: 0.00%
+		displayFolder: 03. Trend & Moving Averages
+		lineageTag: f89eab91-dea4-4933-840d-89eab91dea48
+
+	measure 'Gap to 52W Low %' =
+			VAR _Avg = [Average Price]
+			VAR _Low = [52 Week L]
+			RETURN DIVIDE(_Avg - _Low, _Low, 0)
+		formatString: 0.00%
+		displayFolder: 03. Trend & Moving Averages
+		lineageTag: fa23b6ab-1752-49d8-1001-a23b6ab17529
 
 	column Column1
 		dataType: string
