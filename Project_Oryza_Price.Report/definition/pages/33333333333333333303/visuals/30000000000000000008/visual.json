@@ -3,9 +3,9 @@
   "name": "30000000000000000008",
   "position": {
     "x": 24,
-    "y": 176,
+    "y": 179,
     "z": 8000,
-    "height": 272,
+    "height": 265,
     "width": 1232,
     "tabOrder": 8000
   },
@@ -23,11 +23,11 @@
                       "Entity": "Dm_Date"
                     }
                   },
-                  "Property": "Year"
+                  "Property": "MonthYear"
                 }
               },
-              "queryRef": "Dm_Date.Year",
-              "nativeQueryRef": "Year",
+              "queryRef": "Dm_Date.MonthYear",
+              "nativeQueryRef": "Month-Year",
               "active": true
             }
           ]

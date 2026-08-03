@@ -126,18 +126,6 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure '2024 Avg Price' = CALCULATE([Average Price], Dm_Date[Year] = 2024)
-		displayFolder: 02. Time Intelligence
-		lineageTag: y2024avg-0001-4235-082b-yr2024avg001
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '2025 Avg Price' = CALCULATE([Average Price], Dm_Date[Year] = 2025)
-		displayFolder: 02. Time Intelligence
-		lineageTag: y2025avg-0001-4235-082b-yr2025avg001
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure △Day =
 			VAR _Daychange = [Avg Price Last Day]- [Avg Price Previous Day]
 			VAR _result = IF([Avg Price Last Day] <> 0 && [Avg Price Previous Day] <> 0 , _Daychange)
@@ -281,13 +269,6 @@ table DAX
 		lineageTag: 5656c864-6e07-4d99-aa17-8b63c63ac270
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure '52W Range (Low - High)' =
-			VAR _Low = [52 Week L]
-			VAR _High = [52 Week H]
-			RETURN IF(NOT ISBLANK(_Low) && NOT ISBLANK(_High), "$" & FORMAT(_Low, "#,##0") & " - $" & FORMAT(_High, "#,##0"), "N/A")
-		displayFolder: 03. Trend & Moving Averages
-		lineageTag: f52w0001-52wh-4235-082b-52wlowhigh01
 
 	measure Dummy = [Average Price] / [Average Price]
 		formatString: 0
@@ -455,18 +436,6 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Thailand 5% Avg Price' = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
-		displayFolder: 05. Benchmarks & Price Spreads
-		lineageTag: t5th0001-5%br-4235-082b-th5avgprice01
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Vietnam 5% Avg Price' = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Vietnam 5% broken")
-		displayFolder: 05. Benchmarks & Price Spreads
-		lineageTag: v5vn0001-5%br-4235-082b-vn5avgprice01
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Thai vs Viet Spread' =
 			VAR _Thai = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
 			VAR _Viet = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Vietnam 5% broken")
@@ -482,15 +451,6 @@ table DAX
 			RETURN IF(NOT ISBLANK(_Thai) && NOT ISBLANK(_India), _Thai - _India, BLANK())
 		displayFolder: 09. Variance Analysis
 		lineageTag: b4c83f82-2361-593b-9A12-889952130d02
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	measure 'Parboiled vs White Spread' =
-			VAR _Parboiled = CALCULATE([Average Price], Dm_Category[Category Code] = "C000010")
-			VAR _WhiteHigh = CALCULATE([Average Price], Dm_Category[Category Code] = "C000004")
-			RETURN IF(NOT ISBLANK(_Parboiled) && NOT ISBLANK(_WhiteHigh), _Parboiled - _WhiteHigh, BLANK())
-		displayFolder: 05. Benchmarks & Price Spreads
-		lineageTag: p10pb001-parb-4235-082b-pbwhitespread01
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -524,6 +484,46 @@ table DAX
 		formatString: 0.00%
 		displayFolder: 08. Volatility Metrics
 		lineageTag: d921471b-7120-4410-b110-38917b502104
+
+	measure '2024 Avg Price' = CALCULATE([Average Price], Dm_Date[Year] = 2024)
+		displayFolder: 02. Time Intelligence
+		lineageTag: y2024avg-0001-4235-082b-yr2024avg001
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '2025 Avg Price' = CALCULATE([Average Price], Dm_Date[Year] = 2025)
+		displayFolder: 02. Time Intelligence
+		lineageTag: y2025avg-0001-4235-082b-yr2025avg001
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '52W Range (Low - High)' =
+			VAR _Low = [52 Week L]
+			VAR _High = [52 Week H]
+			RETURN IF(NOT ISBLANK(_Low) && NOT ISBLANK(_High), "$" & FORMAT(_Low, "#,##0") & " - $" & FORMAT(_High, "#,##0"), "N/A")
+		displayFolder: 03. Trend & Moving Averages
+		lineageTag: f52w0001-52wh-4235-082b-52wlowhigh01
+
+	measure 'Thailand 5% Avg Price' = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: t5th0001-5%br-4235-082b-th5avgprice01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Vietnam 5% Avg Price' = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Vietnam 5% broken")
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: v5vn0001-5%br-4235-082b-vn5avgprice01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Parboiled vs White Spread' =
+			VAR _Parboiled = CALCULATE([Average Price], Dm_Category[Category Code] = "C000010")
+			VAR _WhiteHigh = CALCULATE([Average Price], Dm_Category[Category Code] = "C000004")
+			RETURN IF(NOT ISBLANK(_Parboiled) && NOT ISBLANK(_WhiteHigh), _Parboiled - _WhiteHigh, BLANK())
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: p10pb001-parb-4235-082b-pbwhitespread01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'High vs Low Quality Spread' =
 			VAR _High = CALCULATE([Average Price], Dm_Category[Category Code] = "C000004")
