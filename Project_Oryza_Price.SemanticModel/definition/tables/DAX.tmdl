@@ -473,6 +473,15 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Parboiled vs White Spread' =
+			VAR _Parboiled = CALCULATE([Average Price], Dm_Category[Category Code] = "C000010")
+			VAR _WhiteHigh = CALCULATE([Average Price], Dm_Category[Category Code] = "C000004")
+			RETURN IF(NOT ISBLANK(_Parboiled) && NOT ISBLANK(_WhiteHigh), _Parboiled - _WhiteHigh, BLANK())
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: p10pb001-parb-4235-082b-pbwhitespread01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	measure 'Price Range' =
 			VAR _Max = MAX('Fct_Oryza Price'[Avg_Price])
 			VAR _Min = MIN('Fct_Oryza Price'[Avg_Price])
