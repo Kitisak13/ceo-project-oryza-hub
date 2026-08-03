@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "60000000000000000006",
+  "position": {
+    "x": 1024,
+    "y": 68,
+    "z": 6000,
+    "height": 95,
+    "width": 232,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Fields": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "52 Week L"
+                }
+              },
+              "queryRef": "DAX.52 Week L",
+              "nativeQueryRef": "52-Week Low ($/MT)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

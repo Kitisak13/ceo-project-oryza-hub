@@ -126,6 +126,18 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure '2024 Avg Price' = CALCULATE([Average Price], Dm_Date[Year] = 2024)
+		displayFolder: 02. Time Intelligence
+		lineageTag: y2024avg-0001-4235-082b-yr2024avg001
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '2025 Avg Price' = CALCULATE([Average Price], Dm_Date[Year] = 2025)
+		displayFolder: 02. Time Intelligence
+		lineageTag: y2025avg-0001-4235-082b-yr2025avg001
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	measure △Day =
 			VAR _Daychange = [Avg Price Last Day]- [Avg Price Previous Day]
 			VAR _result = IF([Avg Price Last Day] <> 0 && [Avg Price Previous Day] <> 0 , _Daychange)

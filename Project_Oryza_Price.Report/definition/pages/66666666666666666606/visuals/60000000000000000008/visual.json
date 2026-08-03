@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "60000000000000000008",
+  "position": {
+    "x": 24,
+    "y": 460,
+    "z": 8000,
+    "height": 236,
+    "width": 1232,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "matrix",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Category"
+                    }
+                  },
+                  "Property": "Category Eng"
+                }
+              },
+              "queryRef": "Dm_Category.Category Eng",
+              "nativeQueryRef": "Category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Product Name"
+                    }
+                  },
+                  "Property": "Product Name"
+                }
+              },
+              "queryRef": "Dm_Product Name.Product Name",
+              "nativeQueryRef": "Product Grade / SKU"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Average Price"
+                }
+              },
+              "queryRef": "DAX.Average Price",
+              "nativeQueryRef": "Average Price ($/MT)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Price Volatility% (CV)"
+                }
+              },
+              "queryRef": "DAX.Price Volatility% (CV)",
+              "nativeQueryRef": "Overall Volatility CV%"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Rolling 30D Volatility %"
+                }
+              },
+              "queryRef": "DAX.Rolling 30D Volatility %",
+              "nativeQueryRef": "30D Volatility %"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Price StdDev"
+                }
+              },
+              "queryRef": "DAX.Price StdDev",
+              "nativeQueryRef": "StdDev ($/MT)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "52 Week H"
+                }
+              },
+              "queryRef": "DAX.52 Week H",
+              "nativeQueryRef": "52W High ($/MT)"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "52 Week L"
+                }
+              },
+              "queryRef": "DAX.52 Week L",
+              "nativeQueryRef": "52W Low ($/MT)"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
