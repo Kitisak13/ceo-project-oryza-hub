@@ -275,10 +275,29 @@ Configures corporate matrix tables with branded header background (`#0F5C55`), b
 
 ---
 
+## ⚠️ Critical Rule: Theme Path Binding Verification (`report.json` Integrity)
+
+Whenever creating, editing, or renaming a Power BI report theme in PBIP/PBIR format:
+
+1. **Verify Physical File vs `report.json` Alignment:**
+   - Check the physical JSON filename in `StaticResources/RegisteredResources/` (e.g., `AgroExecutive_Core_Theme9779412528026522.json`).
+   - Inspect `definition/report.json` and ensure the following fields match the physical filename EXACTLY:
+     - `themeCollection.customTheme.name`
+     - `resourcePackages[RegisteredResources].items[0].name`
+     - `resourcePackages[RegisteredResources].items[0].path`
+   - *Failure to match will cause Power BI Desktop to fail silently and fall back to plain text default styles.*
+
+2. **Dual-Layer Fallback (Explicit `visualContainerObjects`):**
+   - To guarantee visual rendering across all client machines, inject explicit `visualContainerObjects` (background `#FFFFFF`, border `#CBD5E1` radius 12px, shadow blur 8px) into key card and container `visual.json` definitions in addition to theme JSON properties.
+
+---
+
 ## 🚀 Quality Checklist
 
 When applying or updating Power BI report themes:
+- [x] Verify physical filename in `RegisteredResources/` matches `report.json` bindings 100%.
 - [x] Validate JSON syntax against Fabric Theme Schema.
 - [x] Verify font callouts do not cause text clipping (`...`) in KPI cards.
 - [x] Ensure contrast ratio between foreground text and backgrounds meets WCAG 2.1 (minimum 4.5:1).
 - [x] Test matrix header background colors against dark and light themes.
+
