@@ -443,6 +443,18 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure 'Thailand 5% Avg Price' = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: t5th0001-5%br-4235-082b-th5avgprice01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Vietnam 5% Avg Price' = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Vietnam 5% broken")
+		displayFolder: 05. Benchmarks & Price Spreads
+		lineageTag: v5vn0001-5%br-4235-082b-vn5avgprice01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	measure 'Thai vs Viet Spread' =
 			VAR _Thai = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Thailand 5% broken")
 			VAR _Viet = CALCULATE([Average Price], 'Dm_Product Name'[Product Name] = "Vietnam 5% broken")
