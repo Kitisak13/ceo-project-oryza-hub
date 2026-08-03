@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "fa15dcfc693ba0a03251",
   "position": {
-    "x": 9.462012320328542,
-    "y": 37.848049281314168,
+    "x": 9.085229478198185,
+    "y": 37.855122825825767,
     "z": 2000,
-    "height": 123.00616016427105,
-    "width": 329.81871516573779,
+    "height": 166.56254043363339,
+    "width": 330.09667104120069,
     "tabOrder": 2000
   },
   "visual": {
@@ -75,7 +75,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Hom Mali Rice / Fragrant Rice'"
+                                "Value": "'Broken White Rice'"
                               }
                             }
                           ]

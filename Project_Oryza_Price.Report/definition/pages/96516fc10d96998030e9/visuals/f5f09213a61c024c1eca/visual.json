@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "f5f09213a61c024c1eca",
   "position": {
-    "x": 9.462012320328542,
-    "y": 187.88853036080963,
+    "x": 9.085229478198185,
+    "y": 221.07391730282248,
     "z": 3000,
-    "height": 531.2244059841596,
-    "width": 329.81871516573779,
+    "height": 498.17341638786712,
+    "width": 330.09667104120069,
     "tabOrder": 3000
   },
   "visual": {
@@ -81,7 +81,21 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Thailand Hommali 92%'"
+                                "Value": "'Thailand A1 Super'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Vietnam 100% broken'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Pakistan 100% broken stxd'"
                               }
                             }
                           ]
