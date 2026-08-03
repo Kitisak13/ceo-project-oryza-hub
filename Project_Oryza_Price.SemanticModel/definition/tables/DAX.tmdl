@@ -270,6 +270,13 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure '52W Range (Low - High)' =
+			VAR _Low = [52 Week L]
+			VAR _High = [52 Week H]
+			RETURN IF(NOT ISBLANK(_Low) && NOT ISBLANK(_High), "$" & FORMAT(_Low, "#,##0") & " - $" & FORMAT(_High, "#,##0"), "N/A")
+		displayFolder: 03. Trend & Moving Averages
+		lineageTag: f52w0001-52wh-4235-082b-52wlowhigh01
+
 	measure Dummy = [Average Price] / [Average Price]
 		formatString: 0
 		displayFolder: 07. UI & System Helpers
