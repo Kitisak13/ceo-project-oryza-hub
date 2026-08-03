@@ -92,14 +92,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'TopLeft'"
+                  "Value": "false"
                 }
               }
             }
