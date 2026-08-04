@@ -105,6 +105,97 @@
             },
             "transparency": 0
           }
+        ],
+        "outspacePane": [
+          {
+            "backgroundColor": {
+              "solid": {
+                "color": "#F1F5F9"
+              }
+            },
+            "transparency": 0,
+            "foregroundColor": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "titleSize": 16,
+            "headerSize": 11,
+            "fontFamily": "Segoe UI Semibold",
+            "border": true,
+            "borderColor": {
+              "solid": {
+                "color": "#CBD5E1"
+              }
+            },
+            "width": 200,
+            "checkboxAndApplyColor": {
+              "solid": {
+                "color": "#0F5C55"
+              }
+            },
+            "inputBoxColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "filterCard": [
+          {
+            "$id": "Applied",
+            "backgroundColor": {
+              "solid": {
+                "color": "#0F5C55"
+              }
+            },
+            "transparency": 0,
+            "border": true,
+            "borderColor": {
+              "solid": {
+                "color": "#0F5C55"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "textSize": 10,
+            "fontFamily": "Segoe UI Semibold",
+            "inputBoxColor": {
+              "solid": {
+                "color": "#134E4A"
+              }
+            }
+          },
+          {
+            "$id": "Available",
+            "backgroundColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0,
+            "border": true,
+            "borderColor": {
+              "solid": {
+                "color": "#E2E8F0"
+              }
+            },
+            "foregroundColor": {
+              "solid": {
+                "color": "#475569"
+              }
+            },
+            "textSize": 10,
+            "fontFamily": "Segoe UI",
+            "inputBoxColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            }
+          }
         ]
       }
     },
@@ -364,6 +455,108 @@
         "dropShadow": [
           {
             "show": false
+          }
+        ]
+      }
+    },
+    "actionButton": {
+      "*": {
+        "line": [
+          {
+            "color": {
+              "solid": {
+                "color": "#CBD5E1"
+              }
+            },
+            "weight": 1.5
+          }
+        ],
+        "fill": [
+          {
+            "show": true,
+            "transparency": 0,
+            "fillColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "text": [
+          {
+            "show": true,
+            "fontColor": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "fontFamily": "Segoe UI Semibold",
+            "fontSize": 11
+          }
+        ]
+      }
+    },
+    "keyDriversVisual": {
+      "*": {
+        "general": [
+          {
+            "responsive": true
+          }
+        ],
+        "keyDrivers": [
+          {
+            "allowKeyDrivers": true,
+            "allowProfiles": true,
+            "allowKeyDriversCounting": true,
+            "countType": "relative"
+          }
+        ],
+        "keyInfluencersVisual": [
+          {
+            "primaryColor": {
+              "solid": {
+                "color": "#0F5C55"
+              }
+            },
+            "primaryFontColor": {
+              "solid": {
+                "color": "#0F172A"
+              }
+            },
+            "secondaryColor": {
+              "solid": {
+                "color": "#D97706"
+              }
+            },
+            "secondaryFontColor": {
+              "solid": {
+                "color": "#1E293B"
+              }
+            },
+            "canvasColor": {
+              "solid": {
+                "color": "#F8FAFC"
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            }
+          }
+        ],
+        "keyDriversDrillVisual": [
+          {
+            "defaultColor": {
+              "solid": {
+                "color": "#0F5C55"
+              }
+            },
+            "referenceLineColor": {
+              "solid": {
+                "color": "#D97706"
+              }
+            }
           }
         ]
       }
