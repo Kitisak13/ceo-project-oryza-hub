@@ -1,11 +1,11 @@
 ---
 name: pbi-modern-visuals-patterns
-description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
+description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
 ---
 
 # Microsoft Power BI Modern Visual Patterns (`pbi-modern-visuals-patterns`)
 
-Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\conditional_chart_visibility`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
+Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\chart_switch`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
 
 ---
 
@@ -264,28 +264,41 @@ Data Labels Value =
 
 Hide charts until a slicer selection is made, displaying a clean web-app style prompt message instead of empty/confusing totals:
 
-### DAX Measure-Driven Chart Protection
 ```dax
--- Returns BLANK() to hide chart series until selection is made
-Sales Max = 
-    IF(
-        ISFILTERED( dimLocation[Region] ),
-        MAX( fctOrders[Sales] )
+Sales Max = IF( ISFILTERED( dimLocation[Region] ), MAX( fctOrders[Sales] ) )
+CF Title = IF( ISFILTERED( dimLocation[Region] ), CONCATENATEX( VALUES(dimLocation[Region]), dimLocation[Region], ", " ) )
+Transparency Txt = IF( ISFILTERED( dimLocation[Region] ), "rgba(0,0,0,0)" )
+```
+
+---
+
+## 🔀 10. Bookmark-Free Chart Switcher & Metric Toggle (`prmToggle` + `SWITCH`)
+
+Dynamically switch entire visual metrics and titles using single parameter buttons without maintaining duplicate bookmark visual layers:
+
+### Toggle Parameter Table Setup
+```tmdl
+table prmToggle
+    partition prmToggle = calculated
+        mode: import
+        source = GENERATESERIES(0, 1, 1)
+
+    measure 'prmToggle Value' = SELECTEDVALUE('prmToggle'[prmToggle], 0)
+```
+
+### Dynamic Metric Binding Measure
+```dax
+Selected Metric = 
+    SWITCH(
+        [prmToggle Value],
+        0, [Metric A - Rice Sales],
+        1, [Metric B - Warehouse Rent]
     )
 
--- Dynamic Visual Title
-CF Title = 
-    IF(
-        ISFILTERED( dimLocation[Region] ),
-        CONCATENATEX( VALUES(dimLocation[Region]), dimLocation[Region], ", " )
-    )
-
--- Dynamic Selection Helper Text & Color Transparency
-Placeholder Text = "⭠ Select a Product Grade / Region"
-
-Transparency Txt = 
-    IF(
-        ISFILTERED( dimLocation[Region] ),
-        "rgba(0,0,0,0)"  -- Fully transparent (Hides prompt when selection active)
+Selected Metric Title = 
+    SWITCH(
+        [prmToggle Value],
+        0, "RICE SALES VOLUME TREND OVER TIME",
+        1, "WAREHOUSE RENT INCOME TREND OVER TIME"
     )
 ```
