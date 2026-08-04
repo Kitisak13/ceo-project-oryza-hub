@@ -1,11 +1,11 @@
 ---
 name: pbi-modern-visuals-patterns
-description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
+description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
 ---
 
 # Microsoft Power BI Modern Visual Patterns (`pbi-modern-visuals-patterns`)
 
-Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\ux-visual-calculation`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
+Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\card-search`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
 
 ---
 
@@ -214,5 +214,44 @@ Moving average = MOVINGAVERAGE([Total Sales], 3)
 Above MA = IF( [Total Sales] > [Moving average] , [Total Sales] )
 ```
 
-### PBIR Projection Pattern for UX Highlighting
-In `visual.json`, add `Above MA` to the Y-axis projections and format `Above MA` with a bold brand color (e.g. Emerald Green `#0F5C55`), so points exceeding trend stand out instantly!
+---
+
+## 🔍 7. Searchable Card Grid Pattern (`cardVisual` + `textSlicer`)
+
+Combine `cardVisual` multi-tile layouts with `textSlicer` to build live-searchable catalog grids for items, products, or trader profiles:
+
+```json
+{
+  "visualType": "cardVisual",
+  "objects": {
+    "image": [
+      {
+        "properties": {
+          "show": { "expr": { "Literal": { "Value": "true" } } },
+          "imageType": { "expr": { "Literal": { "Value": "'imageUrl'" } } },
+          "position": { "expr": { "Literal": { "Value": "'Left'" } } }
+        }
+      }
+    ],
+    "layout": [
+      {
+        "properties": {
+          "maxTiles": { "expr": { "Literal": { "Value": "9L" } } }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Conditional Card Accent Measure
+Highlight matching or selected items dynamically:
+
+```dax
+Card Accent Color = 
+    IF(
+        ISFILTERED( 'Dm_Product Name'[Product Name] ),
+        "#0F5C55",  -- Emerald Green Accent (Selected Item)
+        "#F8FAFC"   -- Subtle Light Background (Default)
+    )
+```
