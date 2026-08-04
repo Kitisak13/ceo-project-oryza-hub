@@ -1,11 +1,11 @@
 ---
 name: pbi-modern-visuals-patterns
-description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Page Navigators (pageNavigator), or Analytics Reference Lines in PBIR format.
+description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
 ---
 
 # Microsoft Power BI Modern Visual Patterns (`pbi-modern-visuals-patterns`)
 
-Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
+Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\ux-visual-calculation`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
 
 ---
 
@@ -199,3 +199,20 @@ Visual Calculations allow writing context-aware DAX directly at the visual conta
 Rolling_30D_Avg = MOVINGAVERAGE([Average Price], 30)
 YoY_Growth = [Average Price] - OFFSET(-1, HIGHESTPARENT)
 ```
+
+---
+
+## 🚀 6. Executive UX Patterns: Dynamic Trend Highlighting
+
+Combine `MOVINGAVERAGE()` with conditional visual DAX to automatically highlight data points that exceed the moving trend:
+
+```dax
+-- Step 1: Calculate N-period Moving Average
+Moving average = MOVINGAVERAGE([Total Sales], 3)
+
+-- Step 2: Dynamic Above-Trend Highlighting Series
+Above MA = IF( [Total Sales] > [Moving average] , [Total Sales] )
+```
+
+### PBIR Projection Pattern for UX Highlighting
+In `visual.json`, add `Above MA` to the Y-axis projections and format `Above MA` with a bold brand color (e.g. Emerald Green `#0F5C55`), so points exceeding trend stand out instantly!
