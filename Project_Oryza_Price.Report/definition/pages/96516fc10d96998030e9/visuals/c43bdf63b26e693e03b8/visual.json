@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "c43bdf63b26e693e03b8",
   "position": {
-    "x": 358.86656438882829,
+    "x": 357.35235947579525,
     "y": 22.71307369549546,
     "z": 0,
     "height": 338.06456708460854,
@@ -178,7 +178,8 @@
                 }
               },
               "index": 1,
-              "length": 9
+              "length": 9,
+              "sortDirection": "Descending"
             }
           ]
         }
@@ -187,16 +188,16 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Measure": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "Dm_Product Name"
+                    "Entity": "DAX"
                   }
                 },
-                "Property": "Product Name"
+                "Property": "Avg Price Last Day"
               }
             },
-            "direction": "Ascending"
+            "direction": "Descending"
           }
         ]
       }
@@ -353,7 +354,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "223.08766906900976D"
+                  "Value": "247.30589283526612D"
                 }
               }
             }

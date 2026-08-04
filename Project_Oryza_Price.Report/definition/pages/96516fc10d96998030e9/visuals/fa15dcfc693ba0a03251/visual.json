@@ -5,7 +5,7 @@
     "x": 9.085229478198185,
     "y": 37.855122825825767,
     "z": 2000,
-    "height": 166.56254043363339,
+    "height": 234.70176152011976,
     "width": 330.09667104120069,
     "tabOrder": 2000
   },
@@ -41,7 +41,7 @@
             "orientation": {
               "expr": {
                 "Literal": {
-                  "Value": "1D"
+                  "Value": "0D"
                 }
               }
             },
@@ -75,7 +75,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'Broken White Rice'"
+                                "Value": "'Parboiled Rice'"
                               }
                             }
                           ]
@@ -95,7 +95,7 @@
             "mode": {
               "expr": {
                 "Literal": {
-                  "Value": "'Dropdown'"
+                  "Value": "'Basic'"
                 }
               }
             }

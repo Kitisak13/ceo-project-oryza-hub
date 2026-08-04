@@ -3,9 +3,9 @@
   "name": "f5f09213a61c024c1eca",
   "position": {
     "x": 9.085229478198185,
-    "y": 221.07391730282248,
+    "y": 298.29836786750707,
     "z": 3000,
-    "height": 498.17341638786712,
+    "height": 420.94896582318256,
     "width": 330.09667104120069,
     "tabOrder": 3000
   },
@@ -44,69 +44,20 @@
                   "Value": "'Basic'"
                 }
               }
+            },
+            "isInvertedSelectionMode": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
             }
           }
         }
       ],
       "general": [
         {
-          "properties": {
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "Dm_Product Name",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "Product Name"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Thailand A1 Super'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Vietnam 100% broken'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Pakistan 100% broken stxd'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          }
+          "properties": {}
         }
       ],
       "selection": [

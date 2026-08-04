@@ -5,7 +5,10 @@ description: Advanced Power BI Theme JSON per-visual formatting templates and sc
 
 # Power BI Theme Templates Canon (`pbi-theme-templates`)
 
-This skill provides comprehensive JSON schema templates and per-visual formatting specifications for Power BI report themes. Based on the community benchmark `deldersveld/PowerBI-ThemeTemplates`, it centralizes visual styling at the theme level to enforce strict visual hierarchy, brand consistency, and high-performance rendering without cluttering individual `visual.json` files.
+This skill provides comprehensive JSON schema templates and per-visual formatting specifications for Power BI report themes. Based on the community benchmark `deldersveld/PowerBI-ThemeTemplates` (located locally at `D:\Power-bi-design\power-bi-theme\PowerBI-ThemeTemplates`), it centralizes visual styling at the theme level to enforce strict visual hierarchy, brand consistency, and high-performance rendering without cluttering individual `visual.json` files.
+
+> [!NOTE]
+> For complete JSON property schemas covering all 34 native Power BI visual types, inspect [references/visual-type-schemas.md](file:///d:/OneDrive%20-%20CPCRT/Job/Power%20BI%20Project/pbip_oryza_price/.agents/skills/pbi-theme-templates/references/visual-type-schemas.md) or the individual template files in `D:\Power-bi-design\power-bi-theme\PowerBI-ThemeTemplates\`.
 
 ---
 
