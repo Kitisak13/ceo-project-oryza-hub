@@ -1,11 +1,11 @@
 ---
 name: pbi-modern-visuals-patterns
-description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, Period Highlighting, Azure Map Path Layers, Advanced Data Tables Under Charts, Dynamic Bar-to-Line Switchers, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Period Highlighting, Azure Maps (azureMap), Advanced Data Tables (IBCS Tables under charts), Dynamic Bar/Line Morphing, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
+description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, Period Highlighting, Azure Map Path Layers, Advanced Data Tables Under Charts, Dynamic Bar-to-Line Switchers, Native Centered Funnels, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Period Highlighting, Azure Maps (azureMap), Advanced Data Tables (IBCS Tables under charts), Dynamic Bar/Line Morphing, Centered Funnels, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
 ---
 
 # Microsoft Power BI Modern Visual Patterns (`pbi-modern-visuals-patterns`)
 
-Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\BarLine_Switch`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
+Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\Funnel_Variation`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
 
 ---
 
@@ -338,21 +338,41 @@ RowLbl1Text = SWITCH( TRUE(), ISINSCOPE( dimDate[Month] ), "Δ% PM", ISINSCOPE( 
 
 Automatically morph chart representation between **Column Bars** (for short time ranges < 12 months) and **Smooth Line Trends** (for long time ranges ≥ 12 months) in a Combo Chart visual:
 
-### DAX Range Morphing Measures
 ```dax
--- Column Series: Rendered when selected duration is less than 12 months
-Column Series = 
-    VAR MinDate = CALCULATE( MIN('Date'[Date]), ALLSELECTED('Date') )
-    VAR MaxDate = CALCULATE( MAX('Date'[Date]), ALLSELECTED('Date') )
-    VAR MonthDiff = DATEDIFF( MinDate, MaxDate, MONTH )
-    RETURN
-        IF( MonthDiff < 12, [Total Sales] )
+Column Series = IF( DATEDIFF(MIN('Date'[Date]), MAX('Date'[Date]), MONTH) < 12, [Total Sales] )
+Line Series = IF( DATEDIFF(MIN('Date'[Date]), MAX('Date'[Date]), MONTH) >= 12, [Total Sales] )
+```
 
--- Line Series: Rendered when selected duration is 12 months or greater
-Line Series = 
-    VAR MinDate = CALCULATE( MIN('Date'[Date]), ALLSELECTED('Date') )
-    VAR MaxDate = CALCULATE( MAX('Date'[Date]), ALLSELECTED('Date') )
-    VAR MonthDiff = DATEDIFF( MinDate, MaxDate, MONTH )
-    RETURN
-        IF( MonthDiff >= 12, [Total Sales] )
+---
+
+## 🔻 16. Native Centered Funnel & Stage Conversion (`Funnel_Variation`)
+
+Render perfectly centered funnel charts with stage-to-stage drop-off conversion tracking using a 3-part horizontal stacked bar chart (`barChart`):
+
+### 3-Part Centered Funnel Geometry Measures
+```dax
+-- Invisible Left Offset Spacer to balance funnel horizontally
+Left = 600 - [Count]
+
+-- Core Funnel Bar Volume
+Middle = [Count] * 2
+
+-- Drop-off Conversion Tag
+Right Lbl = "▼" & [Pct of Previous Stage]
+```
+
+### Stage-to-Stage Sequential Conversion DAX
+```dax
+Pct of Previous Stage = 
+    VAR SelectedMeasureID = SELECTEDVALUE(RecruitmentStages[Recruitment Status ID])
+    VAR SelectedMeasureValue = SELECTEDVALUE(RecruitmentStages[Candidates Count])
+    VAR PreviousMeasureID = IF( SelectedMeasureID = 0, 0, SelectedMeasureID - 1)
+    VAR PreviousMeasureValue = 
+        CALCULATE(
+            MAX(RecruitmentStages[Candidates Count]),
+            RecruitmentStages[Recruitment Status ID] = PreviousMeasureID,
+            REMOVEFILTERS(RecruitmentStages)
+        )
+    RETURN 
+        FORMAT( SelectedMeasureValue / PreviousMeasureValue, "0%" )
 ```
