@@ -1,11 +1,11 @@
 ---
 name: pbi-modern-visuals-patterns
-description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
+description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
 ---
 
 # Microsoft Power BI Modern Visual Patterns (`pbi-modern-visuals-patterns`)
 
-Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\chart_switch`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
+Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\bubble_label_chart`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
 
 ---
 
@@ -276,29 +276,37 @@ Transparency Txt = IF( ISFILTERED( dimLocation[Region] ), "rgba(0,0,0,0)" )
 
 Dynamically switch entire visual metrics and titles using single parameter buttons without maintaining duplicate bookmark visual layers:
 
-### Toggle Parameter Table Setup
-```tmdl
-table prmToggle
-    partition prmToggle = calculated
-        mode: import
-        source = GENERATESERIES(0, 1, 1)
-
-    measure 'prmToggle Value' = SELECTEDVALUE('prmToggle'[prmToggle], 0)
+```dax
+Selected Metric = SWITCH( [prmToggle Value], 0, [Metric A - Rice Sales], 1, [Metric B - Warehouse Rent] )
 ```
 
-### Dynamic Metric Binding Measure
+---
+
+## 🎈 11. Floating Bubble Label Badges & Status Indicators (`bubble_label_chart`)
+
+Render modern app-style floating status badges above bar tops or line points:
+
+### Floating Badge Position & Y-Axis Scale DAX
 ```dax
-Selected Metric = 
+Bubble Pos = 
+    VAR _MaxValue = MAXX( ALL('fctFinancials'[Sales Segment]), [Total Sales] )
+    RETURN _MaxValue * 1.7
+
+Y-Axis Max = 
+    VAR _MaxValue = MAXX( ALLSELECTED('fctFinancials'[Sales Segment]), [Total Sales] )
+    RETURN _MaxValue * 2.2
+```
+
+### Conditional RGBA Badge Color DAX
+```dax
+Bubble Lbl CF = 
     SWITCH(
-        [prmToggle Value],
-        0, [Metric A - Rice Sales],
-        1, [Metric B - Warehouse Rent]
+        TRUE(),
+        [Total Sales YoY] > 0.03, "rgba(116, 198, 151, 1)",  -- Soft Emerald Green (Growth > 3%)
+        [Total Sales YoY] < -0.03, "rgba(232, 119, 100, 1)", -- Soft Coral Red (Decline < -3%)
+        "rgba(150, 150, 150, 1)"                              -- Neutral Grey (Stable)
     )
 
-Selected Metric Title = 
-    SWITCH(
-        [prmToggle Value],
-        0, "RICE SALES VOLUME TREND OVER TIME",
-        1, "WAREHOUSE RENT INCOME TREND OVER TIME"
-    )
+Total Income Subtitle = 
+    FORMAT( [Total Sales YoY], "+0.0%;-0.0%" ) & "   |   " & FORMAT(ROUND([Total Sales], 2), "#,##0,.0K")
 ```
