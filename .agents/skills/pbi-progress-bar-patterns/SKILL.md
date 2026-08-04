@@ -1,11 +1,11 @@
 ---
 name: pbi-progress-bar-patterns
-description: Custom Progress Bar Visualization Patterns in Power BI using Native Line Charts, Visual Calculations (Visual DAX), and TMDL Series Tables based on Bas Visual Design repo. Use when building horizontal progress bars, goal completion gauges, or status percentage tracking visuals in Power BI reports.
+description: Custom Progress Bar Visualization Patterns in Power BI using Native Line Charts, Combo Charts (Progress vs Target), Visual Calculations (Visual DAX), and TMDL Series Tables based on Bas Visual Design repo. Use when building horizontal progress bars, goal completion gauges, or status percentage tracking visuals in Power BI reports.
 ---
 
 # Power BI Progress Bar Visualization Patterns (`pbi-progress-bar-patterns`)
 
-Extracted directly from the **Bas Visual Design** sample project (`D:\Power-bi-design\Bas-visual-design\progress-bar`), this skill documents how to construct sleek, dynamic progress bar visuals in Power BI using Native Line Charts and Visual Calculations without requiring custom visuals.
+Extracted directly from the **Bas Visual Design** sample repository (`D:\Power-bi-design\Bas-visual-design\progress-bar` and `progress-bar-vs-target`), this skill documents how to construct sleek, dynamic progress bar visuals and Progress-vs-Target benchmark charts in Power BI without requiring custom visuals.
 
 ---
 
@@ -53,7 +53,56 @@ Placeholder Data Label = IF( [Progress Status] = [Value] , 1.3 )
 
 ---
 
-## 🎛️ 4. PBIR Visual Container JSON Configuration
+## 🎯 4. Progress Bar vs Target Benchmark Architecture (`lineStackedColumnComboChart`)
+
+When comparing actual progress against target benchmarks (e.g. Daily Target, Executive Sales Goal), use `lineStackedColumnComboChart` combined with dynamic formatting & cushion DAX measures.
+
+### Core DAX Patterns
+
+#### A. Dynamic Format String Definition (`formatStringDefinition`)
+Automatically switches unit formatting between `$M`, `$k`, and `$0` based on value magnitude:
+
+```dax
+measure 'Target Line' = 'Daily Target'[Target Value]
+    formatStringDefinition =
+        VAR _Value = SELECTEDMEASURE()
+        RETURN
+        SWITCH(
+            TRUE(),
+            _Value > 1000000, "$#,,.0M",
+            _Value > 1000, "$#,.k",
+            "$#,0"
+        )
+```
+
+#### B. Dynamic Y-Axis Max Multiplier (`Y Axis Max`)
+Prevents data labels and target threshold lines from clipping at the container edge:
+
+```dax
+measure 'Y Axis Max' = 
+    VAR _TotalSales = [All Orders in system]
+    VAR _Target = [Target Line]
+    RETURN
+    IF(
+        _TotalSales > _Target, 
+        _TotalSales,
+        _Target
+    ) * 1.09
+```
+
+#### C. Conditional Status Color Measure (`Shipped % Target CF`)
+```dax
+measure 'Shipped % Target CF' = 
+    IF(
+        [Shipped % Target] > 1,
+        "#0F5C55",  -- Emerald Green (Target Met)
+        "#E11D48"   -- Crimson Red (Below Target)
+    )
+```
+
+---
+
+## 🎛️ 5. PBIR Visual Container JSON Configuration
 
 Bind the `lineChart` visual with thick strokes, background transparency, and marker positioning:
 
