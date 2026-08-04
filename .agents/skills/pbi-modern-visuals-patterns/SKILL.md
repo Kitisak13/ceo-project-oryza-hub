@@ -1,11 +1,11 @@
 ---
 name: pbi-modern-visuals-patterns
-description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
+description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, Period Highlighting, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Period Highlighting, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
 ---
 
 # Microsoft Power BI Modern Visual Patterns (`pbi-modern-visuals-patterns`)
 
-Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\bubble_label_chart`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
+Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\hig-hlighting_periods`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
 
 ---
 
@@ -286,27 +286,37 @@ Selected Metric = SWITCH( [prmToggle Value], 0, [Metric A - Rice Sales], 1, [Met
 
 Render modern app-style floating status badges above bar tops or line points:
 
-### Floating Badge Position & Y-Axis Scale DAX
 ```dax
-Bubble Pos = 
-    VAR _MaxValue = MAXX( ALL('fctFinancials'[Sales Segment]), [Total Sales] )
-    RETURN _MaxValue * 1.7
-
-Y-Axis Max = 
-    VAR _MaxValue = MAXX( ALLSELECTED('fctFinancials'[Sales Segment]), [Total Sales] )
-    RETURN _MaxValue * 2.2
+Bubble Pos = MAXX( ALL('fctFinancials'[Sales Segment]), [Total Sales] ) * 1.7
+Y-Axis Max = MAXX( ALLSELECTED('fctFinancials'[Sales Segment]), [Total Sales] ) * 2.2
+Bubble Lbl CF = SWITCH( TRUE(), [Total Sales YoY] > 0.03, "rgba(116, 198, 151, 1)", [Total Sales YoY] < -0.03, "rgba(232, 119, 100, 1)", "rgba(150, 150, 150, 1)" )
 ```
 
-### Conditional RGBA Badge Color DAX
-```dax
-Bubble Lbl CF = 
-    SWITCH(
-        TRUE(),
-        [Total Sales YoY] > 0.03, "rgba(116, 198, 151, 1)",  -- Soft Emerald Green (Growth > 3%)
-        [Total Sales YoY] < -0.03, "rgba(232, 119, 100, 1)", -- Soft Coral Red (Decline < -3%)
-        "rgba(150, 150, 150, 1)"                              -- Neutral Grey (Stable)
-    )
+---
 
-Total Income Subtitle = 
-    FORMAT( [Total Sales YoY], "+0.0%;-0.0%" ) & "   |   " & FORMAT(ROUND([Total Sales], 2), "#,##0,.0K")
+## 📅 12. Period Highlighting & Non-Working Days Background Shading (`hig-hlighting_periods`)
+
+Shade weekends, public holidays, harvesting seasons, or non-working days in soft background color bands directly behind chart lines or columns:
+
+### Background Shading Height DAX
+```dax
+MaxY = MAXX( ALLSELECTED( dimDate ), [Total Sales] * 1.1 )
+
+Highlight Weekends = IF( MIN( dimDate[Weekend] ), [MaxY], BLANK() )
+Highlight Holidays = IF( MIN( dimDate[Holiday] ), [MaxY], BLANK() )
+```
+
+### Toggleable RGB Shading Color Switch DAX
+```dax
+Highlight CF = 
+    IF(
+        ISFILTERED( NonWorkingDaysSwitch ),
+        SWITCH(
+            TRUE(),
+            "Weekends" IN VALUES( NonWorkingDaysSwitch[Value] ), "rgb(223,249,238)", -- Mint Green Shading
+            "Holidays" IN VALUES( NonWorkingDaysSwitch[Value] ), "rgb(239,233,254)", -- Lavender Purple Shading
+            "rgba(0,0,0,0)"
+        ),
+        "rgba(0,0,0,0)"
+    )
 ```
