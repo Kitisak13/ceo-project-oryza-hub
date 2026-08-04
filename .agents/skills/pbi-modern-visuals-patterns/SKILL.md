@@ -1,11 +1,11 @@
 ---
 name: pbi-modern-visuals-patterns
-description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, Period Highlighting, Azure Map Path Layers, Advanced Data Tables Under Charts, Dynamic Bar-to-Line Switchers, Native Centered Funnels, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Period Highlighting, Azure Maps (azureMap), Advanced Data Tables (IBCS Tables under charts), Dynamic Bar/Line Morphing, Centered Funnels, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
+description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, Period Highlighting, Azure Map Path Layers, Advanced Data Tables Under Charts, Dynamic Bar-to-Line Switchers, Native Centered Funnels, OneDrive/SharePoint Images, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Period Highlighting, Azure Maps (azureMap), Advanced Data Tables (IBCS Tables under charts), Dynamic Bar/Line Morphing, Centered Funnels, OneDrive/SharePoint Images, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
 ---
 
 # Microsoft Power BI Modern Visual Patterns (`pbi-modern-visuals-patterns`)
 
-Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\Funnel_Variation`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
+Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas\images_onedrive_sharepoint.pbix`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
 
 ---
 
@@ -349,30 +349,39 @@ Line Series = IF( DATEDIFF(MIN('Date'[Date]), MAX('Date'[Date]), MONTH) >= 12, [
 
 Render perfectly centered funnel charts with stage-to-stage drop-off conversion tracking using a 3-part horizontal stacked bar chart (`barChart`):
 
-### 3-Part Centered Funnel Geometry Measures
 ```dax
--- Invisible Left Offset Spacer to balance funnel horizontally
 Left = 600 - [Count]
-
--- Core Funnel Bar Volume
 Middle = [Count] * 2
-
--- Drop-off Conversion Tag
 Right Lbl = "▼" & [Pct of Previous Stage]
 ```
 
-### Stage-to-Stage Sequential Conversion DAX
-```dax
-Pct of Previous Stage = 
-    VAR SelectedMeasureID = SELECTEDVALUE(RecruitmentStages[Recruitment Status ID])
-    VAR SelectedMeasureValue = SELECTEDVALUE(RecruitmentStages[Candidates Count])
-    VAR PreviousMeasureID = IF( SelectedMeasureID = 0, 0, SelectedMeasureID - 1)
-    VAR PreviousMeasureValue = 
-        CALCULATE(
-            MAX(RecruitmentStages[Candidates Count]),
-            RecruitmentStages[Recruitment Status ID] = PreviousMeasureID,
-            REMOVEFILTERS(RecruitmentStages)
-        )
-    RETURN 
-        FORMAT( SelectedMeasureValue / PreviousMeasureValue, "0%" )
+---
+
+## 🖼️ 17. OneDrive & SharePoint Image Integration (`dataCategory: ImageUrl`)
+
+Prevent broken image icons (`[X]`) when embedding product photos, logos, or trader avatars stored in OneDrive or SharePoint:
+
+### Method 1: Direct File Stream URL (`?download=1`)
+Append `?download=1` to the SharePoint file sharing link to bypass HTML preview wrappers:
+```text
+https://<tenant>.sharepoint.com/sites/<site>/Shared%20Documents/<image.png>?download=1
+```
+
+### Method 2: Inline Base64 Data URI Conversion in Power Query M
+Convert image binaries into inline Data URIs inside Power Query M for 100% authentication-proof rendering:
+
+```m
+let
+    Source = SharePoint.Files("https://<tenant>.sharepoint.com/sites/<site>", [ApiVersion = 15]),
+    FilteredImages = Table.SelectRows(Source, each ([Extension] = ".png" or [Extension] = ".jpg")),
+    AddBase64 = Table.AddColumn(FilteredImages, "ImageURL", each "data:image/png;base64," & Binary.ToText([Content], BinaryEncoding.Base64), type text)
+in
+    AddBase64
+```
+
+### TMDL Column Property Setup
+```tmdl
+column ImageURL
+    dataType: string
+    dataCategory: ImageUrl
 ```
