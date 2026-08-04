@@ -1,11 +1,11 @@
 ---
 name: pbi-modern-visuals-patterns
-description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, Period Highlighting, Azure Map Path Layers, Advanced Data Tables Under Charts, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Period Highlighting, Azure Maps (azureMap), Advanced Data Tables (IBCS Tables under charts), Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
+description: Microsoft Power BI Modern Visual PBIR Templates and Patterns (New Card Visual, Advanced Slicer, Page Navigator, Visual Calculations, UX Trend Highlighting, Searchable Card Grids, Data Flags, Conditional Chart Visibility, Bookmark-Free Chart Switcher, Floating Bubble Badges, Period Highlighting, Azure Map Path Layers, Advanced Data Tables Under Charts, Dynamic Bar-to-Line Switchers, and AI Narratives) extracted from Microsoft's official Power BI Visuals sample repository and Bas Visual Design repo. Use when building or formatting New Card Visuals (cardVisual), Advanced Button Slicers (advancedSlicerVisual), Searchable Card Grids (cardVisual + textSlicer), Data Flags, Conditional Chart Visibility, Chart Switchers, Floating Bubble Badges, Period Highlighting, Azure Maps (azureMap), Advanced Data Tables (IBCS Tables under charts), Dynamic Bar/Line Morphing, Page Navigators (pageNavigator), Analytics Reference Lines, or Visual Calculations UX in PBIR format.
 ---
 
 # Microsoft Power BI Modern Visual Patterns (`pbi-modern-visuals-patterns`)
 
-Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\data-table-advance`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
+Extracted directly from Microsoft's official **Power BI Visuals (`Power BI Visuals.pbip`)** sample project (`D:\Power-bi-design\ตัวอย่างกราฟ pbip`) and the **Bas Visual Design** repository (`D:\Power-bi-design\Bas-visual-design\BarLine_Switch`), this skill documents PBIR JSON schemas and implementation patterns for modern Power BI visual types.
 
 ---
 
@@ -328,24 +328,31 @@ Render interactive geographic trade routes, supply chain trajectories, and marit
 
 Embed an IBCS-compliant metric summary table directly under the X-axis of line or column charts with drill-down hierarchy awareness:
 
-### Multi-Period Label DAX (`ISINSCOPE`)
 ```dax
-RowLbl1Text = 
-    SWITCH(
-        TRUE(),
-        ISINSCOPE( dimDate[Month] ), "Δ% PM",   -- Percent Previous Month
-        ISINSCOPE( dimDate[Quarter] ), "Δ% PQ", -- Percent Previous Quarter
-        "Δ% PY"                                 -- Percent Previous Year
-    )
+RowLbl1Text = SWITCH( TRUE(), ISINSCOPE( dimDate[Month] ), "Δ% PM", ISINSCOPE( dimDate[Quarter] ), "Δ% PQ", "Δ% PY" )
 ```
 
-### Variance Calculation DAX
+---
+
+## 🔄 15. Automatic Bar-to-Line Chart Range Morphing (`BarLine_Switch`)
+
+Automatically morph chart representation between **Column Bars** (for short time ranges < 12 months) and **Smooth Line Trends** (for long time ranges ≥ 12 months) in a Combo Chart visual:
+
+### DAX Range Morphing Measures
 ```dax
-RowValues1Text = 
-    SWITCH(
-        TRUE(),
-        ISINSCOPE( dimDate[Month] ), DIVIDE( [Sales Amount], CALCULATE([Sales Amount], DATEADD(dimDate[Date], -1, MONTH)) ) - 1,
-        ISINSCOPE( dimDate[Quarter] ), DIVIDE( [Sales Amount], CALCULATE([Sales Amount], DATEADD(dimDate[Date], -1, QUARTER)) ) - 1,
-        DIVIDE( [Sales Amount], CALCULATE([Sales Amount], DATEADD(dimDate[Date], -1, YEAR)) ) - 1
-    )
+-- Column Series: Rendered when selected duration is less than 12 months
+Column Series = 
+    VAR MinDate = CALCULATE( MIN('Date'[Date]), ALLSELECTED('Date') )
+    VAR MaxDate = CALCULATE( MAX('Date'[Date]), ALLSELECTED('Date') )
+    VAR MonthDiff = DATEDIFF( MinDate, MaxDate, MONTH )
+    RETURN
+        IF( MonthDiff < 12, [Total Sales] )
+
+-- Line Series: Rendered when selected duration is 12 months or greater
+Line Series = 
+    VAR MinDate = CALCULATE( MIN('Date'[Date]), ALLSELECTED('Date') )
+    VAR MaxDate = CALCULATE( MAX('Date'[Date]), ALLSELECTED('Date') )
+    VAR MonthDiff = DATEDIFF( MinDate, MaxDate, MONTH )
+    RETURN
+        IF( MonthDiff >= 12, [Total Sales] )
 ```
