@@ -607,6 +607,86 @@ table DAX
 		displayFolder: 10. Text
 		lineageTag: b8364405-e0ab-4065-beca-22dccbfc4824
 
+	measure 'Title Rice Category' =
+			VAR _SelectedCategory = SELECTEDVALUE( Dm_Category[Category Eng] )
+			VAR _CategoryCount = COUNTROWS( VALUES( Dm_Category[Category Eng] ) )
+			VAR _TotalCategories = COUNTROWS( ALL( Dm_Category[Category Eng] ) )
+			RETURN
+			    IF(
+			        NOT ISBLANK( _SelectedCategory ),
+			        "Oryza Global Rice Price : " & _SelectedCategory,
+			        IF(
+			            _CategoryCount < _TotalCategories && _CategoryCount > 1,
+			            "Oryza Global Rice Price : " & CONCATENATEX( VALUES( Dm_Category[Category Eng] ), Dm_Category[Category Eng], ", " ),
+			            "Oryza Global Rice Price : All Categories"
+			        )
+			    )
+		displayFolder: 10. Text
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1001
+
+	measure 'Title Rice Category & Product' =
+			VAR _Category = SELECTEDVALUE( Dm_Category[Category Eng], "All Categories" )
+			VAR _Product = SELECTEDVALUE( 'Dm_Product Name'[Product Name] )
+			RETURN
+			    IF(
+			        NOT ISBLANK( _Product ),
+			        "Oryza Global Rice Price : " & _Category & " > " & _Product,
+			        "Oryza Global Rice Price : " & _Category
+			    )
+		displayFolder: 10. Text
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1002
+
+	measure 'Subtitle Latest Date & Price' =
+			VAR _LastDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ), ALLSELECTED('Fct_Oryza Price') )
+			VAR _AvgPrice = [Avg Price Last Day]
+			VAR _WoW = [Avg Price WoW%]
+			VAR _Direction = IF( _WoW > 0, "▲ +" & FORMAT( _WoW, "0.0%" ), IF( _WoW < 0, "▼ " & FORMAT( _WoW, "0.0%" ), "► 0.0%" ) )
+			RETURN
+			    "Latest As Of: " & FORMAT( _LastDate, "dd-mmm-yyyy" ) & 
+			    " | Price: $" & FORMAT( _AvgPrice, "#,##0.00" ) & "/MT (" & _Direction & " WoW)"
+		displayFolder: 10. Text
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1003
+
+	measure 'Market Movement Summary Text' =
+			VAR _WoW = [Avg Price WoW%]
+			VAR _MoM = [Avg Price MoM%]
+			VAR _Status = 
+			    SWITCH(
+			        TRUE(),
+			        _WoW > 0.02 && _MoM > 0.05, "Strong Bullish (Accelerating Upward)",
+			        _WoW > 0, "Mild Bullish (Upward Momentum)",
+			        _WoW < -0.02 && _MoM < -0.05, "Strong Bearish (Sharp Correction)",
+			        _WoW < 0, "Mild Bearish (Downward Pressure)",
+			        "Stable / Neutral"
+			    )
+			RETURN
+			    "Market Sentiment: " & _Status & " (WoW: " & FORMAT( _WoW, "+0.0%;-0.0%;0.0%" ) & " | MoM: " & FORMAT( _MoM, "+0.0%;-0.0%;0.0%" ) & ")"
+		displayFolder: 10. Text
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1004
+
+	measure '52W Range Summary Text' =
+			VAR _Low = [52 Week L]
+			VAR _High = [52 Week H]
+			VAR _Current = [Avg Price Last Day]
+			RETURN
+			    "52W Range: $" & FORMAT( _Low, "#,##0" ) & " - $" & FORMAT( _High, "#,##0" ) & " (Current at " & FORMAT( DIVIDE( _Current - _Low, _High - _Low, 0 ), "0.0%" ) & " of band)"
+		displayFolder: 10. Text
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1005
+
+	measure 'Top Moving SKU Text' =
+			VAR _TopSKU = TOPN( 1, VALUES( 'Dm_Product Name'[Product Name] ), ABS( [Avg Price WoW%] ), DESC )
+			VAR _SKUName = CALCULATE( SELECTEDVALUE( 'Dm_Product Name'[Product Name] ), _TopSKU )
+			VAR _SKUWoW = CALCULATE( [Avg Price WoW%], _TopSKU )
+			RETURN
+			    IF(
+			        NOT ISBLANK( _SKUName ),
+			        "Top Mover: " & _SKUName & " (" & FORMAT( _SKUWoW, "+0.0%;-0.0%;0.0%" ) & " WoW)",
+			        "No SKU data available"
+			    )
+		displayFolder: 10. Text
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1006
+
+
 	column Column1
 		dataType: string
 		isHidden
