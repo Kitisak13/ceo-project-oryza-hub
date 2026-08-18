@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "6981c8d2c460bad2cec0",
+  "name": "21e959a4bcfc2d5e7c14",
   "position": {
-    "x": 357.474972850232,
-    "y": 160.13584756639352,
-    "z": 2000,
-    "height": 559.6666995754764,
-    "width": 907.43646954289659,
-    "tabOrder": 2000
+    "x": 225.71428571428572,
+    "y": 380,
+    "z": 3000,
+    "height": 312.85714285714289,
+    "width": 1027.1428571428571,
+    "tabOrder": 1000
   },
   "visual": {
     "visualType": "lineChart",
@@ -23,12 +23,60 @@
                       "Entity": "Dm_Date"
                     }
                   },
-                  "Property": "Month"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "Dm_Date.Month",
-              "nativeQueryRef": "Month",
+              "queryRef": "Dm_Date.Date",
+              "nativeQueryRef": "Date",
               "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Date"
+                    }
+                  },
+                  "Property": "MonthYear"
+                }
+              },
+              "queryRef": "Dm_Date.MonthYear",
+              "nativeQueryRef": "MonthYear",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Date"
+                    }
+                  },
+                  "Property": "Year"
+                }
+              },
+              "queryRef": "Dm_Date.Year",
+              "nativeQueryRef": "Year",
+              "active": false
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dm_Product Name"
+                    }
+                  },
+                  "Property": "Product Name"
+                }
+              },
+              "queryRef": "Dm_Product Name.Product Name",
+              "nativeQueryRef": "Product Name"
             }
           ]
         },
@@ -47,40 +95,48 @@
               },
               "queryRef": "DAX.Average Price",
               "nativeQueryRef": "Average Price"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DAX"
-                    }
-                  },
-                  "Property": "All-Time Max Price"
-                }
-              },
-              "queryRef": "DAX.All-Time Max Price",
-              "nativeQueryRef": "All-Time Max Price"
-            },
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "DAX"
-                    }
-                  },
-                  "Property": "All-Time Min Price"
-                }
-              },
-              "queryRef": "DAX.All-Time Min Price",
-              "nativeQueryRef": "All-Time Min Price"
             }
           ]
         }
+      },
+      "options": {
+        "allowBinnedLineSample": true
       }
     },
     "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "valueAxis": [
+        {
+          "properties": {
+            "switchAxisPosition": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "titleText": {
+              "expr": {
+                "Literal": {
+                  "Value": "'USD per Ton'"
+                }
+              }
+            }
+          }
+        }
+      ],
       "labels": [
         {
           "properties": {
@@ -105,6 +161,33 @@
               }
             },
             "leaderLines": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "leaderLinePattern": {
+              "expr": {
+                "Literal": {
+                  "Value": "'solid'"
+                }
+              }
+            },
+            "enableBackground": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "responsive": {
               "expr": {
                 "Literal": {
                   "Value": "true"
@@ -184,7 +267,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -209,14 +292,74 @@
             "shadowBlur": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "10L"
                 }
               }
             },
             "transparency": {
               "expr": {
                 "Literal": {
-                  "Value": "94D"
+                  "Value": "70L"
+                }
+              }
+            },
+            "angle": {
+              "expr": {
+                "Literal": {
+                  "Value": "45L"
+                }
+              }
+            },
+            "shadowDistance": {
+              "expr": {
+                "Literal": {
+                  "Value": "10L"
+                }
+              }
+            },
+            "shadowSpread": {
+              "expr": {
+                "Literal": {
+                  "Value": "3L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

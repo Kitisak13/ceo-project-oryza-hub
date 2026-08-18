@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "2fb2e323bb2a2b645e5c",
   "position": {
-    "x": 359.092506664034,
-    "y": 37.203277717444962,
+    "x": 359.55646817248459,
+    "y": 37.848049281314168,
     "z": 3000,
-    "height": 98.669562641919242,
-    "width": 905.81893572909473,
+    "height": 150.04048107949546,
+    "width": 905.64975066001762,
     "tabOrder": 3000
   },
   "visual": {
@@ -230,23 +230,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "54e82b0d1065860dce95",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dm_Date"
-              }
-            },
-            "Property": "Year"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

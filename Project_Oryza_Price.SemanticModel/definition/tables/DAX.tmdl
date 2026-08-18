@@ -565,6 +565,48 @@ table DAX
 		displayFolder: 03. Trend & Moving Averages
 		lineageTag: fa23b6ab-1752-49d8-1001-a23b6ab17529
 
+	measure 'Growth Band Color' =
+			
+			VAR Wek = [Avg Price WoW%]
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    Wek >= 0.10, "#006400",
+			    Wek >= 0.05, "#008000",
+			    Wek > 0, "#90EE90",
+			    Wek = 0, "#808080",
+			    Wek >= -0.05, "#FFA500",
+			    "#FF0000"
+			)
+		displayFolder: 10. Text
+		lineageTag: 5a9a3bb1-36e7-436e-b580-4447af6de00a
+
+	measure 'Avg Price WoW% Color' =
+			
+			VAR WoW = [Avg Price WoW%]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        WoW > 0, "#089BAB",    -- Green
+			        WoW < 0, "#FF0000",    -- Red
+			        "#000000"              -- Black (0 หรือ BLANK)
+			    )
+		displayFolder: 10. Text
+		lineageTag: 8f6a33f6-11a1-48c5-a5e5-92a34e12993e
+
+	measure 'Avg Price WoW% test' =
+			
+			VAR WoW = [Avg Price WoW%]
+			RETURN
+			    SWITCH(
+			        TRUE(),
+			        WoW > 0, "▲ " & FORMAT(WoW,"0.0%"),
+			        WoW < 0, "▼ " & FORMAT(WoW,"0.0%"),
+			        "► " & FORMAT(WoW,"0.0%")
+			    )
+		displayFolder: 10. Text
+		lineageTag: b8364405-e0ab-4065-beca-22dccbfc4824
+
 	column Column1
 		dataType: string
 		isHidden

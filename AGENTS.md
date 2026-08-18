@@ -53,6 +53,15 @@ This Power BI Project (PBIP) serves as a **Strategic & Trading Intelligence Dash
 
 ---
 
+## 📄 Report Page Structure & Roadmap Strategy
+
+### Current Development Focus: Single Page (`Main`)
+- **Phase 1 (Active Focus):** Focus exclusively on developing, perfecting, and polishing the **`Main`** page first. All current layout, visual design, and core measure development should center on delivering the complete `Main` dashboard experience.
+- **Temporary Page (`Compare`):** The `Compare` page serves only as a temporary working reference and will be removed later.
+- **Phase 2 (Subsequent Pages):** Once the `Main` page is fully completed and approved, we will collaboratively brainstorm, design, and determine the exact visuals and data to present across subsequent pages (e.g., Executive Portfolio, Origin Benchmarks, Price Spreads, Volatility, Seasonality, and Trading Signals).
+
+---
+
 ## 📊 Business Logic & Key Calculation Patterns
 
 When asked to write measures or design visuals, prioritize these analytical frameworks:
@@ -60,3 +69,4 @@ When asked to write measures or design visuals, prioritize these analytical fram
 - **Category Spreads:** Price difference between grades (e.g., `Price[High Quality] - Price[Low Quality]`).
 - **Volatility Metrics:** Standard deviation of price changes over standard rolling windows (e.g., 7-day, 30-day).
 - **Price Benchmarking:** Grade price relative to the overall market average or category benchmark.
+

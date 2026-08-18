@@ -2,16 +2,16 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
   "themeCollection": {
     "baseTheme": {
-      "name": "CY24SU08",
+      "name": "CY26SU07",
       "reportVersionAtImport": {
-        "visual": "1.8.93",
-        "report": "2.0.93",
-        "page": "1.3.93"
+        "visual": "2.11.0",
+        "report": "3.4.0",
+        "page": "2.3.1"
       },
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "AgroExecutive_Core_Theme9779412528026522.json",
+      "name": "Oryza_-_Warehouse_Utilization_9631934265294433.json",
       "reportVersionAtImport": {
         "visual": "2.11.0",
         "report": "3.4.0",
@@ -19,63 +19,6 @@
       },
       "type": "RegisteredResources"
     }
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "1ca235cb7c563c9c3509",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dm_Category"
-              }
-            },
-            "Property": "Category Eng"
-          }
-        },
-        "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "Dm_Category",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Not": {
-                  "Expression": {
-                    "Comparison": {
-                      "ComparisonKind": 0,
-                      "Left": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "d"
-                            }
-                          },
-                          "Property": "Category Eng"
-                        }
-                      },
-                      "Right": {
-                        "Literal": {
-                          "Value": "'CBOT futures'"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
-      }
-    ]
   },
   "objects": {
     "section": [
@@ -111,8 +54,8 @@
       "type": "SharedResources",
       "items": [
         {
-          "name": "CY24SU08",
-          "path": "BaseThemes/CY24SU08.json",
+          "name": "CY26SU07",
+          "path": "BaseThemes/CY26SU07.json",
           "type": "BaseTheme"
         }
       ]
@@ -122,8 +65,13 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "AgroExecutive_Core_Theme9779412528026522.json",
-          "path": "AgroExecutive_Core_Theme9779412528026522.json",
+          "name": "Green_theme_v129147919319995375.png",
+          "path": "Green_theme_v129147919319995375.png",
+          "type": "Image"
+        },
+        {
+          "name": "Oryza_-_Warehouse_Utilization_9631934265294433.json",
+          "path": "Oryza_-_Warehouse_Utilization_9631934265294433.json",
           "type": "CustomTheme"
         }
       ]

@@ -41,9 +41,9 @@ table 'Z_Header Fields'
 		source = ```
 				{
 				    (FORMAT(LASTDATE(Dm_Date[Date]),"d-mmm-yy"), NAMEOF('DAX'[Avg Price Last Day]), 0),   
-				    ("Daily $ Change", NAMEOF('DAX'[△Day]), 1),
-				    ("Weekly % Change", NAMEOF('DAX'[Avg Price WoW%]), 2),
-				    ("Monthly % Change", NAMEOF('DAX'[%△Month]), 3),
+				    ("Daily Change", NAMEOF('DAX'[△Day]), 1),
+				    ("Weekly Change", NAMEOF('DAX'[Avg Price WoW%]), 2),
+				    ("Monthly Change", NAMEOF('DAX'[%△Month]), 3),
 				    ("Annual Change", NAMEOF('DAX'[Annual Change]), 4),
 				    ("52 Week Low", NAMEOF('DAX'[52 Week L]), 5),
 				    ("52 Week High", NAMEOF('DAX'[52 Week H]), 6),
