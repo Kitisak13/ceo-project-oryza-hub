@@ -608,24 +608,35 @@ table DAX
 		lineageTag: b8364405-e0ab-4065-beca-22dccbfc4824
 
 	measure 'Title Rice Category' =
-			VAR _SelectedCategory = SELECTEDVALUE( Dm_Category[Category Eng] )
-			VAR _CategoryCount = COUNTROWS( VALUES( Dm_Category[Category Eng] ) )
+			VAR _Cat1 = SELECTEDVALUE( 'Dm_Product Name'[Dm_Category.Category Eng] )
+			VAR _Cat2 = SELECTEDVALUE( Dm_Category[Category Eng] )
+			VAR _CatCalc = CALCULATE( SELECTEDVALUE( Dm_Category[Category Eng] ) )
+			VAR _SelectedCategory = COALESCE( _Cat1, _Cat2, _CatCalc )
 			VAR _TotalCategories = COUNTROWS( ALL( Dm_Category[Category Eng] ) )
+			VAR _Count1 = COUNTROWS( VALUES( 'Dm_Product Name'[Dm_Category.Category Eng] ) )
+			VAR _Count2 = COUNTROWS( VALUES( Dm_Category[Category Eng] ) )
 			RETURN
 			    IF(
 			        NOT ISBLANK( _SelectedCategory ),
 			        "Oryza Global Rice Price : " & _SelectedCategory,
 			        IF(
-			            _CategoryCount < _TotalCategories && _CategoryCount > 1,
-			            "Oryza Global Rice Price : " & CONCATENATEX( VALUES( Dm_Category[Category Eng] ), Dm_Category[Category Eng], ", " ),
-			            "Oryza Global Rice Price : All Categories"
+			            _Count1 < _TotalCategories && _Count1 > 1,
+			            "Oryza Global Rice Price : " & CONCATENATEX( VALUES( 'Dm_Product Name'[Dm_Category.Category Eng] ), 'Dm_Product Name'[Dm_Category.Category Eng], ", " ),
+			            IF(
+			                _Count2 < _TotalCategories && _Count2 > 1,
+			                "Oryza Global Rice Price : " & CONCATENATEX( VALUES( Dm_Category[Category Eng] ), Dm_Category[Category Eng], ", " ),
+			                "Oryza Global Rice Price : All Categories"
+			            )
 			        )
 			    )
 		displayFolder: 10. Text
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1001
 
 	measure 'Title Rice Category & Product' =
-			VAR _Category = SELECTEDVALUE( Dm_Category[Category Eng], "All Categories" )
+			VAR _Cat1 = SELECTEDVALUE( 'Dm_Product Name'[Dm_Category.Category Eng] )
+			VAR _Cat2 = SELECTEDVALUE( Dm_Category[Category Eng] )
+			VAR _CatCalc = CALCULATE( SELECTEDVALUE( Dm_Category[Category Eng] ) )
+			VAR _Category = COALESCE( _Cat1, _Cat2, _CatCalc, "All Categories" )
 			VAR _Product = SELECTEDVALUE( 'Dm_Product Name'[Product Name] )
 			RETURN
 			    IF(
