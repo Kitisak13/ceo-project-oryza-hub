@@ -4,7 +4,7 @@
   "position": {
     "x": 10.710907303098264,
     "y": 473.33333333333337,
-    "z": 4000,
+    "z": 2000,
     "height": 96.666666666666671,
     "width": 211.66666666666669,
     "tabOrder": 2000
@@ -314,6 +314,20 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "f7d1539e736abfdaeca9",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dm_Product Name"
+              }
+            },
+            "Property": "Dm_Category.Category Eng"
+          }
+        },
+        "type": "Categorical"
       }
     ]
   }

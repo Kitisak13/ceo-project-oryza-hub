@@ -4,7 +4,7 @@
   "position": {
     "x": 10.710907303098264,
     "y": 558.33333333333337,
-    "z": 5000,
+    "z": 3000,
     "height": 120,
     "width": 211.66666666666669,
     "tabOrder": 3000
@@ -57,61 +57,6 @@
                   "Value": "1D"
                 }
               }
-            },
-            "filter": {
-              "filter": {
-                "Version": 2,
-                "From": [
-                  {
-                    "Name": "d",
-                    "Entity": "Dm_Product Name",
-                    "Type": 0
-                  }
-                ],
-                "Where": [
-                  {
-                    "Condition": {
-                      "In": {
-                        "Expressions": [
-                          {
-                            "Column": {
-                              "Expression": {
-                                "SourceRef": {
-                                  "Source": "d"
-                                }
-                              },
-                              "Property": "Product Name"
-                            }
-                          }
-                        ],
-                        "Values": [
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Thailand A1 Super'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'Pakistan 100% broken stxd'"
-                              }
-                            }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "'U.S. pet food'"
-                              }
-                            }
-                          ]
-                        ]
-                      }
-                    }
-                  }
-                ]
-              }
             }
           }
         }
@@ -122,7 +67,7 @@
             "selectAllCheckboxEnabled": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -263,23 +208,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "d7e3bcce976b30200130",
-        "ordinal": 0,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dm_Product Name"
-              }
-            },
-            "Property": "Product Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "69565de0708b60c04e8c",
-        "ordinal": 1,
+        "name": "b2ef870ac6da357c0614",
         "field": {
           "Measure": {
             "Expression": {
@@ -330,6 +259,21 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "d7e3bcce976b30200130",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Dm_Product Name"
+              }
+            },
+            "Property": "Product Name"
+          }
+        },
+        "type": "Categorical"
       }
     ],
     "filterSortOrder": "Custom"

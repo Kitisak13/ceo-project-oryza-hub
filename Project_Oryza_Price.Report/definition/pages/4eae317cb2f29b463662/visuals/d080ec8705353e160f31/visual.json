@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "d080ec8705353e160f31",
   "position": {
-    "x": 224.28571428571431,
-    "y": 68.571428571428569,
-    "z": 2000,
-    "height": 301.42857142857144,
-    "width": 1028.5714285714287,
+    "x": 224.75063199357228,
+    "y": 65.819827940974747,
+    "z": 0,
+    "height": 301.80799153422566,
+    "width": 1027.4314605420448,
     "tabOrder": 0
   },
   "visual": {
@@ -617,149 +617,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "2a4f0ceeef7df7e16fe0",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "Dm_Product Name"
-              }
-            },
-            "Property": "Product Name"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "42cde8ec2c8e47a0dcbf",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "Avg Price Last Day"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "87c05662b4101ead9510",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "△Day"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "f13dd4469bf1274a8698",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "Avg Price WoW%"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6ae6f6e594e0d7edcd67",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "%△Month"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "6b4bd531462409a7fa07",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "Annual Change"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "95af7ae5684bfaad679d",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "52 Week L"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "13df291cd5c7e1e27d4e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "52 Week H"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "2444035d7d5726c8853e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "Avg Price This Year"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e06fcb922806177d0953",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DAX"
-              }
-            },
-            "Property": "Avg Price Last Year"
-          }
-        },
-        "type": "Advanced"
-      }
-    ]
   }
 }

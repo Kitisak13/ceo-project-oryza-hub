@@ -653,7 +653,7 @@ table DAX
 			VAR _WoW = [Avg Price WoW%]
 			VAR _Direction = IF( _WoW > 0, "▲ +" & FORMAT( _WoW, "0.0%" ), IF( _WoW < 0, "▼ " & FORMAT( _WoW, "0.0%" ), "► 0.0%" ) )
 			RETURN
-			    "Latest As Of: " & FORMAT( _LastDate, "dd-mmm-yyyy" ) & 
+			    "Latest As Of: " & FORMAT( _LastDate, "dd-mmm-yyyy" ) &
 			    " | Price: $" & FORMAT( _AvgPrice, "#,##0.00" ) & "/MT (" & _Direction & " WoW)"
 		displayFolder: 10. Text
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1003
@@ -661,7 +661,7 @@ table DAX
 	measure 'Market Movement Summary Text' =
 			VAR _WoW = [Avg Price WoW%]
 			VAR _MoM = [Avg Price MoM%]
-			VAR _Status = 
+			VAR _Status =
 			    SWITCH(
 			        TRUE(),
 			        _WoW > 0.02 && _MoM > 0.05, "Strong Bullish (Accelerating Upward)",
@@ -696,7 +696,6 @@ table DAX
 			    )
 		displayFolder: 10. Text
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1006
-
 
 	column Column1
 		dataType: string

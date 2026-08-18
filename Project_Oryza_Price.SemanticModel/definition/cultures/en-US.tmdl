@@ -2754,7 +2754,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Daily $ Change": {
+			          "Daily Change": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2810,7 +2810,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Monthly % Change": {
+			          "Monthly Change": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -5493,7 +5493,7 @@ cultureInfo en-US
 			          }
 			        },
 			        {
-			          "Weekly % Change": {
+			          "Weekly Change": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
