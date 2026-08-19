@@ -276,7 +276,7 @@
             "imageWidth": {
               "expr": {
                 "Literal": {
-                  "Value": "50D"
+                  "Value": "70D"
                 }
               }
             }
@@ -429,7 +429,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "180.06692730981518D"
+                  "Value": "234.11679700732395D"
                 }
               }
             }

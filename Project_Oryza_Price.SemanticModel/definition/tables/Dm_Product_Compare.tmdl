@@ -1,0 +1,54 @@
+table Dm_Product_Compare
+	lineageTag: 7e891234-b29a-4c33-8267-2f45090f2b01
+
+	column 'Product Code'
+		dataType: string
+		lineageTag: 7e891234-275e-4002-9bb2-82954dc82902
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Product Code]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Name'
+		dataType: string
+		lineageTag: 7e891234-e0aa-48c0-ac71-ad2ae6bbad03
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Product Name]
+		sortByColumn: 'Product Code'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Category Code'
+		dataType: string
+		lineageTag: 7e891234-2a1f-4bdf-ae4a-4f5a1079c304
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Category Code]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dm_Category.Category Th'
+		dataType: string
+		lineageTag: 7e891234-4640-4c31-8bf4-e188e5577305
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dm_Category.Category Th]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Dm_Category.Category Eng'
+		dataType: string
+		lineageTag: 7e891234-4591-4bd7-bf2f-91f36153f606
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Dm_Category.Category Eng]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Dm_Product_Compare = calculated
+		mode: import
+		source = 'Dm_Product Name'
+
+	annotation PBI_Id = 7e891234422242e89e3a2c77e6208907

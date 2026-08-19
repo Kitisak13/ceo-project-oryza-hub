@@ -55,10 +55,10 @@ This Power BI Project (PBIP) serves as a **Strategic & Trading Intelligence Dash
 
 ## 📄 Report Page Structure & Roadmap Strategy
 
-### Current Development Focus: Single Page (`Main`)
-- **Phase 1 (Active Focus):** Focus exclusively on developing, perfecting, and polishing the **`Main`** page first. All current layout, visual design, and core measure development should center on delivering the complete `Main` dashboard experience.
-- **Temporary Page (`Compare`):** The `Compare` page serves only as a temporary working reference and will be removed later.
-- **Phase 2 (Subsequent Pages):** Once the `Main` page is fully completed and approved, we will collaboratively brainstorm, design, and determine the exact visuals and data to present across subsequent pages (e.g., Executive Portfolio, Origin Benchmarks, Price Spreads, Volatility, Seasonality, and Trading Signals).
+### Multi-Page Architecture:
+- **Page 1: `Main` (Executive Global Overview):** Global market overview, Category & Product filtering, Daily summary table with in-line SVG sparklines & 52W range bars, dynamic executive narrative, and 2020–2026 historical trend with X-axis zoom slider.
+- **Page 2: `Compare` (Arbitrage & Comparison Playground):** Interactive head-to-head analysis where users can pair any 2 of the 31 global rice SKUs via independent disconnected slicers (`Dm_Product Name` vs. `Dm_Product_Compare`), examining price spreads, price ratios, historical spread divergence, and automated arbitrage commentary.
+- **Phase 3 (Subsequent Pages):** Seasonality (12-month recurring patterns), Origin Parity Heatmap, and Market Volatility / Risk Matrix.
 
 ---
 

@@ -260,7 +260,7 @@
             "strokeWidth": {
               "expr": {
                 "Literal": {
-                  "Value": "2.5D"
+                  "Value": "2D"
                 }
               }
             }
@@ -277,28 +277,21 @@
                 }
               }
             },
-            "showCategory": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "showValue": {
+            "showLabels": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "showCategoryLabels": {
+            "showTooltip": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "showValueLabels": {
+            "showOnValueAxis": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -507,7 +500,7 @@
                       "Entity": "DAX"
                     }
                   },
-                  "Property": "Top Moving SKU Text"
+                  "Property": "Market Movement Summary Text"
                 }
               }
             }

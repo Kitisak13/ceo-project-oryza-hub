@@ -832,6 +832,140 @@ table DAX
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1008
 		dataCategory: ImageUrl
 
+	measure 'Playground Product A Name' = 
+			COALESCE( SELECTEDVALUE( 'Dm_Product Name'[Product Name] ), "Select Base Rice (A)" )
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2001
+
+	measure 'Playground Product B Name' = 
+			COALESCE( SELECTEDVALUE( 'Dm_Product_Compare'[Product Name] ), "Select Compare Rice (B)" )
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2002
+
+	measure 'Playground Price A' = 
+			VAR _SelectedA = SELECTEDVALUE( 'Dm_Product Name'[Product Name] )
+			RETURN
+			    IF(
+			        NOT ISBLANK( _SelectedA ),
+			        CALCULATE( [Average Price], 'Dm_Product Name'[Product Name] = _SelectedA ),
+			        [Average Price]
+			    )
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2003
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Playground Price B' = 
+			VAR _SelectedB = SELECTEDVALUE( 'Dm_Product_Compare'[Product Name] )
+			RETURN
+			    IF(
+			        NOT ISBLANK( _SelectedB ),
+			        CALCULATE( [Average Price], ALL( 'Dm_Product Name' ), 'Dm_Product Name'[Product Name] = _SelectedB ),
+			        BLANK()
+			    )
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2004
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Playground Price A Last Day' = 
+			VAR _SelectedA = SELECTEDVALUE( 'Dm_Product Name'[Product Name] )
+			RETURN
+			    IF(
+			        NOT ISBLANK( _SelectedA ),
+			        CALCULATE( [Avg Price Last Day], 'Dm_Product Name'[Product Name] = _SelectedA ),
+			        [Avg Price Last Day]
+			    )
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2005
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Playground Price B Last Day' = 
+			VAR _SelectedB = SELECTEDVALUE( 'Dm_Product_Compare'[Product Name] )
+			RETURN
+			    IF(
+			        NOT ISBLANK( _SelectedB ),
+			        CALCULATE( [Avg Price Last Day], ALL( 'Dm_Product Name' ), 'Dm_Product Name'[Product Name] = _SelectedB ),
+			        BLANK()
+			    )
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2006
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Playground Price Spread ($)' = 
+			VAR _PriceA = [Playground Price A]
+			VAR _PriceB = [Playground Price B]
+			RETURN
+			    IF( NOT ISBLANK(_PriceA) && NOT ISBLANK(_PriceB), _PriceA - _PriceB )
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2007
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Playground Price Spread Last Day ($)' = 
+			VAR _PriceA = [Playground Price A Last Day]
+			VAR _PriceB = [Playground Price B Last Day]
+			RETURN
+			    IF( NOT ISBLANK(_PriceA) && NOT ISBLANK(_PriceB), _PriceA - _PriceB )
+		formatString: +$#,##0.00 ; -$#,##0.00 ; $0.00
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2008
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Playground Price Ratio (%)' = 
+			VAR _PriceA = [Playground Price A Last Day]
+			VAR _PriceB = [Playground Price B Last Day]
+			RETURN
+			    IF( NOT ISBLANK(_PriceA) && NOT ISBLANK(_PriceB) && _PriceB <> 0, DIVIDE( _PriceA, _PriceB, 0 ) )
+		formatString: 0.0%
+		displayFolder: 09. Variance Analysis
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2009
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Playground Spread Color' = 
+			VAR _Spread = [Playground Price Spread Last Day ($)]
+			RETURN IF( _Spread > 0, "#089BAB", IF( _Spread < 0, "#D83B01", "#64748B" ) )
+		displayFolder: 07. UI & System Helpers
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2010
+
+	measure 'Playground Dynamic Title' = 
+			VAR _NameA = [Playground Product A Name]
+			VAR _NameB = [Playground Product B Name]
+			RETURN
+			    "Rice Comparison: " & _NameA & "  vs.  " & _NameB
+		displayFolder: 10. Text
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2011
+
+	measure 'Playground Arbitrage Insight Text' = 
+			VAR _NameA = [Playground Product A Name]
+			VAR _NameB = [Playground Product B Name]
+			VAR _PriceA = [Playground Price A Last Day]
+			VAR _PriceB = [Playground Price B Last Day]
+			VAR _Spread = [Playground Price Spread Last Day ($)]
+			VAR _Ratio = [Playground Price Ratio (%)]
+			VAR _Status = 
+			    IF( 
+			        _Spread > 0, 
+			        "Trading at a +$" & FORMAT( _Spread, "#,##0.00" ) & "/MT Premium (" & FORMAT( _Ratio - 1, "+0.0%" ) & ") over " & _NameB,
+			        IF( 
+			            _Spread < 0, 
+			            "Trading at a -$" & FORMAT( ABS(_Spread), "#,##0.00" ) & "/MT Discount (" & FORMAT( _Ratio - 1, "-0.0%" ) & ") vs " & _NameB,
+			            "Trading at Parity ($0.00 Spread) with " & _NameB
+			        )
+			    )
+			RETURN
+			    IF(
+			        NOT ISBLANK(_PriceA) && NOT ISBLANK(_PriceB),
+			        "Arbitrage Insight: " & _NameA & " is currently " & _Status & " (Spot A: $" & FORMAT(_PriceA, "#,##0.00") & " | Spot B: $" & FORMAT(_PriceB, "#,##0.00") & ")",
+			        "Please select both Base Product (A) and Compare Product (B) from the slicers above to view dynamic arbitrage insights."
+			    )
+		displayFolder: 10. Text
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2012
+
 	column Column1
 		dataType: string
 		isHidden

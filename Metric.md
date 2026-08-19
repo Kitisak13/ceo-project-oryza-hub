@@ -81,7 +81,28 @@ All Time Intelligence measures are standardized using trading date lookups ancho
 
 ---
 
-## 📂 5. DAX Display Folder Architecture
+## 🤹 5. Comparison Playground & Arbitrage Engine Measures
+
+Measures engineered for the **Interactive Rice Comparison Playground** (`Compare` page) leveraging the disconnected table `'Dm_Product_Compare'`:
+
+| Measure Name | Display Folder | Description |
+| :--- | :--- | :--- |
+| **`Playground Product A Name`** | `09. Variance Analysis` | Dynamic name of Base Rice selected in Slicer A. |
+| **`Playground Product B Name`** | `09. Variance Analysis` | Dynamic name of Compare Rice selected in Slicer B. |
+| **`Playground Price A`** | `09. Variance Analysis` | Contextual Average Price for Product A across date series. |
+| **`Playground Price B`** | `09. Variance Analysis` | Contextual Average Price for Product B across date series (ignores Slicer A). |
+| **`Playground Price A Last Day`** | `09. Variance Analysis` | Spot Price of Product A on latest trading date. |
+| **`Playground Price B Last Day`** | `09. Variance Analysis` | Spot Price of Product B on latest trading date. |
+| **`Playground Price Spread ($)`** | `09. Variance Analysis` | Dynamic Price Spread over time: `[Playground Price A] - [Playground Price B]`. |
+| **`Playground Price Spread Last Day ($)`** | `09. Variance Analysis` | Spot Price Spread ($/MT) between A and B on latest trading date. |
+| **`Playground Price Ratio (%)`** | `09. Variance Analysis` | Price Ratio (`Price A / Price B`): e.g., `105.2%` (+5.2% premium). |
+| **`Playground Spread Color`** | `07. UI & System Helpers` | Returns `#089BAB` (Green) when A is at a premium, `#D83B01` (Red) when A is at a discount. |
+| **`Playground Dynamic Title`** | `10. Text` | Dynamic visual title: `"Rice Comparison: [Product A] vs. [Product B]"`. |
+| **`Playground Arbitrage Insight Text`** | `10. Text` | Automated natural language executive insight explaining spot premium/discount. |
+
+---
+
+## 📂 6. DAX Display Folder Architecture
 
 All measures in table `'DAX'` are categorized into 10 structured folders:
 
@@ -93,5 +114,5 @@ All measures in table `'DAX'` are categorized into 10 structured folders:
 6. **`06. Rankings`** — Country and SKU price ranking.
 7. **`07. UI & System Helpers`** — Field parameter helpers and conditional formatting colors.
 8. **`08. Volatility Metrics`** — Specialized volatility indicators.
-9. **`09. Variance Analysis`** — Regional spread variances (Thai vs. Viet, Thai vs. India).
+9. **`09. Variance Analysis`** — Regional spread variances and Comparison Playground engine.
 10. **`10. Text`** — Dynamic card titles, analytical subtitles, executive summaries, and SVG graphics.

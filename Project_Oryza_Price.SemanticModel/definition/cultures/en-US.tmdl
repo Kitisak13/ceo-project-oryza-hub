@@ -5512,6 +5512,48 @@ cultureInfo en-US
 			        }
 			      },
 			      "State": "Generated"
+			    },
+			    "dax.column30d_trend_sparkline_svg": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "30D Trend Sparkline SVG"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "30D Trend": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dax.column52w_range_bar_svg": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DAX",
+			          "ConceptualProperty": "52W Range Bar SVG"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "52W Range": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {

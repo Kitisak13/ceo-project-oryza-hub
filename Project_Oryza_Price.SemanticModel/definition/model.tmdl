@@ -25,6 +25,7 @@ ref table Dm_Date
 ref table DAX
 ref table 'Z_Header Fields'
 ref table Z_date
+ref table Dm_Product_Compare
 
 ref cultureInfo en-US
 
