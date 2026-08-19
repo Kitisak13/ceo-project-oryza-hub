@@ -41,14 +41,16 @@ table 'Z_Header Fields'
 		source = ```
 				{
 				    (FORMAT(LASTDATE(Dm_Date[Date]),"d-mmm-yy"), NAMEOF('DAX'[Avg Price Last Day]), 0),   
-				    ("Daily Change", NAMEOF('DAX'[△Day]), 1),
-				    ("Weekly Change", NAMEOF('DAX'[Avg Price WoW%]), 2),
-				    ("Monthly Change", NAMEOF('DAX'[%△Month]), 3),
-				    ("Annual Change", NAMEOF('DAX'[Annual Change]), 4),
-				    ("52 Week Low", NAMEOF('DAX'[52 Week L]), 5),
-				    ("52 Week High", NAMEOF('DAX'[52 Week H]), 6),
-				    ("Avg. " & YEAR(LASTDATE(Dm_Date[Date])), NAMEOF('DAX'[Avg Price This Year]), 7),
-				    ("Avg. " & (YEAR(LASTDATE(Dm_Date[Date])) - 1), NAMEOF('DAX'[Avg Price Last Year]), 8)
+				    ("30D Trend", NAMEOF('DAX'[30D Trend Sparkline SVG]), 1),
+				    ("Daily Change", NAMEOF('DAX'[△Day]), 2),
+				    ("Weekly Change", NAMEOF('DAX'[Avg Price WoW%]), 3),
+				    ("Monthly Change", NAMEOF('DAX'[%△Month]), 4),
+				    ("Annual Change", NAMEOF('DAX'[Annual Change]), 5),
+				    ("52W Range", NAMEOF('DAX'[52W Range Bar SVG]), 6),
+				    ("52 Week Low", NAMEOF('DAX'[52 Week L]), 7),
+				    ("52 Week High", NAMEOF('DAX'[52 Week H]), 8),
+				    ("Avg. " & YEAR(LASTDATE(Dm_Date[Date])), NAMEOF('DAX'[Avg Price This Year]), 9),
+				    ("Avg. " & (YEAR(LASTDATE(Dm_Date[Date])) - 1), NAMEOF('DAX'[Avg Price Last Year]), 10)
 				}
 				```
 

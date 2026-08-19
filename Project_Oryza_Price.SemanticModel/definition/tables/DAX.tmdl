@@ -758,25 +758,25 @@ table DAX
 			VAR _Range = _High - _Low
 			VAR _Valid = NOT ISBLANK(_Current) && NOT ISBLANK(_Low) && NOT ISBLANK(_High) && _Range > 0
 			VAR _Pct = IF( _Valid, MIN( MAX( DIVIDE( _Current - _Low, _Range, 0 ), 0 ), 1 ), 0.5 )
-			-- SVG Dimensions
-			VAR _W = 120
-			VAR _H = 22
-			VAR _BarY = 9
+			-- SVG Dimensions (Compact 100x14)
+			VAR _W = 100
+			VAR _H = 14
+			VAR _BarY = 5
 			VAR _BarH = 4
-			VAR _DotX = 10 + ( _Pct * (_W - 20) )
-			VAR _DotY = 11
-			VAR _DotR = 4.5
+			VAR _DotX = 6 + ( _Pct * (_W - 12) )
+			VAR _DotY = 7
+			VAR _DotR = 4
 			-- Colors
 			VAR _TrackColor = "%23E2E8F0"
 			VAR _FillColor = IF( _Pct >= 0.75, "%23D83B01", IF( _Pct <= 0.25, "%23107C41", "%23089BAB" ) )
 			RETURN
 			    IF(
 			        _Valid,
-			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" & _W & "' height='" & _H & "'>" &
-			        "<rect x='10' y='" & _BarY & "' width='" & (_W - 20) & "' height='" & _BarH & "' rx='2' fill='" & _TrackColor & "'/>" &
-			        "<rect x='10' y='" & _BarY & "' width='" & (_DotX - 10) & "' height='" & _BarH & "' rx='2' fill='" & _FillColor & "' fill-opacity='0.35'/>" &
-			        "<circle cx='10' cy='" & _DotY & "' r='2' fill='%2394A3B8'/>" &
-			        "<circle cx='" & (_W - 10) & "' cy='" & _DotY & "' r='2' fill='%2394A3B8'/>" &
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 " & _W & " " & _H & "' width='" & _W & "' height='" & _H & "'>" &
+			        "<rect x='6' y='" & _BarY & "' width='" & (_W - 12) & "' height='" & _BarH & "' rx='2' fill='" & _TrackColor & "'/>" &
+			        "<rect x='6' y='" & _BarY & "' width='" & (_DotX - 6) & "' height='" & _BarH & "' rx='2' fill='" & _FillColor & "' fill-opacity='0.35'/>" &
+			        "<circle cx='6' cy='" & _DotY & "' r='2' fill='%2394A3B8'/>" &
+			        "<circle cx='" & (_W - 6) & "' cy='" & _DotY & "' r='2' fill='%2394A3B8'/>" &
 			        "<circle cx='" & _DotX & "' cy='" & _DotY & "' r='" & _DotR & "' fill='" & _FillColor & "' stroke='%23FFFFFF' stroke-width='1.5'/>" &
 			        "</svg>",
 			        BLANK()
@@ -804,13 +804,14 @@ table DAX
 			VAR _MinDate = MINX( _Table, 'Dm_Date'[Date] )
 			VAR _DateSpan = MAX( 1, DATEDIFF( _MinDate, _LastDate, DAY ) )
 			VAR _Count = COUNTROWS( _Table )
-			VAR _W = 90
-			VAR _H = 22
+			-- SVG Dimensions (Compact 80x14)
+			VAR _W = 80
+			VAR _H = 14
 			VAR _Points =
 			    CONCATENATEX(
 			        _Table,
-			        VAR _X = 5 + ( ( DATEDIFF( _MinDate, 'Dm_Date'[Date], DAY ) ) / _DateSpan ) * ( _W - 10 )
-			        VAR _Y = ( _H - 4 ) - ( ( [@Val] - _MinVal ) / _Range * ( _H - 8 ) )
+			        VAR _X = 4 + ( ( DATEDIFF( _MinDate, 'Dm_Date'[Date], DAY ) ) / _DateSpan ) * ( _W - 8 )
+			        VAR _Y = ( _H - 3 ) - ( ( [@Val] - _MinVal ) / _Range * ( _H - 6 ) )
 			        RETURN FORMAT(_X, "0.0") & "," & FORMAT(_Y, "0.0"),
 			        " ",
 			        'Dm_Date'[Date],
@@ -822,7 +823,7 @@ table DAX
 			RETURN
 			    IF(
 			        _Count >= 2,
-			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" & _W & "' height='" & _H & "'>" &
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 " & _W & " " & _H & "' width='" & _W & "' height='" & _H & "'>" &
 			        "<polyline points='" & _Points & "' fill='none' stroke='" & _StrokeColor & "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>" &
 			        "</svg>",
 			        BLANK()
