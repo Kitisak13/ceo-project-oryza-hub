@@ -41,28 +41,6 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Price Prev Month' =
-			VAR _LastTradingDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ) )
-			VAR _TargetDate = EDATE( _LastTradingDate, -1 )
-			VAR _PrevMonthTradingDate =
-			    CALCULATE(
-			        MAX( 'Fct_Oryza Price'[HeaderDate] ),
-			        'Fct_Oryza Price'[HeaderDate] <= _TargetDate,
-			        'Fct_Oryza Price'[HeaderDate] >= _TargetDate - 15,
-			        ALL( 'Dm_Date' )
-			    )
-			VAR _Result =
-			    CALCULATE(
-			        [Average Price],
-			        'Dm_Date'[Date] = _PrevMonthTradingDate,
-			        ALL( 'Dm_Date' )
-			    )
-			RETURN _Result
-		displayFolder: 02. Time Intelligence
-		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1010
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure 'Avg Price Last Month' = ```
 			VAR _startyear = YEAR( LASTDATE( Dm_Date[Date] ) ) 
 			VAR _startmonth = MONTH( LASTDATE( Dm_Date[Date] ) )
@@ -198,12 +176,6 @@ table DAX
 			RETURN IF( _Val > 0, "#089BAB", IF( _Val < 0, "#D83B01", "#64748B" ) )
 		displayFolder: 07. UI & System Helpers
 		lineageTag: 412af95c-a797-40e1-ad5b-f13bdd317fc2
-
-	measure 'Text_color WoW' =
-			VAR _Val = [Avg Price WoW%]
-			RETURN IF( _Val > 0, "#089BAB", IF( _Val < 0, "#D83B01", "#64748B" ) )
-		displayFolder: 07. UI & System Helpers
-		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1009
 
 	measure 'Text_color Month' =
 			VAR _Val = [%△Month]
@@ -696,7 +668,7 @@ table DAX
 			    IF(
 			        NOT ISBLANK( _Product ),
 			        "Oryza Global Rice Price : " & _Category & " > " & _Product,
-			        "Oryza Global Rice Price : " & _Category
+			        "Oryza Global Rice Price : " & _Category & " > " & "Multiple Products"
 			    )
 		displayFolder: 10. Text
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1002
@@ -751,6 +723,34 @@ table DAX
 		displayFolder: 10. Text
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1006
 
+	measure 'Avg Price Prev Month' =
+			VAR _LastTradingDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ) )
+			VAR _TargetDate = EDATE( _LastTradingDate, -1 )
+			VAR _PrevMonthTradingDate =
+			    CALCULATE(
+			        MAX( 'Fct_Oryza Price'[HeaderDate] ),
+			        'Fct_Oryza Price'[HeaderDate] <= _TargetDate,
+			        'Fct_Oryza Price'[HeaderDate] >= _TargetDate - 15,
+			        ALL( 'Dm_Date' )
+			    )
+			VAR _Result =
+			    CALCULATE(
+			        [Average Price],
+			        'Dm_Date'[Date] = _PrevMonthTradingDate,
+			        ALL( 'Dm_Date' )
+			    )
+			RETURN _Result
+		displayFolder: 02. Time Intelligence
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1010
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Text_color WoW' =
+			VAR _Val = [Avg Price WoW%]
+			RETURN IF( _Val > 0, "#089BAB", IF( _Val < 0, "#D83B01", "#64748B" ) )
+		displayFolder: 07. UI & System Helpers
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1009
+
 	measure '52W Range Bar SVG' =
 			VAR _Current = [Avg Price Last Day]
 			VAR _Low = [52 Week L]
@@ -781,9 +781,9 @@ table DAX
 			        "</svg>",
 			        BLANK()
 			    )
-		dataCategory: ImageUrl
 		displayFolder: 10. Text
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1007
+		dataCategory: ImageUrl
 
 	measure '30D Trend Sparkline SVG' =
 			VAR _LastDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ), ALL( 'Dm_Date' ) )
@@ -828,9 +828,9 @@ table DAX
 			        "</svg>",
 			        BLANK()
 			    )
-		dataCategory: ImageUrl
 		displayFolder: 10. Text
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1008
+		dataCategory: ImageUrl
 
 	column Column1
 		dataType: string

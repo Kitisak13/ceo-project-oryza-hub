@@ -52,6 +52,21 @@
                       "Entity": "DAX"
                     }
                   },
+                  "Property": "30D Trend Sparkline SVG"
+                }
+              },
+              "queryRef": "DAX.30D Trend Sparkline SVG",
+              "nativeQueryRef": "30D Trend",
+              "displayName": "30D Trend"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
                   "Property": "△Day"
                 }
               },
@@ -103,6 +118,21 @@
               "queryRef": "DAX.Annual Change",
               "nativeQueryRef": "Annual Change",
               "displayName": "Annual Change"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "52W Range Bar SVG"
+                }
+              },
+              "queryRef": "DAX.52W Range Bar SVG",
+              "nativeQueryRef": "52W Range",
+              "displayName": "52W Range"
             },
             {
               "field": {
@@ -178,7 +208,7 @@
                 }
               },
               "index": 1,
-              "length": 9
+              "length": 11
             }
           ]
         }
@@ -226,53 +256,27 @@
           }
         }
       ],
-      "imageSize": [
-        {
-          "properties": {
-            "imageHeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
-                }
-              }
-            },
-            "height": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "image": [
-        {
-          "properties": {
-            "imageHeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
-                }
-              }
-            },
-            "height": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
-                }
-              }
-            }
-          }
-        }
-      ],
       "grid": [
         {
           "properties": {
             "rowPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "2D"
+                  "Value": "7D"
+                }
+              }
+            },
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            },
+            "imageWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
                 }
               }
             }
@@ -425,7 +429,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "272.3238898737291D"
+                  "Value": "180.06692730981518D"
                 }
               }
             }
@@ -461,7 +465,24 @@
           }
         },
         {
-          "properties": {},
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DAX"
+                        }
+                      },
+                      "Property": "Text_color Day"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "selector": {
             "data": [
               {
@@ -502,18 +523,65 @@
             ],
             "metadata": "DAX.Avg Price WoW%"
           }
-        }
-      ],
-      "grid": [
+        },
         {
           "properties": {
-            "rowPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "7D"
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DAX"
+                        }
+                      },
+                      "Property": "Text_color Month"
+                    }
+                  }
                 }
               }
             }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "DAX.%△Month"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DAX"
+                        }
+                      },
+                      "Property": "Text_color Year"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "DAX.Annual Change"
           }
         }
       ],
