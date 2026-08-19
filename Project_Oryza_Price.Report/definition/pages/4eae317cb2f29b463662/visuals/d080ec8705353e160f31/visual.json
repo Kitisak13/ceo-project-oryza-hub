@@ -226,10 +226,37 @@
           }
         }
       ],
+      "imageSize": [
+        {
+          "properties": {
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "height": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            }
+          }
+        }
+      ],
       "image": [
         {
           "properties": {
             "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "16D"
+                }
+              }
+            },
+            "height": {
               "expr": {
                 "Literal": {
                   "Value": "16D"
