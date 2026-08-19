@@ -7,26 +7,59 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Avg Price Last Day' = ```
-			CALCULATE( [Average Price] ,
-			                                LASTDATE( 'Fct_Oryza Price'[HeaderDate] ) ) 
-			```
+	measure 'Avg Price Last Day' =
+			VAR _LastTradingDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ) )
+			VAR _Result =
+			    CALCULATE(
+			        [Average Price],
+			        'Dm_Date'[Date] = _LastTradingDate,
+			        ALL( 'Dm_Date' )
+			    )
+			RETURN _Result
 		displayFolder: 01. Core Price Metrics
 		lineageTag: 83517bca-04ea-470d-b1cf-cbde38fb8f99
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Price Previous Day' =
-			IF( NOT ISEMPTY('Fct_Oryza Price'),
-			    VAR _Maxdate = MAX(Dm_Date[Date])
-			    VAR _PreviousdatePrice = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ),
-			                                        Dm_Date[Date] < _Maxdate )
-			    VAR _Result = CALCULATE( [Average Price] ,
-			                             Dm_Date[Date] = _PreviousdatePrice )
-			
-			    RETURN _Result )
+			VAR _LastTradingDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ) )
+			VAR _PreviousTradingDate =
+			    CALCULATE(
+			        MAX( 'Fct_Oryza Price'[HeaderDate] ),
+			        'Fct_Oryza Price'[HeaderDate] < _LastTradingDate,
+			        ALL( 'Dm_Date' )
+			    )
+			VAR _Result =
+			    CALCULATE(
+			        [Average Price],
+			        'Dm_Date'[Date] = _PreviousTradingDate,
+			        ALL( 'Dm_Date' )
+			    )
+			RETURN _Result
 		displayFolder: 01. Core Price Metrics
 		lineageTag: 68108a1e-0f9f-4df8-af22-34c3a1de2287
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Price Prev Month' =
+			VAR _LastTradingDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ) )
+			VAR _TargetDate = EDATE( _LastTradingDate, -1 )
+			VAR _PrevMonthTradingDate =
+			    CALCULATE(
+			        MAX( 'Fct_Oryza Price'[HeaderDate] ),
+			        'Fct_Oryza Price'[HeaderDate] <= _TargetDate,
+			        'Fct_Oryza Price'[HeaderDate] >= _TargetDate - 15,
+			        ALL( 'Dm_Date' )
+			    )
+			VAR _Result =
+			    CALCULATE(
+			        [Average Price],
+			        'Dm_Date'[Date] = _PrevMonthTradingDate,
+			        ALL( 'Dm_Date' )
+			    )
+			RETURN _Result
+		displayFolder: 02. Time Intelligence
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1010
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -86,9 +119,11 @@ table DAX
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Avg Price MoM%' =
-			VAR _MoM = DIVIDE( [Average Price] - [Avg Price MoM] , [Avg Price MoM] , 0 )
+			VAR _CurrentPrice = [Avg Price Last Day]
+			VAR _PrevMonthPrice = [Avg Price Prev Month]
+			VAR _MoM = IF( NOT ISBLANK(_CurrentPrice) && NOT ISBLANK(_PrevMonthPrice) && _PrevMonthPrice <> 0, DIVIDE( _CurrentPrice - _PrevMonthPrice, _PrevMonthPrice, 0 ) )
 			RETURN _MoM
-		formatString: +0.0% ; - 0.0%
+		formatString: +0.00% ; -0.00%
 		displayFolder: 02. Time Intelligence
 		lineageTag: dba9d584-0c67-44f6-9524-6b560a4a4b40
 
@@ -127,21 +162,21 @@ table DAX
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure △Day =
-			VAR _Daychange = [Avg Price Last Day]- [Avg Price Previous Day]
-			VAR _result = IF([Avg Price Last Day] <> 0 && [Avg Price Previous Day] <> 0 , _Daychange)
+			VAR _Daychange = [Avg Price Last Day] - [Avg Price Previous Day]
+			VAR _result = IF( NOT ISBLANK([Avg Price Last Day]) && NOT ISBLANK([Avg Price Previous Day]), _Daychange )
 			RETURN _result
-		formatString: +0.00 ; -0.00
+		formatString: +0.00 ; -0.00 ; 0.00
 		displayFolder: 07. UI & System Helpers
 		lineageTag: 43c6d110-d441-4733-8b2b-af7a73882643
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure %△Month = ```
-			VAR _Monthchange = DIVIDE([Avg Price Last Month],[Avg Price Last Month LY],0) - 1 
-			VAR _result = IF([Avg Price Last Month] <> 0 && [Avg Price Last Month LY] <> 0 , _Monthchange)
-			RETURN _result
-			```
-		formatString: +0.00% ; -0.00%
+	measure %△Month =
+			VAR _CurrentPrice = [Avg Price Last Day]
+			VAR _PrevMonthPrice = [Avg Price Prev Month]
+			VAR _Monthchange = IF( NOT ISBLANK(_CurrentPrice) && NOT ISBLANK(_PrevMonthPrice) && _PrevMonthPrice <> 0, DIVIDE(_CurrentPrice - _PrevMonthPrice, _PrevMonthPrice, 0) )
+			RETURN _Monthchange
+		formatString: +0.00% ; -0.00% ; 0.00%
 		displayFolder: 07. UI & System Helpers
 		lineageTag: bfed130e-864b-4af2-ba42-0385d663953d
 
@@ -152,21 +187,33 @@ table DAX
 			VAR _result = IF([Avg Price This Year] <> 0 && [Avg Price Last Year] <> 0 , _Yearchange)
 			RETURN _result
 			```
-		formatString: +0.00% ; -0.00%
+		formatString: +0.00% ; -0.00% ; 0.00%
 		displayFolder: 07. UI & System Helpers
 		lineageTag: 02da03a2-23ae-4223-baac-620ee2a4da27
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure 'Text_color Day' = IF([△Day] > 0 , "Blue", IF( [△Day] < 0 , "Red" , "Black"))
+	measure 'Text_color Day' =
+			VAR _Val = [△Day]
+			RETURN IF( _Val > 0, "#089BAB", IF( _Val < 0, "#D83B01", "#64748B" ) )
 		displayFolder: 07. UI & System Helpers
 		lineageTag: 412af95c-a797-40e1-ad5b-f13bdd317fc2
 
-	measure 'Text_color Month' = IF([%△Month] > 0 , "Blue", IF( [%△Month] < 0 , "Red" , "Black"))
+	measure 'Text_color WoW' =
+			VAR _Val = [Avg Price WoW%]
+			RETURN IF( _Val > 0, "#089BAB", IF( _Val < 0, "#D83B01", "#64748B" ) )
+		displayFolder: 07. UI & System Helpers
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1009
+
+	measure 'Text_color Month' =
+			VAR _Val = [%△Month]
+			RETURN IF( _Val > 0, "#089BAB", IF( _Val < 0, "#D83B01", "#64748B" ) )
 		displayFolder: 07. UI & System Helpers
 		lineageTag: 87843d14-c555-470d-b116-d4fa361bd27b
 
-	measure 'Text_color Year' = IF([Annual Change] > 0 , "Blue", IF( [Annual Change] < 0 , "Red" , "Black"))
+	measure 'Text_color Year' =
+			VAR _Val = [Annual Change]
+			RETURN IF( _Val > 0, "#089BAB", IF( _Val < 0, "#D83B01", "#64748B" ) )
 		displayFolder: 07. UI & System Helpers
 		lineageTag: 926c197a-7a14-4d27-b08a-348fa19b7b20
 
@@ -391,18 +438,25 @@ table DAX
 		lineageTag: 7bc9783a-089b-4fc4-99b6-0b36dcd1b6b5
 
 	measure 'Avg Price WoW%' =
-			VAR _LastDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ), ALL( Dm_Date ) )
+			VAR _LastTradingDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ) )
 			VAR _CurrentPrice = [Avg Price Last Day]
-			VAR _TargetDate = _LastDate - 7
+			VAR _TargetDate = _LastTradingDate - 7
+			VAR _PreviousWeekTradingDate =
+			    CALCULATE(
+			        MAX( 'Fct_Oryza Price'[HeaderDate] ),
+			        'Fct_Oryza Price'[HeaderDate] <= _TargetDate,
+			        'Fct_Oryza Price'[HeaderDate] >= _TargetDate - 7,
+			        ALL( 'Dm_Date' )
+			    )
 			VAR _PreviousWeekPrice =
-				CALCULATE(
-					[Average Price],
-					ALL( Dm_Date ),
-					DATESBETWEEN( Dm_Date[Date], _TargetDate - 3, _TargetDate )
-				)
+			    CALCULATE(
+			        [Average Price],
+			        'Dm_Date'[Date] = _PreviousWeekTradingDate,
+			        ALL( 'Dm_Date' )
+			    )
 			VAR _Result = IF( NOT ISBLANK(_CurrentPrice) && NOT ISBLANK(_PreviousWeekPrice) && _PreviousWeekPrice <> 0, DIVIDE(_CurrentPrice - _PreviousWeekPrice, _PreviousWeekPrice, 0) )
 			RETURN _Result
-		formatString: +0.00% ; -0.00%
+		formatString: +0.00% ; -0.00% ; 0.00%
 		displayFolder: 02. Time Intelligence
 		lineageTag: e48bdfba-791b-4fc6-bc21-789a34bcda0a
 
@@ -696,6 +750,86 @@ table DAX
 			    )
 		displayFolder: 10. Text
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1006
+
+	measure '52W Range Bar SVG' =
+			VAR _Current = [Avg Price Last Day]
+			VAR _Low = [52 Week L]
+			VAR _High = [52 Week H]
+			VAR _Range = _High - _Low
+			VAR _Valid = NOT ISBLANK(_Current) && NOT ISBLANK(_Low) && NOT ISBLANK(_High) && _Range > 0
+			VAR _Pct = IF( _Valid, MIN( MAX( DIVIDE( _Current - _Low, _Range, 0 ), 0 ), 1 ), 0.5 )
+			-- SVG Dimensions
+			VAR _W = 120
+			VAR _H = 22
+			VAR _BarY = 9
+			VAR _BarH = 4
+			VAR _DotX = 10 + ( _Pct * (_W - 20) )
+			VAR _DotY = 11
+			VAR _DotR = 4.5
+			-- Colors
+			VAR _TrackColor = "%23E2E8F0"
+			VAR _FillColor = IF( _Pct >= 0.75, "%23D83B01", IF( _Pct <= 0.25, "%23107C41", "%23089BAB" ) )
+			RETURN
+			    IF(
+			        _Valid,
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" & _W & "' height='" & _H & "'>" &
+			        "<rect x='10' y='" & _BarY & "' width='" & (_W - 20) & "' height='" & _BarH & "' rx='2' fill='" & _TrackColor & "'/>" &
+			        "<rect x='10' y='" & _BarY & "' width='" & (_DotX - 10) & "' height='" & _BarH & "' rx='2' fill='" & _FillColor & "' fill-opacity='0.35'/>" &
+			        "<circle cx='10' cy='" & _DotY & "' r='2' fill='%2394A3B8'/>" &
+			        "<circle cx='" & (_W - 10) & "' cy='" & _DotY & "' r='2' fill='%2394A3B8'/>" &
+			        "<circle cx='" & _DotX & "' cy='" & _DotY & "' r='" & _DotR & "' fill='" & _FillColor & "' stroke='%23FFFFFF' stroke-width='1.5'/>" &
+			        "</svg>",
+			        BLANK()
+			    )
+		dataCategory: ImageUrl
+		displayFolder: 10. Text
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1007
+
+	measure '30D Trend Sparkline SVG' =
+			VAR _LastDate = CALCULATE( MAX( 'Fct_Oryza Price'[HeaderDate] ), ALL( 'Dm_Date' ) )
+			VAR _StartDate = _LastDate - 30
+			VAR _DatesWithPrice =
+			    FILTER(
+			        ALL( 'Dm_Date'[Date] ),
+			        'Dm_Date'[Date] >= _StartDate && 'Dm_Date'[Date] <= _LastDate && NOT ISBLANK( [Average Price] )
+			    )
+			VAR _Table =
+			    ADDCOLUMNS(
+			        _DatesWithPrice,
+			        "@Val", [Average Price]
+			    )
+			VAR _MinVal = MINX( _Table, [@Val] )
+			VAR _MaxVal = MAXX( _Table, [@Val] )
+			VAR _Range = IF( _MaxVal = _MinVal, 1, _MaxVal - _MinVal )
+			VAR _MinDate = MINX( _Table, 'Dm_Date'[Date] )
+			VAR _DateSpan = MAX( 1, DATEDIFF( _MinDate, _LastDate, DAY ) )
+			VAR _Count = COUNTROWS( _Table )
+			VAR _W = 90
+			VAR _H = 22
+			VAR _Points =
+			    CONCATENATEX(
+			        _Table,
+			        VAR _X = 5 + ( ( DATEDIFF( _MinDate, 'Dm_Date'[Date], DAY ) ) / _DateSpan ) * ( _W - 10 )
+			        VAR _Y = ( _H - 4 ) - ( ( [@Val] - _MinVal ) / _Range * ( _H - 8 ) )
+			        RETURN FORMAT(_X, "0.0") & "," & FORMAT(_Y, "0.0"),
+			        " ",
+			        'Dm_Date'[Date],
+			        ASC
+			    )
+			VAR _FirstPrice = CALCULATE( [Average Price], FILTER( ALL('Dm_Date'[Date]), 'Dm_Date'[Date] = _MinDate ) )
+			VAR _LatestPrice = [Avg Price Last Day]
+			VAR _StrokeColor = IF( _LatestPrice >= _FirstPrice, "%23089BAB", "%23D83B01" )
+			RETURN
+			    IF(
+			        _Count >= 2,
+			        "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='" & _W & "' height='" & _H & "'>" &
+			        "<polyline points='" & _Points & "' fill='none' stroke='" & _StrokeColor & "' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>" &
+			        "</svg>",
+			        BLANK()
+			    )
+		dataCategory: ImageUrl
+		displayFolder: 10. Text
+		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1008
 
 	column Column1
 		dataType: string
