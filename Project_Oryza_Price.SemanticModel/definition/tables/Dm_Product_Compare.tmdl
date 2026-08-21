@@ -2,53 +2,33 @@ table Dm_Product_Compare
 	lineageTag: 7e891234-b29a-4c33-8267-2f45090f2b01
 
 	column 'Product Code'
-		dataType: string
-		lineageTag: 7e891234-275e-4002-9bb2-82954dc82902
-		summarizeBy: none
+		lineageTag: 11d712a9-d095-42d0-a9be-3126d5274a78
 		isNameInferred
-		sourceColumn: [Product Code]
-
-		annotation SummarizationSetBy = Automatic
+		sourceColumn: Dm_Product Name[Product Code]
 
 	column 'Product Name'
-		dataType: string
-		lineageTag: 7e891234-e0aa-48c0-ac71-ad2ae6bbad03
-		summarizeBy: none
+		lineageTag: 78b221d5-78ba-49eb-a9a3-a2bee694c53e
 		isNameInferred
-		sourceColumn: [Product Name]
-		sortByColumn: 'Product Code'
-
-		annotation SummarizationSetBy = Automatic
+		sourceColumn: Dm_Product Name[Product Name]
 
 	column 'Category Code'
-		dataType: string
-		lineageTag: 7e891234-2a1f-4bdf-ae4a-4f5a1079c304
-		summarizeBy: none
+		lineageTag: be72d723-3c3a-48d4-b2ec-43a44018383b
 		isNameInferred
-		sourceColumn: [Category Code]
-
-		annotation SummarizationSetBy = Automatic
+		sourceColumn: Dm_Product Name[Category Code]
 
 	column 'Dm_Category.Category Th'
-		dataType: string
-		lineageTag: 7e891234-4640-4c31-8bf4-e188e5577305
-		summarizeBy: none
+		lineageTag: 1bba7dfe-2f7c-41f6-bc76-c7e7930ce373
 		isNameInferred
-		sourceColumn: [Dm_Category.Category Th]
-
-		annotation SummarizationSetBy = Automatic
+		sourceColumn: Dm_Product Name[Dm_Category.Category Th]
 
 	column 'Dm_Category.Category Eng'
-		dataType: string
-		lineageTag: 7e891234-4591-4bd7-bf2f-91f36153f606
-		summarizeBy: none
+		lineageTag: 42278acd-4f70-4c52-9d2a-251beaf38542
 		isNameInferred
-		sourceColumn: [Dm_Category.Category Eng]
-
-		annotation SummarizationSetBy = Automatic
+		sourceColumn: Dm_Product Name[Dm_Category.Category Eng]
 
 	partition Dm_Product_Compare = calculated
 		mode: import
 		source = 'Dm_Product Name'
 
 	annotation PBI_Id = 7e891234422242e89e3a2c77e6208907
+

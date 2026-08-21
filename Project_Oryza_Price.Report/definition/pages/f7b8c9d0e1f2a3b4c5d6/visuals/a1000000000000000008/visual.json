@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "a1000000000000000008",
   "position": {
-    "x": 16,
-    "y": 624,
-    "z": 1000,
-    "height": 86,
-    "width": 1248,
-    "tabOrder": 1000
+    "x": 18.17045895639637,
+    "y": 617.79560451747648,
+    "z": 7000,
+    "height": 101.45172917321305,
+    "width": 1247.7048483392173,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -34,44 +34,6 @@
       }
     },
     "objects": {
-      "callout": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "11.5D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0F172A'"
-                    }
-                  }
-                }
-              }
-            },
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'left'"
-                }
-              }
-            }
-          }
-        }
-      ],
       "label": [
         {
           "properties": {
@@ -85,16 +47,35 @@
           }
         }
       ],
-      "cards": [
+      "smallMultiplesHeader": [
         {
           "properties": {
-            "padding": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'Normal'"
+                  "Value": "10D"
                 }
               }
             }
+          },
+          "selector": {
+            "id": "default"
+          }
+        }
+      ],
+      "value": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ]
@@ -156,6 +137,26 @@
               "expr": {
                 "Literal": {
                   "Value": "8D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "18D"
                 }
               }
             }

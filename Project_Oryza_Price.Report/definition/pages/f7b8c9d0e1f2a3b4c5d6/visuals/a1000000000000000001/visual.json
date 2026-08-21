@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "a1000000000000000001",
   "position": {
-    "x": 16,
-    "y": 10,
+    "x": 16.656254043363337,
+    "y": 0,
     "z": 0,
-    "height": 48,
-    "width": 1248,
+    "height": 112.05116356444427,
+    "width": 1247.7048483392173,
     "tabOrder": 0
   },
   "visual": {
@@ -34,44 +34,6 @@
       }
     },
     "objects": {
-      "callout": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "16D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#004D40'"
-                    }
-                  }
-                }
-              }
-            },
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'left'"
-                }
-              }
-            }
-          }
-        }
-      ],
       "label": [
         {
           "properties": {
@@ -85,16 +47,19 @@
           }
         }
       ],
-      "cards": [
+      "value": [
         {
           "properties": {
-            "padding": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'None'"
+                  "Value": "15D"
                 }
               }
             }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ]

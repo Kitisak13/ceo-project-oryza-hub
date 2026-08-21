@@ -51,13 +51,6 @@
       "header": [
         {
           "properties": {
-            "title": {
-              "expr": {
-                "Literal": {
-                  "Value": "'🌾 1. Select Base Rice (A)'"
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -74,6 +67,53 @@
                 "Literal": {
                   "Value": "10D"
                 }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "Dm_Product Name",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "Product Name"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Thailand 5% broken'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             }
           }

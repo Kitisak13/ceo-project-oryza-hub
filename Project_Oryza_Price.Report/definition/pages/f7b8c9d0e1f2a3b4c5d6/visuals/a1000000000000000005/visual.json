@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "a1000000000000000005",
   "position": {
-    "x": 16,
-    "y": 146,
-    "z": 1000,
-    "height": 85,
-    "width": 1248,
-    "tabOrder": 1000
+    "x": 16.656254043363337,
+    "y": 145.36367165117096,
+    "z": 4000,
+    "height": 115.07957339051033,
+    "width": 1247.7048483392173,
+    "tabOrder": 4000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -76,26 +76,6 @@
       }
     },
     "objects": {
-      "callout": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "18D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
-                }
-              }
-            }
-          }
-        }
-      ],
       "label": [
         {
           "properties": {
@@ -120,34 +100,19 @@
           }
         }
       ],
-      "cards": [
+      "value": [
         {
           "properties": {
-            "border": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "borderColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#E2E8F0'"
-                    }
-                  }
-                }
-              }
-            },
-            "borderRadius": {
-              "expr": {
-                "Literal": {
-                  "Value": "8D"
+                  "Value": "18D"
                 }
               }
             }
+          },
+          "selector": {
+            "id": "default"
           }
         }
       ]

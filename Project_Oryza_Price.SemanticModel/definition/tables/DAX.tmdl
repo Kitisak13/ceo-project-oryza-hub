@@ -832,17 +832,15 @@ table DAX
 		lineageTag: a1c43b92-4f81-49ea-bc91-23da567a1008
 		dataCategory: ImageUrl
 
-	measure 'Playground Product A Name' = 
-			COALESCE( SELECTEDVALUE( 'Dm_Product Name'[Product Name] ), "Select Base Rice (A)" )
+	measure 'Playground Product A Name' = COALESCE( SELECTEDVALUE( 'Dm_Product Name'[Product Name] ), "Select Base Rice (A)" )
 		displayFolder: 09. Variance Analysis
 		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2001
 
-	measure 'Playground Product B Name' = 
-			COALESCE( SELECTEDVALUE( 'Dm_Product_Compare'[Product Name] ), "Select Compare Rice (B)" )
+	measure 'Playground Product B Name' = COALESCE( SELECTEDVALUE( 'Dm_Product_Compare'[Product Name] ), "Select Compare Rice (B)" )
 		displayFolder: 09. Variance Analysis
 		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2002
 
-	measure 'Playground Price A' = 
+	measure 'Playground Price A' =
 			VAR _SelectedA = SELECTEDVALUE( 'Dm_Product Name'[Product Name] )
 			RETURN
 			    IF(
@@ -855,7 +853,7 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Playground Price B' = 
+	measure 'Playground Price B' =
 			VAR _SelectedB = SELECTEDVALUE( 'Dm_Product_Compare'[Product Name] )
 			RETURN
 			    IF(
@@ -868,7 +866,7 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Playground Price A Last Day' = 
+	measure 'Playground Price A Last Day' =
 			VAR _SelectedA = SELECTEDVALUE( 'Dm_Product Name'[Product Name] )
 			RETURN
 			    IF(
@@ -881,7 +879,7 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Playground Price B Last Day' = 
+	measure 'Playground Price B Last Day' =
 			VAR _SelectedB = SELECTEDVALUE( 'Dm_Product_Compare'[Product Name] )
 			RETURN
 			    IF(
@@ -894,7 +892,7 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Playground Price Spread ($)' = 
+	measure 'Playground Price Spread ($)' =
 			VAR _PriceA = [Playground Price A]
 			VAR _PriceB = [Playground Price B]
 			RETURN
@@ -904,7 +902,7 @@ table DAX
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure 'Playground Price Spread Last Day ($)' = 
+	measure 'Playground Price Spread Last Day ($)' =
 			VAR _PriceA = [Playground Price A Last Day]
 			VAR _PriceB = [Playground Price B Last Day]
 			RETURN
@@ -915,7 +913,7 @@ table DAX
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure 'Playground Price Ratio (%)' = 
+	measure 'Playground Price Ratio (%)' =
 			VAR _PriceA = [Playground Price A Last Day]
 			VAR _PriceB = [Playground Price B Last Day]
 			RETURN
@@ -926,13 +924,13 @@ table DAX
 
 		annotation PBI_FormatHint = {"isCustom":true}
 
-	measure 'Playground Spread Color' = 
+	measure 'Playground Spread Color' =
 			VAR _Spread = [Playground Price Spread Last Day ($)]
 			RETURN IF( _Spread > 0, "#089BAB", IF( _Spread < 0, "#D83B01", "#64748B" ) )
 		displayFolder: 07. UI & System Helpers
 		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2010
 
-	measure 'Playground Dynamic Title' = 
+	measure 'Playground Dynamic Title' =
 			VAR _NameA = [Playground Product A Name]
 			VAR _NameB = [Playground Product B Name]
 			RETURN
@@ -940,19 +938,19 @@ table DAX
 		displayFolder: 10. Text
 		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2011
 
-	measure 'Playground Arbitrage Insight Text' = 
+	measure 'Playground Arbitrage Insight Text' =
 			VAR _NameA = [Playground Product A Name]
 			VAR _NameB = [Playground Product B Name]
 			VAR _PriceA = [Playground Price A Last Day]
 			VAR _PriceB = [Playground Price B Last Day]
 			VAR _Spread = [Playground Price Spread Last Day ($)]
 			VAR _Ratio = [Playground Price Ratio (%)]
-			VAR _Status = 
-			    IF( 
-			        _Spread > 0, 
+			VAR _Status =
+			    IF(
+			        _Spread > 0,
 			        "Trading at a +$" & FORMAT( _Spread, "#,##0.00" ) & "/MT Premium (" & FORMAT( _Ratio - 1, "+0.0%" ) & ") over " & _NameB,
-			        IF( 
-			            _Spread < 0, 
+			        IF(
+			            _Spread < 0,
 			            "Trading at a -$" & FORMAT( ABS(_Spread), "#,##0.00" ) & "/MT Discount (" & FORMAT( _Ratio - 1, "-0.0%" ) & ") vs " & _NameB,
 			            "Trading at Parity ($0.00 Spread) with " & _NameB
 			        )

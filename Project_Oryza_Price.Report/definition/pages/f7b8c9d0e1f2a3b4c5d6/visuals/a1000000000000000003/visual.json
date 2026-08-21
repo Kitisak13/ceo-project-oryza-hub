@@ -4,10 +4,10 @@
   "position": {
     "x": 418,
     "y": 64,
-    "z": 1000,
+    "z": 2000,
     "height": 75,
     "width": 390,
-    "tabOrder": 1000
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "slicer",
@@ -51,13 +51,6 @@
       "header": [
         {
           "properties": {
-            "title": {
-              "expr": {
-                "Literal": {
-                  "Value": "'🔍 2. Select Compare Rice (B)'"
-                }
-              }
-            },
             "fontColor": {
               "solid": {
                 "color": {
@@ -74,6 +67,53 @@
                 "Literal": {
                   "Value": "10D"
                 }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "filter": {
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "Dm_Product_Compare",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "Product Name"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'India 25% broken'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
               }
             }
           }
