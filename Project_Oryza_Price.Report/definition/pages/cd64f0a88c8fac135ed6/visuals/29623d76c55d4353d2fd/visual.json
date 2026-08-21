@@ -2,7 +2,7 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "29623d76c55d4353d2fd",
   "position": {
-    "x": 227.13073695495461,
+    "x": 227.1307369549546,
     "y": 139.30685199903883,
     "z": 0,
     "height": 430.03419530138075,
@@ -289,10 +289,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -326,10 +330,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -363,10 +371,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -400,10 +412,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -437,10 +453,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -474,10 +494,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -511,10 +535,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -548,10 +576,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -585,10 +617,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -622,10 +658,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -659,10 +699,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -696,10 +740,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -733,10 +781,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -770,10 +822,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -807,10 +863,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -844,10 +904,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -881,10 +945,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -918,10 +986,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -955,10 +1027,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -992,10 +1068,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1029,10 +1109,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1066,10 +1150,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1103,10 +1191,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1140,10 +1232,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1177,10 +1273,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1214,10 +1314,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1251,10 +1355,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1288,10 +1396,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1325,10 +1437,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
@@ -1362,10 +1478,14 @@
                   "Comparison": {
                     "ComparisonKind": 0,
                     "Left": {
-                      "SourceRef": {
-                        "Entity": "Dm_Product Name"
-                      },
-                      "Property": "Product Name"
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "Dm_Product Name"
+                          }
+                        },
+                        "Property": "Product Name"
+                      }
                     },
                     "Right": {
                       "Literal": {
