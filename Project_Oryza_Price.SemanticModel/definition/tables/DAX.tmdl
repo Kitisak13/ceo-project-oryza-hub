@@ -969,53 +969,53 @@ table DAX
 			RETURN
 			    SWITCH(
 			        _Product,
-			        -- High Quality
-			        "Thailand 100% B grade", "#004D40",
-			        "Thailand 5% broken", "#008080",
-			        "Vietnam 5% broken", "#DC2626",
-			        "India 5% broken", "#7C3AED",
-			        "Pakistan 5% broken", "#D97706",
-			        "Myanmar 5% broken", "#4F46E5",
+			        -- High Quality (10 SKUs - Distinct colors)
+			        "Thailand 100% B grade", "#005F73",
+			        "Thailand 5% broken", "#0A9396",
+			        "Vietnam 5% broken", "#E63946",
+			        "India 5% broken", "#7209B7",
+			        "Pakistan 5% broken", "#FB8500",
+			        "Myanmar 5% broken", "#3A0CA3",
 			        "U.S. 4% broken", "#1D4ED8",
-			        "Brazil 5% broken", "#059669",
-			        "Uruguay 5% broken", "#0891B2",
-			        "Argentina 5% broken", "#2563EB",
+			        "Brazil 5% broken", "#2A9D8F",
+			        "Uruguay 5% broken", "#4CC9F0",
+			        "Argentina 5% broken", "#F72585",
 			        
-			        -- Low Quality
-			        "Thailand 25% broken", "#008080",
-			        "Vietnam 25% broken", "#DC2626",
-			        "Pakistan 25% broken", "#D97706",
-			        "India 25% broken", "#7C3AED",
+			        -- Low Quality (5 SKUs)
+			        "Thailand 25% broken", "#0A9396",
+			        "Vietnam 25% broken", "#E63946",
+			        "Pakistan 25% broken", "#FB8500",
+			        "India 25% broken", "#7209B7",
 			        "U.S. 15% broken (sacked)", "#1D4ED8",
 			        
-			        -- Parboiled
-			        "Thai Parboiled 100% stxd", "#008080",
-			        "Pakistan parboiled 5% broken stxd", "#D97706",
-			        "India parboiled 5% broken stxd", "#7C3AED",
+			        -- Parboiled (6 SKUs)
+			        "Thai Parboiled 100% stxd", "#0A9396",
+			        "Pakistan parboiled 5% broken stxd", "#FB8500",
+			        "India parboiled 5% broken stxd", "#7209B7",
 			        "U.S. parboiled 4% broken", "#1D4ED8",
-			        "Brazil parboiled 5% broken", "#059669",
-			        "Uruguay parboiled 5% broken", "#0891B2",
+			        "Brazil parboiled 5% broken", "#2A9D8F",
+			        "Uruguay parboiled 5% broken", "#4CC9F0",
 			        
-			        -- Fragrant
-			        "Thailand Hommali 92%", "#008080",
-			        "Vietnam Jasmine", "#DC2626",
+			        -- Fragrant (2 SKUs)
+			        "Thailand Hommali 92%", "#0A9396",
+			        "Vietnam Jasmine", "#E63946",
 			        
-			        -- Brokens
-			        "Thailand A1 Super", "#008080",
-			        "Vietnam 100% broken", "#DC2626",
-			        "Pakistan 100% broken stxd", "#D97706",
-			        "Indian 100% broken stxd", "#7C3AED",
+			        -- Brokens (5 SKUs)
+			        "Thailand A1 Super", "#0A9396",
+			        "Vietnam 100% broken", "#E63946",
+			        "Pakistan 100% broken stxd", "#FB8500",
+			        "Indian 100% broken stxd", "#7209B7",
 			        "U.S. pet food", "#1D4ED8",
 			        
-			        -- Medium Grain
+			        -- Medium Grain (2 SKUs)
 			        "U.S. Calrose 4% broken", "#1D4ED8",
-			        "Italy risotto", "#DB2777",
+			        "Italy risotto", "#F72585",
 			        
 			        -- Fallback by Country
-			        IF( CONTAINSSTRING(_Product, "Thai"), "#008080",
-			        IF( CONTAINSSTRING(_Product, "Viet"), "#DC2626",
-			        IF( CONTAINSSTRING(_Product, "India") || CONTAINSSTRING(_Product, "Indian"), "#7C3AED",
-			        IF( CONTAINSSTRING(_Product, "Pakistan"), "#D97706",
+			        IF( CONTAINSSTRING(_Product, "Thai"), "#0A9396",
+			        IF( CONTAINSSTRING(_Product, "Viet"), "#E63946",
+			        IF( CONTAINSSTRING(_Product, "India") || CONTAINSSTRING(_Product, "Indian"), "#7209B7",
+			        IF( CONTAINSSTRING(_Product, "Pakistan"), "#FB8500",
 			        IF( CONTAINSSTRING(_Product, "U.S.") || CONTAINSSTRING(_Product, "US"), "#1D4ED8", "#64748B" ) ) ) ) )
 			    )
 		displayFolder: 07. UI & System Helpers

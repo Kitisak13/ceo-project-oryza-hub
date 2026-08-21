@@ -267,6 +267,1118 @@
           }
         }
       ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#005F73'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Thailand 100% B grade'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0A9396'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Thailand 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E63946'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Vietnam 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7209B7'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'India 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FB8500'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Pakistan 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#3A0CA3'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Myanmar 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D4ED8'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'U.S. 4% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2A9D8F'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Brazil 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#4CC9F0'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Uruguay 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F72585'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Argentina 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0A9396'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Thailand 25% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E63946'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Vietnam 25% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FB8500'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Pakistan 25% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7209B7'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'India 25% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D4ED8'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'U.S. 15% broken (sacked)'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0A9396'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Thai Parboiled 100% stxd'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FB8500'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Pakistan parboiled 5% broken stxd'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7209B7'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'India parboiled 5% broken stxd'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D4ED8'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'U.S. parboiled 4% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#2A9D8F'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Brazil parboiled 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#4CC9F0'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Uruguay parboiled 5% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0A9396'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Thailand Hommali 92%'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E63946'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Vietnam Jasmine'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0A9396'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Thailand A1 Super'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#E63946'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Vietnam 100% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FB8500'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Pakistan 100% broken stxd'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#7209B7'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Indian 100% broken stxd'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D4ED8'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'U.S. pet food'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1D4ED8'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'U.S. Calrose 4% broken'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F72585'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "SourceRef": {
+                        "Entity": "Dm_Product Name"
+                      },
+                      "Property": "Product Name"
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Italy risotto'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ],
       "zoom": [
         {
           "properties": {
