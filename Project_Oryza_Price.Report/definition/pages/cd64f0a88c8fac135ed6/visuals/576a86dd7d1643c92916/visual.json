@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "6a3d07bb8dc2239ff7e7",
+  "name": "576a86dd7d1643c92916",
   "position": {
-    "x": 208.16427104722794,
-    "y": 86.5098269287181,
-    "z": 2000,
-    "height": 66.2340862422998,
-    "width": 543.38985039601062,
-    "tabOrder": 3000
+    "x": 201.38925343339309,
+    "y": 89.338089868948813,
+    "z": 1000,
+    "height": 66.625016173453346,
+    "width": 542.085358865825,
+    "tabOrder": 2000
   },
   "visual": {
     "visualType": "advancedSlicerVisual",
@@ -67,7 +67,7 @@
                           [
                             {
                               "Literal": {
-                                "Value": "'White Rice High'"
+                                "Value": "'Broken White Rice'"
                               }
                             }
                           ]
@@ -126,7 +126,7 @@
             "autoGrid": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             }
@@ -474,7 +474,7 @@
             "horizontalAlignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "'left'"
                 }
               }
             }
@@ -699,41 +699,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "position": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Bottom'"
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "70D"
-                }
-              }
-            },
-            "width": {
-              "expr": {
-                "Literal": {
-                  "Value": "1D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "interaction:rest"
           }
         }
       ],

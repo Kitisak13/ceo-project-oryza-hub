@@ -1,40 +1,84 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "fdbc6b5a14934ff36fb2",
+  "name": "b61a09906061bff5050f",
   "position": {
-    "x": 200.67020713711813,
-    "y": 11.237531599678615,
-    "z": 4000,
-    "height": 78.6627211977503,
-    "width": 1053.117247055596,
-    "tabOrder": 4000
+    "x": 942.14608389557054,
+    "y": 78.39953065415078,
+    "z": 5000,
+    "height": 71.640950425344684,
+    "width": 290.61894983866239,
+    "tabOrder": 5000
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "slicer",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DAX"
+                      "Entity": "Dm_Date"
                     }
                   },
-                  "Property": "Title Rice Category"
+                  "Property": "Date"
                 }
               },
-              "queryRef": "DAX.Title Rice Category",
-              "nativeQueryRef": "Title Rice Category"
+              "queryRef": "Dm_Date.Date",
+              "nativeQueryRef": "Date",
+              "active": true
             }
           ]
         }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "Dm_Date"
+                  }
+                },
+                "Property": "Date"
+              }
+            },
+            "direction": "Ascending"
+          }
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
-      "outline": [
+      "data": [
+        {
+          "properties": {
+            "mode": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Between'"
+                }
+              }
+            },
+            "startDate": {
+              "expr": {
+                "Literal": {
+                  "Value": "datetime'2020-01-01T00:00:00'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {}
+        }
+      ],
+      "header": [
         {
           "properties": {
             "show": {
@@ -43,36 +87,49 @@
                   "Value": "false"
                 }
               }
+            },
+            "textSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],
-      "divider": [
+      "slider": [
         {
           "properties": {
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ],
-      "smallMultiplesHeader": [
+      "date": [
         {
           "properties": {
-            "backgroundShow": {
+            "textSize": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "12D"
                 }
               }
             },
@@ -87,134 +144,50 @@
                   }
                 }
               }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "fillCustom": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+            },
+            "background": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F9FBFC'"
+                    }
+                  }
                 }
               }
             }
           }
         }
       ],
-      "layout": [
-        {
-          "properties": {
-            "backgroundShow": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "alignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'middle'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "value": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "19D"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "padding": [
-        {
-          "properties": {
-            "paddingUniform": {
-              "expr": {
-                "Literal": {
-                  "Value": "12L"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "shadowCustom": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
-                }
-              }
-            }
-          },
-          "selector": {
-            "id": "default"
-          }
-        }
-      ],
-      "label": [
+      "pendingChangesIcon": [
         {
           "properties": {
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'aboveValue'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "12D"
-                }
-              }
-            },
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "false"
+                  "Value": "'right'"
                 }
               }
             }
-          },
-          "selector": {
-            "id": "default"
           }
         }
       ]
     },
     "visualContainerObjects": {
       "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
         {
           "properties": {
             "show": {
@@ -259,7 +232,7 @@
             "top": {
               "expr": {
                 "Literal": {
-                  "Value": "0D"
+                  "Value": "16D"
                 }
               }
             }

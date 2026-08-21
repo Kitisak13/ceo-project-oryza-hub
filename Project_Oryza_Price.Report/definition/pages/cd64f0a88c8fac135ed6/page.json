@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
-  "name": "4eae317cb2f29b463662",
-  "displayName": "Main",
+  "name": "cd64f0a88c8fac135ed6",
+  "displayName": "Products",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
   "pageBinding": {
-    "name": "2ed4fa754b9ae1bdfe78",
+    "name": "7fa4190db60418c354ee",
     "type": "Default",
     "parameters": []
   },
@@ -71,8 +71,18 @@
   },
   "visualInteractions": [
     {
-      "source": "d080ec8705353e160f31",
-      "target": "6a3d07bb8dc2239ff7e7",
+      "source": "29623d76c55d4353d2fd",
+      "target": "8df26fb6f110dfda390d",
+      "type": "NoFilter"
+    },
+    {
+      "source": "29623d76c55d4353d2fd",
+      "target": "576a86dd7d1643c92916",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8df26fb6f110dfda390d",
+      "target": "576a86dd7d1643c92916",
       "type": "NoFilter"
     }
   ]
