@@ -1053,23 +1053,30 @@ table DAX
 			VAR _PriceA = [Playground Price A]
 			VAR _PriceB = [Playground Price B]
 			VAR _Spread = [Playground Price Spread ($)]
-			VAR _Status = IF( _Spread > 0, "(A Premium)", IF( _Spread < 0, "(A Discount)", "(Parity)" ) )
-			VAR _SpreadText = IF(_Spread > 0, "+$", IF(_Spread < 0, "-$", "$")) & FORMAT(ABS(_Spread), "#,##0.00") & "/MT " & _Status
-			VAR _DateText = IF(NOT ISBLANK(_D), FORMAT(_D, "dd-mmm-yyyy"), "Trading Date")
+			VAR _PriceAText = IF(NOT ISBLANK(_PriceA), "$" & FORMAT(_PriceA, "#,##0.00"), "-")
+			VAR _PriceBText = IF(NOT ISBLANK(_PriceB), "$" & FORMAT(_PriceB, "#,##0.00"), "-")
+			VAR _Status = IF( NOT ISBLANK(_Spread), IF( _Spread > 0, "(A Premium)", IF( _Spread < 0, "(A Discount)", "(Parity)" ) ), "" )
+			VAR _SpreadText = 
+			    IF(
+			        NOT ISBLANK(_Spread),
+			        IF(_Spread > 0, "+$", IF(_Spread < 0, "-$", "$")) & FORMAT(ABS(_Spread), "#,##0.00") & "/MT " & _Status,
+			        "-"
+			    )
+			VAR _DateText = IF(NOT ISBLANK(_D), FORMAT(_D, "dd-mmm-yyyy"), "Select Date / Hover Line")
 			RETURN
-			    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='150' viewBox='0 0 300 150'>" &
-			    "<rect width='300' height='150' rx='8' fill='%23FFFFFF' stroke='%23CBD5E1' stroke-width='1'/>" &
-			    "<text x='16' y='28' font-family='Segoe UI, sans-serif' font-size='13' font-weight='700' fill='%230F172A'>📅 " & _DateText & "</text>" &
-			    "<line x1='16' y1='38' x2='284' y2='38' stroke='%23E2E8F0' stroke-width='1'/>" &
-			    "<circle cx='22' cy='58' r='5' fill='%23008080'/>" &
-			    "<text x='34' y='62' font-family='Segoe UI, sans-serif' font-size='11' font-weight='600' fill='%23334155'>" & _NameA & "</text>" &
-			    "<text x='284' y='62' text-anchor='end' font-family='Segoe UI, sans-serif' font-size='11' font-weight='700' fill='%23008080'>$" & FORMAT(_PriceA, "#,##0.00") & "</text>" &
-			    "<circle cx='22' cy='88' r='5' fill='%23D97706'/>" &
-			    "<text x='34' y='92' font-family='Segoe UI, sans-serif' font-size='11' font-weight='600' fill='%23334155'>" & _NameB & "</text>" &
-			    "<text x='284' y='92' text-anchor='end' font-family='Segoe UI, sans-serif' font-size='11' font-weight='700' fill='%23D97706'>$" & FORMAT(_PriceB, "#,##0.00") & "</text>" &
-			    "<line x1='16' y1='106' x2='284' y2='106' stroke='%23E2E8F0' stroke-width='1'/>" &
-			    "<text x='16' y='128' font-family='Segoe UI, sans-serif' font-size='11' font-weight='600' fill='%2364748B'>⚖️ Spread (A - B):</text>" &
-			    "<text x='284' y='128' text-anchor='end' font-family='Segoe UI, sans-serif' font-size='11' font-weight='700' fill='%230F172A'>" & _SpreadText & "</text>" &
+			    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='310' height='155' viewBox='0 0 310 155'>" &
+			    "<rect width='310' height='155' rx='8' fill='%23FFFFFF' stroke='%23CBD5E1' stroke-width='1'/>" &
+			    "<text x='16' y='26' font-family='Segoe UI, sans-serif' font-size='12' font-weight='700' fill='%230F172A'>📅 " & _DateText & "</text>" &
+			    "<line x1='16' y1='36' x2='294' y2='36' stroke='%23E2E8F0' stroke-width='1'/>" &
+			    "<circle cx='22' cy='56' r='5' fill='%23008080'/>" &
+			    "<text x='34' y='60' font-family='Segoe UI, sans-serif' font-size='11' font-weight='600' fill='%23334155'>" & _NameA & "</text>" &
+			    "<text x='294' y='60' text-anchor='end' font-family='Segoe UI, sans-serif' font-size='11' font-weight='700' fill='%23008080'>" & _PriceAText & "</text>" &
+			    "<circle cx='22' cy='86' r='5' fill='%23D97706'/>" &
+			    "<text x='34' y='90' font-family='Segoe UI, sans-serif' font-size='11' font-weight='600' fill='%23334155'>" & _NameB & "</text>" &
+			    "<text x='294' y='90' text-anchor='end' font-family='Segoe UI, sans-serif' font-size='11' font-weight='700' fill='%23D97706'>" & _PriceBText & "</text>" &
+			    "<line x1='16' y1='104' x2='294' y2='104' stroke='%23E2E8F0' stroke-width='1'/>" &
+			    "<text x='16' y='126' font-family='Segoe UI, sans-serif' font-size='11' font-weight='600' fill='%2364748B'>⚖️ Spread (A - B):</text>" &
+			    "<text x='294' y='126' text-anchor='end' font-family='Segoe UI, sans-serif' font-size='11' font-weight='700' fill='%230F172A'>" & _SpreadText & "</text>" &
 			    "</svg>"
 		dataCategory: ImageUrl
 		displayFolder: 09. SVG
