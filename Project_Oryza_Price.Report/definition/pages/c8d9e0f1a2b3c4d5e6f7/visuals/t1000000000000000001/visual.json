@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "t1000000000000000001",
   "position": {
-    "x": 0,
-    "y": 0,
+    "x": 8,
+    "y": 8,
     "z": 0,
-    "height": 160,
-    "width": 310,
+    "height": 154,
+    "width": 304,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "tableEx",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Values": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -23,18 +23,125 @@
                       "Entity": "DAX"
                     }
                   },
-                  "Property": "Playground Tooltip SVG"
+                  "Property": "Playground Tooltip Date"
                 }
               },
-              "queryRef": "DAX.Playground Tooltip SVG",
-              "nativeQueryRef": "Playground Tooltip SVG"
+              "queryRef": "DAX.Playground Tooltip Date",
+              "nativeQueryRef": "Playground Tooltip Date"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Playground Tooltip Line A"
+                }
+              },
+              "queryRef": "DAX.Playground Tooltip Line A",
+              "nativeQueryRef": "Playground Tooltip Line A"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Playground Tooltip Line B"
+                }
+              },
+              "queryRef": "DAX.Playground Tooltip Line B",
+              "nativeQueryRef": "Playground Tooltip Line B"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DAX"
+                    }
+                  },
+                  "Property": "Playground Tooltip Spread Line"
+                }
+              },
+              "queryRef": "DAX.Playground Tooltip Spread Line",
+              "nativeQueryRef": "Playground Tooltip Spread Line"
             }
           ]
         }
       }
     },
     "objects": {
-      "columnHeaders": [
+      "layout": [
+        {
+          "properties": {
+            "orientation": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            },
+            "maxTiles": {
+              "expr": {
+                "Literal": {
+                  "Value": "4L"
+                }
+              }
+            },
+            "cellPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "2L"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "callout": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10.5D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0F172A'"
+                    }
+                  }
+                }
+              }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "label": [
         {
           "properties": {
             "show": {
@@ -47,34 +154,27 @@
           }
         }
       ],
-      "grid": [
+      "cards": [
         {
           "properties": {
-            "gridHorizontal": {
+            "padding": {
+              "expr": {
+                "Literal": {
+                  "Value": "'None'"
+                }
+              }
+            },
+            "border": {
               "expr": {
                 "Literal": {
                   "Value": "false"
                 }
               }
             },
-            "gridVertical": {
+            "background": {
               "expr": {
                 "Literal": {
                   "Value": "false"
-                }
-              }
-            },
-            "imageHeight": {
-              "expr": {
-                "Literal": {
-                  "Value": "150L"
-                }
-              }
-            },
-            "rowPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
                 }
               }
             }
@@ -89,7 +189,25 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#FFFFFF'"
+                    }
+                  }
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -102,7 +220,25 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#CBD5E1'"
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
                 }
               }
             }
