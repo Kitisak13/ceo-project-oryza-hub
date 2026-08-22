@@ -34,21 +34,6 @@
         }
       },
       "sortDefinition": {
-        "sort": [
-          {
-            "field": {
-              "Column": {
-                "Expression": {
-                  "SourceRef": {
-                    "Entity": "Dm_Date"
-                  }
-                },
-                "Property": "Date"
-              }
-            },
-            "direction": "Ascending"
-          }
-        ],
         "isDefaultSort": true
       }
     },
@@ -60,13 +45,6 @@
               "expr": {
                 "Literal": {
                   "Value": "'Between'"
-                }
-              }
-            },
-            "startDate": {
-              "expr": {
-                "Literal": {
-                  "Value": "datetime'2020-01-01T00:00:00'"
                 }
               }
             }

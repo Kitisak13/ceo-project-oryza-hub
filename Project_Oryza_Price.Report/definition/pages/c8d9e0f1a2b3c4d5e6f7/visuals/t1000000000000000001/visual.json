@@ -1,38 +1,19 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
-  "name": "a1000000000000000007",
+  "name": "t1000000000000000001",
   "position": {
-    "x": 778.30132529897787,
-    "y": 260.95658096503928,
-    "z": 6000,
-    "height": 380,
-    "width": 486,
-    "tabOrder": 6000
+    "x": 8,
+    "y": 8,
+    "z": 0,
+    "height": 154,
+    "width": 304,
+    "tabOrder": 0
   },
   "visual": {
-    "visualType": "lineChart",
+    "visualType": "cardVisual",
     "query": {
       "queryState": {
-        "Category": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "Dm_Date"
-                    }
-                  },
-                  "Property": "Date"
-                }
-              },
-              "queryRef": "Dm_Date.Date",
-              "nativeQueryRef": "Date",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
+        "Data": {
           "projections": [
             {
               "field": {
@@ -42,34 +23,59 @@
                       "Entity": "DAX"
                     }
                   },
-                  "Property": "Playground Price Spread ($)"
+                  "Property": "Playground Tooltip Card Text"
                 }
               },
-              "queryRef": "DAX.Playground Price Spread ($)",
-              "nativeQueryRef": "Spread ($/MT)"
+              "queryRef": "DAX.Playground Tooltip Card Text",
+              "nativeQueryRef": "Playground Tooltip Card Text"
             }
           ]
         }
       }
     },
     "objects": {
-      "valueAxis": [
+      "callout": [
         {
           "properties": {
-            "titleText": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'Spread ($ / MT)'"
+                  "Value": "10D"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Segoe UI Semibold'"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#0F172A'"
+                    }
+                  }
+                }
+              }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'left'"
                 }
               }
             }
           }
         }
       ],
-      "categoryAxis": [
+      "label": [
         {
           "properties": {
-            "showAxisTitle": {
+            "show": {
               "expr": {
                 "Literal": {
                   "Value": "false"
@@ -79,26 +85,13 @@
           }
         }
       ],
-      "zoom": [
+      "cards": [
         {
           "properties": {
-            "show": {
+            "padding": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "lineStyles": [
-        {
-          "properties": {
-            "strokeWidth": {
-              "expr": {
-                "Literal": {
-                  "Value": "2.5D"
+                  "Value": "'None'"
                 }
               }
             }
@@ -122,7 +115,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#FFFFFF'"
+                      "Value": "'#F8FAFC'"
                     }
                   }
                 }
@@ -153,7 +146,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#CBD5E1'"
+                      "Value": "'#E2E8F0'"
                     }
                   }
                 }
@@ -162,54 +155,7 @@
             "radius": {
               "expr": {
                 "Literal": {
-                  "Value": "12D"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "title": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "13D"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'⚖️ Historical Spread Divergence (A - B)'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "subTitle": [
-        {
-          "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "text": {
-              "expr": {
-                "Literal": {
-                  "Value": "'+$ = A is Premium | -$ = A is Discount'"
-                }
-              }
-            },
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "9.5D"
+                  "Value": "6D"
                 }
               }
             }

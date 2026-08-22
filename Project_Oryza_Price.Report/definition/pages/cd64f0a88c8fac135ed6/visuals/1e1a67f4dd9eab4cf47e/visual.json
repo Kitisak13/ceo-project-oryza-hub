@@ -157,6 +157,13 @@
                   "Value": "'740f4018cdc48fc2cd18'"
                 }
               }
+            },
+            "tooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Reset Date Range'"
+                }
+              }
             }
           }
         }

@@ -345,6 +345,20 @@
           "selector": {
             "id": "interaction:press"
           }
+        },
+        {
+          "properties": {},
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "id": "selection:selected",
+            "hierarchyMatching": 1
+          }
         }
       ],
       "accentBar": [
@@ -367,10 +381,24 @@
             "width": {
               "expr": {
                 "Literal": {
-                  "Value": "4D"
+                  "Value": "3D"
                 }
               }
             },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "20D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
+        {
+          "properties": {
             "color": {
               "solid": {
                 "color": {
@@ -389,7 +417,15 @@
             }
           },
           "selector": {
-            "id": "default"
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "id": "default",
+            "hierarchyMatching": 1
           }
         }
       ],

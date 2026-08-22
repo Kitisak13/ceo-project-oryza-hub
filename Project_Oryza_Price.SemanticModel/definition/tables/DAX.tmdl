@@ -964,7 +964,7 @@ table DAX
 		displayFolder: 10. Text
 		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a2012
 
-	measure 'Product Line Color' = 
+	measure 'Product Line Color' =
 			VAR _Product = SELECTEDVALUE( 'Dm_Product Name'[Product Name] )
 			RETURN
 			    SWITCH(
@@ -980,14 +980,14 @@ table DAX
 			        "Brazil 5% broken", "#2A9D8F",
 			        "Uruguay 5% broken", "#4CC9F0",
 			        "Argentina 5% broken", "#F72585",
-			        
+			
 			        -- Low Quality (5 SKUs)
 			        "Thailand 25% broken", "#0A9396",
 			        "Vietnam 25% broken", "#E63946",
 			        "Pakistan 25% broken", "#FB8500",
 			        "India 25% broken", "#7209B7",
 			        "U.S. 15% broken (sacked)", "#1D4ED8",
-			        
+			
 			        -- Parboiled (6 SKUs)
 			        "Thai Parboiled 100% stxd", "#0A9396",
 			        "Pakistan parboiled 5% broken stxd", "#FB8500",
@@ -995,22 +995,22 @@ table DAX
 			        "U.S. parboiled 4% broken", "#1D4ED8",
 			        "Brazil parboiled 5% broken", "#2A9D8F",
 			        "Uruguay parboiled 5% broken", "#4CC9F0",
-			        
+			
 			        -- Fragrant (2 SKUs)
 			        "Thailand Hommali 92%", "#0A9396",
 			        "Vietnam Jasmine", "#E63946",
-			        
+			
 			        -- Brokens (5 SKUs)
 			        "Thailand A1 Super", "#0A9396",
 			        "Vietnam 100% broken", "#E63946",
 			        "Pakistan 100% broken stxd", "#FB8500",
 			        "Indian 100% broken stxd", "#7209B7",
 			        "U.S. pet food", "#1D4ED8",
-			        
+			
 			        -- Medium Grain (2 SKUs)
 			        "U.S. Calrose 4% broken", "#1D4ED8",
 			        "Italy risotto", "#F72585",
-			        
+			
 			        -- Fallback by Country
 			        IF( CONTAINSSTRING(_Product, "Thai"), "#0A9396",
 			        IF( CONTAINSSTRING(_Product, "Viet"), "#E63946",
@@ -1020,6 +1020,31 @@ table DAX
 			    )
 		displayFolder: 07. UI & System Helpers
 		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a3001
+
+	measure 'Playground Dynamic Subtitle' = 
+			"🟢 " & [Playground Product A Name] & "  vs.  🟠 " & [Playground Product B Name]
+		displayFolder: 10. Text
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a4001
+
+	measure 'Playground Tooltip Card Text' = 
+			VAR _D = SELECTEDVALUE('Dm_Date'[Date])
+			VAR _NameA = [Playground Product A Name]
+			VAR _NameB = [Playground Product B Name]
+			VAR _PriceA = [Playground Price A]
+			VAR _PriceB = [Playground Price B]
+			VAR _Spread = [Playground Price Spread ($)]
+			VAR _Ratio = [Playground Price Ratio (%)]
+			VAR _Status = 
+			    IF( _Spread > 0, " (A Premium)", IF( _Spread < 0, " (A Discount)", " (Parity)" ) )
+			RETURN
+			    "📅 " & FORMAT(_D, "dd-mmm-yyyy") & UNICHAR(10) &
+			    "────────────────────────" & UNICHAR(10) &
+			    "🟢 " & _NameA & ":  $" & FORMAT(_PriceA, "#,##0.00") & " / MT" & UNICHAR(10) &
+			    "🟠 " & _NameB & ":  $" & FORMAT(_PriceB, "#,##0.00") & " / MT" & UNICHAR(10) &
+			    "────────────────────────" & UNICHAR(10) &
+			    "⚖️ Spread: " & IF(_Spread > 0, "+$", IF(_Spread < 0, "-$", "$")) & FORMAT(ABS(_Spread), "#,##0.00") & "/MT" & _Status
+		displayFolder: 10. Text
+		lineageTag: c1c43b92-4f81-49ea-bc91-23da567a4002
 
 	column Column1
 		dataType: string
