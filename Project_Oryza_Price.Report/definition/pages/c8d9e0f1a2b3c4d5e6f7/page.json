@@ -3,8 +3,8 @@
   "name": "c8d9e0f1a2b3c4d5e6f7",
   "displayName": "Playground_Tooltip",
   "displayOption": "ActualSize",
-  "height": 170,
-  "width": 320,
+  "height": 160,
+  "width": 360,
   "visibility": "HiddenInViewMode",
   "objects": {
     "background": [

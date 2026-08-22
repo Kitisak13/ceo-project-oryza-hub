@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "t1000000000000000001",
   "position": {
-    "x": 8,
-    "y": 8,
+    "x": 6,
+    "y": 6,
     "z": 0,
-    "height": 154,
-    "width": 304,
+    "height": 148,
+    "width": 348,
     "tabOrder": 0
   },
   "visual": {
@@ -96,7 +96,7 @@
             "cellPadding": {
               "expr": {
                 "Literal": {
-                  "Value": "2L"
+                  "Value": "0L"
                 }
               }
             }
@@ -109,7 +109,7 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "10.5D"
+                  "Value": "10D"
                 }
               }
             },
@@ -141,7 +141,7 @@
           }
         }
       ],
-      "label": [
+      "labels": [
         {
           "properties": {
             "show": {
@@ -151,6 +151,62 @@
                 }
               }
             }
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DAX.Playground Tooltip Date"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DAX.Playground Tooltip Line A"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DAX.Playground Tooltip Line B"
+          }
+        },
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DAX.Playground Tooltip Spread Line"
           }
         }
       ],
