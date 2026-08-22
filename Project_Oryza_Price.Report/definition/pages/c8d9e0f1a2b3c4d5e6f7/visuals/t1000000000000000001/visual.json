@@ -2,18 +2,18 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "t1000000000000000001",
   "position": {
-    "x": 8,
-    "y": 8,
+    "x": 0,
+    "y": 0,
     "z": 0,
-    "height": 154,
-    "width": 304,
+    "height": 160,
+    "width": 310,
     "tabOrder": 0
   },
   "visual": {
-    "visualType": "cardVisual",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Data": {
+        "Values": {
           "projections": [
             {
               "field": {
@@ -23,56 +23,18 @@
                       "Entity": "DAX"
                     }
                   },
-                  "Property": "Playground Tooltip Card Text"
+                  "Property": "Playground Tooltip SVG"
                 }
               },
-              "queryRef": "DAX.Playground Tooltip Card Text",
-              "nativeQueryRef": "Playground Tooltip Card Text"
+              "queryRef": "DAX.Playground Tooltip SVG",
+              "nativeQueryRef": "Playground Tooltip SVG"
             }
           ]
         }
       }
     },
     "objects": {
-      "callout": [
-        {
-          "properties": {
-            "fontSize": {
-              "expr": {
-                "Literal": {
-                  "Value": "10D"
-                }
-              }
-            },
-            "fontFamily": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Segoe UI Semibold'"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#0F172A'"
-                    }
-                  }
-                }
-              }
-            },
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'left'"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "label": [
+      "columnHeaders": [
         {
           "properties": {
             "show": {
@@ -85,13 +47,34 @@
           }
         }
       ],
-      "cards": [
+      "grid": [
         {
           "properties": {
-            "padding": {
+            "gridHorizontal": {
               "expr": {
                 "Literal": {
-                  "Value": "'None'"
+                  "Value": "false"
+                }
+              }
+            },
+            "gridVertical": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "imageHeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "150L"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "0L"
                 }
               }
             }
@@ -106,25 +89,7 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
-                }
-              }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#F8FAFC'"
-                    }
-                  }
-                }
-              }
-            },
-            "transparency": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
+                  "Value": "false"
                 }
               }
             }
@@ -137,25 +102,20 @@
             "show": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
-            },
-            "color": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'#E2E8F0'"
-                    }
-                  }
-                }
-              }
-            },
-            "radius": {
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "6D"
+                  "Value": "false"
                 }
               }
             }
