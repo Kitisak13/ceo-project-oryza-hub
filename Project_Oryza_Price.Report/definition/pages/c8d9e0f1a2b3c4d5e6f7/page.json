@@ -30,19 +30,6 @@
           }
         }
       }
-    ],
-    "page": [
-      {
-        "properties": {
-          "isTooltip": {
-            "expr": {
-              "Literal": {
-                "Value": "true"
-              }
-            }
-          }
-        }
-      }
     ]
   }
 }
